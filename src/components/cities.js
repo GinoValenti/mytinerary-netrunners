@@ -1,0 +1,102 @@
+let cities = [
+    {
+        'id': 'city1',
+        'name': 'Buenos Aires',
+        'continent': 'America',
+        'photo': './img/img-cities/buenos-aries.jpg',
+        'population':  125000000,
+        'userId':  'adm1',
+    },
+    {
+        'id': 'city2',
+        'name': 'Ciudad de Mexico',
+        'continent': 'America',
+        'photo': './img/img-cities/cdmx.jpg',
+        'population':  1500000,
+        'userId':  'adm1',
+    },
+    {
+        'id': 'city3',
+        'name': 'Lima',
+        'continent': 'America',
+        'photo': './img/img-cities/lima.jpg',
+        'population':  1500000,
+        'userId':  'adm1',
+    },
+    {
+        'id': 'city4',
+        'name': 'London',
+        'continent': 'Europe',
+        'photo': './img/img-cities/londres.jpg',
+        'population':  1500000,
+        'userId':  'adm1',
+    },
+    {
+        'id': 'city5',
+        'name': 'Moskau',
+        'continent': 'Europe',
+        'photo': './img/img-cities/moskau.jpg',
+        'population':  1500000,
+        'userId':  'adm1',
+    },
+    {
+        'id': 'city6',
+        'name': 'Orlando',
+        'continent': 'America',
+        'photo': './img/img-cities/orlando.webp',
+        'population':  1500000,
+        'userId':  'adm1',
+    },
+    {
+        'id': 'city7',
+        'name': 'Paris',
+        'continent': 'Europe',
+        'photo': './img/img-cities/paris.jpg',
+        'population':  1500000,
+        'userId':  'adm1',
+    },
+    {
+        'id': 'city8',
+        'name': 'Rio de Janeiro',
+        'continent': 'America',
+        'photo': './img/img-cities/rio.jpg',
+        'population':  1500000,
+        'userId':  'adm1',
+    },
+    {
+        'id': 'city9',
+        'name': 'Rosario',
+        'continent': 'America',
+        'photo': './img/img-cities/rosario.jpg',
+        'population':  1500000,
+        'userId':  'adm1',
+    },
+    {
+        'id': 'city10',
+        'name': 'Sidney',
+        'continent': 'Australia',
+        'photo': './img/img-cities/sidney.jpg',
+        'population':  1500000,
+        'userId':  'adm1',
+    },
+    {
+        'id': 'city11',
+        'name': 'Tokyo',
+        'continent': 'Asia',
+        'photo': './img/img-cities/tokyo.jpg',
+        'population':  1500000,
+        'userId':  'adm1',
+    },
+    {
+        'id': 'city12',
+        'name': 'Toronto',
+        'continent': 'America',
+        'photo': './img/img-cities/toronto.jpg',
+        'population':  1500000,
+        'userId':  'adm1',
+    }
+
+
+]
+
+export default cities;
