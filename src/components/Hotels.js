@@ -14,7 +14,6 @@ let hotels = [
         }
     ],
     "capacity":"7000",
-    "description":"Stay at the exclusive Anselmo Buenos Aires hotel, Curio Collection by Hilton. Just steps from cafes, bars, shops, and antique stores, and 10 blocks from various businesses and corporations. We are less than a five minute walk from the government district.",
     "citiId":"city1",
     "userId":"admin2"},
     {
@@ -32,7 +31,6 @@ let hotels = [
         }
     ],
     "capacity":"7500",
-    "description":"Set in a colonial-style building located 100 meters from Mérida's main square, Gran Hotel offers free Wi-Fi throughout and a restaurant serving international and local cuisine.",
     "citiId":"city2",
     "userId":"admin3"},
     {
@@ -50,7 +48,6 @@ let hotels = [
         }
     ],
     "capacity":"3500",
-    "description":"Located in the vibrant financial and shopping district of Lima, The Westin Lima Hotel & Convention Center hotel in San Isidro is just 15 kilometers (9.3 mi) from Jorge Chavez International Airport and minutes from a splendid selection of restaurants, galleries, and parks. ",
     "citiId":"city3",
     "userId":"admin1"},
     {
@@ -68,7 +65,6 @@ let hotels = [
         }
     ],
     "capacity":"4500",
-    "description":"Its Londons most iconic hotel, sitting in Piccadilly just down the road from the Royal Academy of Arts and with an atmosphere that encapsulates the luxury of a bygone era. Welcome to César Ritzs legendary hotel, The Ritz London. ",
     "citiId":"city4",
     "userId":"admin1"},
 
@@ -87,7 +83,6 @@ let hotels = [
         }
     ],
     "capacity":"5500",
-    "description":"Staying at Hotel Savoy Moscow you will be in the heart of Moscow, a few steps from Maly Theater and Bolshoi Theatre. This 5-star hotel is close to Red Square and St. Basil's Cathedral. ",
     "citiId":"city5",
     "userId":"admin1"},
 
@@ -106,7 +101,6 @@ let hotels = [
         }
     ],
     "capacity":"5500",
-    "description":"The Walt Disney World Resort, also known as Disney World, is a tourist complex famous for its theme parks and numerous hotels. ",
     "citiId":"city6",
     "userId":"admin1"},
 
@@ -125,7 +119,6 @@ let hotels = [
         }
     ],
     "capacity":"5500",
-    "description":"4 Star hotel with restaurant, near Val d'Europe ",
     "citiId":"city7",
     "userId":"admin1"},
 
@@ -144,7 +137,6 @@ let hotels = [
         }
     ],
     "capacity":"2500",
-    "description":"The best Latino American casino ever ",
     "citiId":"city8",
     "userId":"admin1"},
 
@@ -165,7 +157,6 @@ let hotels = [
         }
     ],
     "capacity":"2500",
-    "description":"The best Latino American casino ever ",
     "citiId":"city9",
     "userId":"admin1"},
 
@@ -184,7 +175,6 @@ let hotels = [
         }
     ],
     "capacity":"2500",
-    "description":"The best Latino American casino ever ",
     "citiId":"city10",
     "userId":"admin1"},
 
@@ -203,7 +193,6 @@ let hotels = [
     }
 ],
 "capacity":"5000",
-"description":"A stay at this central Tokyo hotel begins on level 45 of the city's tallest building, where floor-to-ceiling windows perfectly frame the urban skyline, from Tokyo Tower to Mount Fuji. As guests settle into the hotel, they discover luxury amenities as impressive as the scenery; seven incredible restaurants, Club Level accommodations, a floor dedicated to health and wellness, and newly reimagined meeting and event spaces.",
 "citiId":"city11",
 "userId":"admin2"},
 
@@ -222,7 +211,6 @@ let hotels = [
     }
 ],
 "capacity":"5000",
-"description":"A stay at this central Tokyo hotel begins on level 45 of the city's tallest building, where floor-to-ceiling windows perfectly frame the urban skyline, from Tokyo Tower to Mount Fuji. As guests settle into the hotel, they discover luxury amenities as impressive as the scenery; seven incredible restaurants, Club Level accommodations, a floor dedicated to health and wellness, and newly reimagined meeting and event spaces.",
 "citiId":"city12",
 "userId":"admin2"},
 
