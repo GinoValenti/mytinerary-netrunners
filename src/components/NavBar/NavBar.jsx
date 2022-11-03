@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./navbar.css";
 import {NavLink} from 'react-router-dom'
+import Userbtn from "../UserBtn/Userbtn";
+
 
 function NavBar() {
   const [active, setActive] = useState("nav__menu");
@@ -22,20 +24,21 @@ function NavBar() {
       </a>
       <ul className={active}>
         <li className="nav__item">
-          <NavLink to="/home" className="nav__link">
+          <NavLink to="/" className="nav__link">
             Home
           </NavLink>
         </li>
-        <li className="nav__item">
-          <NavLink to="/signin" className="nav__link">
+        <li className="nav__item nav__item__user">
+          <NavLink to="/signIn" className="nav__link">
             Sign In
           </NavLink>
         </li>
-        <li className="nav__item">
-          <NavLink to="/signup" className="nav__link">
+        <li className="nav__item nav__item__user">
+          <NavLink to="/signUp" className="nav__link">
             Sign Up
           </NavLink>
         </li>
+        <Userbtn></Userbtn>
       </ul>
       <div onClick={navToggle} className={icon}>
         <div className="line1"></div>

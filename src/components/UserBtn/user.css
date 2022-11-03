@@ -1,0 +1,67 @@
+a {
+    text-decoration: none;
+  }
+  
+.btn-user{
+    margin-right: 40px;
+}
+  ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+  }
+  
+  .btn-user li {
+    color: #fff;
+    background: #24262B;
+    display: block;
+    float: left;
+    padding: 1rem;
+    position: relative;
+    text-decoration: none;
+    transition-duration: 0.5s;
+  }
+    
+  li a {
+    color: #fff;
+  }
+  
+  li:hover,
+  li:focus-within {
+    cursor: pointer;
+  }
+  
+  li:focus-within a {
+    outline: none;
+  }
+  
+  ul li ul {
+    visibility: hidden;
+    opacity: 0;
+    min-width: 10rem;
+    position: absolute;
+    transition: all 0.5s ease;
+    margin-top: 1rem;
+    left: 0;
+    display: none;
+  }
+  
+  ul li:hover > ul,
+  ul li:focus-within > ul,
+  ul li ul:hover,
+  ul li ul:focus {
+     visibility: visible;
+     opacity: 1;
+     display: block;
+  }
+  
+  ul li ul li {
+    clear: both;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 768px) {
+    .btn-user{
+        display: none;
+    }
+  }
