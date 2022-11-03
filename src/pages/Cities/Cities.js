@@ -1,8 +1,11 @@
 import React from 'react'
+import './cities.css'
 
 function Cities() {
   return (
-    <div>Cities</div>
+    <div>
+      <h1>Cities</h1>
+    </div>
   )
 }
 

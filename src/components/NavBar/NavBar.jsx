@@ -27,16 +27,6 @@ function NavBar() {
           </NavLink>
         </li>
         <li className="nav__item">
-          <NavLink to="/hotels" className="nav__link">
-            Hotel
-          </NavLink>
-        </li>
-        <li className="nav__item">
-          <NavLink to="/cities" className="nav__link">
-            Cities
-          </NavLink>
-        </li>
-        <li className="nav__item">
           <NavLink to="/signin" className="nav__link">
             Sign In
           </NavLink>

@@ -1,8 +1,12 @@
 import React from 'react'
+import './hotels.css'
+
 
 function Hotels() {
   return (
-    <div>Hotels</div>
+    <div>
+      <h1>Hotels</h1>
+    </div>
   )
 }
 
