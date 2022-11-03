@@ -53,8 +53,8 @@ function Carousel() {
       <FotoCarrusel foto={carrusel[numero+3].foto} ></FotoCarrusel>
     </div>
     <div className='btn-container'>
-        <button onClick={prev}><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAK1JREFUSEvtlNsNgzAQBIcO0gkpgZSQSmgh6SgdQAnQSUpAJ4F0imLfGsMf/rZmbtePhpNXczKfSxA2XFLRDeiBd0h1G1SBwQfgvgpeqkQRePgMdMD3KEEV3IbIJaiG5wSHwFMCD1erTg77ryITjEBbQk/VnToDL5mAR8nN8YNFh7wl2S2J3kF1kkhgaaskiuBX8gQ+6gVQBZvEvgkZHr1kdcjsvpIEu4SXIKxtAb+eIBmkl/3TAAAAAElFTkSuQmCC"/></button>
-        <button onClick={next}><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAKZJREFUSEvtlMENwjAQBMcd0AmUkHRAR6EEOqGEUAJ0QgdE90NRZN8uOC/8tmbkvfUVOp/Smc9f0EzYiegCXIFXkw7yDAI+AQ9gzEjUFxyAO3DMSlRBpCJJHIEkcQVpSU3wzrTk487m4H8peALDulnfRjQDJ2ATHq9zBdGkJtwVpOGOQII7gjNwq2W+bp4zg5DEuuiy7MSv4bcoLXIiSsOdIUvwXQQLDaAoGREMQ18AAAAASUVORK5CYII="/></button>
+        <span className='arrow' onClick={prev}><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAK1JREFUSEvtlNsNgzAQBIcO0gkpgZSQSmgh6SgdQAnQSUpAJ4F0imLfGsMf/rZmbtePhpNXczKfSxA2XFLRDeiBd0h1G1SBwQfgvgpeqkQRePgMdMD3KEEV3IbIJaiG5wSHwFMCD1erTg77ryITjEBbQk/VnToDL5mAR8nN8YNFh7wl2S2J3kF1kkhgaaskiuBX8gQ+6gVQBZvEvgkZHr1kdcjsvpIEu4SXIKxtAb+eIBmkl/3TAAAAAElFTkSuQmCC"/></span>
+        <span className='arrow' onClick={next}><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAKZJREFUSEvtlMENwjAQBMcd0AmUkHRAR6EEOqGEUAJ0QgdE90NRZN8uOC/8tmbkvfUVOp/Smc9f0EzYiegCXIFXkw7yDAI+AQ9gzEjUFxyAO3DMSlRBpCJJHIEkcQVpSU3wzrTk487m4H8peALDulnfRjQDJ2ATHq9zBdGkJtwVpOGOQII7gjNwq2W+bp4zg5DEuuiy7MSv4bcoLXIiSsOdIUvwXQQLDaAoGREMQ18AAAAASUVORK5CYII="/></span>
     </div>
     
     </>
