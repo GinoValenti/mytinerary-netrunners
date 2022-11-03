@@ -13,6 +13,12 @@ import AutoToTop from './components/AutoToTop/AutoToTop';
 import "./components/AutoToTop/AutoToTop.css"
 
 
+import { Route, Routes } from 'react-router-dom';
+import NavBar from './components/NavBar/NavBar';
+import Hotels from './pages/Hotels/Hotels';
+import Home from './pages/Home/Home';
+import Cities from './pages/Cities/Cities';
+import Main from './components/Main/Main';
 
 
 function App() {
@@ -28,7 +34,7 @@ function App() {
   <AutoToTop></AutoToTop>
   <Footer></Footer>
 </main>
-  );
+  )
 }
 
 export default App;
