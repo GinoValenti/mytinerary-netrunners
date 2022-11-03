@@ -20,14 +20,14 @@ function App() {
 
   return (
 
-<body> 
+<main className='main'> 
 <Banner></Banner>
 <Carousel></Carousel>
   <p className='opinion'>Some of the options most chosen by the public</p>
   <Cards></Cards>
   <AutoToTop></AutoToTop>
   <Footer></Footer>
-</body>
+</main>
   );
 }
 
