@@ -7,6 +7,7 @@ function Main() {
     <>
     <div className='main'>
         <h1>MyItenerary</h1>
+
         <CallToAction></CallToAction>
     </div>
     

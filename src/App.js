@@ -25,15 +25,21 @@ function App() {
 
 
   return (
+    <>
+      <NavBar></NavBar>
 
-<main className='main'> 
-<Banner></Banner>
-<Carousel></Carousel>
-  <p className='opinion'>Some of the options most chosen by the public</p>
-  <Cards></Cards>
-  <AutoToTop></AutoToTop>
-  <Footer></Footer>
-</main>
+      <Routes>
+        <Route path='/' element={<><Main></Main><Carousel></Carousel><Banner></Banner><Cards></Cards> </> } ></Route>
+        <Route path='/hotels'></Route>
+        <Route path='/cities'></Route>
+        <Route path='/signIn'></Route>
+        <Route path='/signUp'></Route>
+      </Routes>
+
+      <Footer></Footer>
+    </>
+
+    
   )
 }
 
