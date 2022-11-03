@@ -1,0 +1,59 @@
+.imgcarousel{
+    height: 400px;
+    width: 700px;
+    margin: 10px;
+  
+}
+@media screen and (max-width: 1054px){
+    .imgcarousel{
+        height: 250px;
+        width: 400px;
+    }
+}
+@media screen and (max-width: 860px){
+    .imgcarousel{
+        height: 150px;
+        width: 250px;
+    }
+}
+@media screen and (max-width: 550px){
+    .imgcarousel{
+        height: 100px;
+        width: 150px;
+    }
+}
+@media screen and (max-width: 350px){
+    .imgcarousel{
+        height: 100px;
+        width: 100px;
+    }
+}
+
+.carousel {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 60px;
+    transition: 500ms ease-in-out;
+
+
+}
+
+
+.btn-container{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+
+}
+
+button {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-weight: bold;
+}
