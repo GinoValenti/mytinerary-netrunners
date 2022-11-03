@@ -1,13 +1,14 @@
 import React from 'react'
 import CallToAction from '../CallToAction/CallToAction'
 import './main.css'
+import videoBg from "../Main/video.mp4"
 
 function Main() {
   return (
     <>
     <div className='main'>
         <h1>MyItenerary</h1>
-
+        <video src={videoBg} autoPlay loop muted/>
         <CallToAction></CallToAction>
     </div>
     
