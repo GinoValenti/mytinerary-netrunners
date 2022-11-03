@@ -27,7 +27,8 @@ a {
   justify-content: space-between;
   height: 8vh;
   width: 100%;
-  background: rgb(0, 33, 65);
+  background: #24262B;
+  z-index: 999;
 }
 .nav__brand {
   text-transform: uppercase;
@@ -43,7 +44,13 @@ a {
 
 .nav__link {
     margin-right: 3rem;
+    transition: 200ms ease-in-out;
 }
+
+.nav__link:hover {
+    color: brown;
+}
+
 .nav__toggler {
   display: none;
 }
@@ -67,7 +74,7 @@ a {
     right: 0;
     height: 93vh;
     width: 50vw;
-    background: rgb(0, 33, 65);
+    background: #24262B;
     flex-direction: column;
     transform: translateX(100%);
     transition: 0.5s ease-in;

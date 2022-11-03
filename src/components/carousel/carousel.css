@@ -1,14 +1,12 @@
 .imgcarousel{
     height: 400px;
-    width: 700px;
+    width: 400px;
+    object-fit: cover;
     margin: 10px;
   
 }
 @media screen and (max-width: 1054px){
-    .imgcarousel{
-        height: 250px;
-        width: 400px;
-    }
+   
 }
 @media screen and (max-width: 860px){
     .imgcarousel{
@@ -35,7 +33,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin-top: 60px;
+   
     transition: 500ms ease-in-out;
 
 
