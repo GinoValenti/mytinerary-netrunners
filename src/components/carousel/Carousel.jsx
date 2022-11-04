@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import "../carousel/carousel.css"
+import "./carousel.css"
 import carrusel from '../carrusel'
 import FotoCarrusel from '../FotoCarrusel/FotoCarrusel'
 
@@ -14,7 +14,6 @@ function Carousel() {
         //primer parametro la funcion que se va a ejecutar en cada intervalo de tiempo
         ()=> {
             next()
-            console.log('pasaron 5 segundos')
         },
         //segundo parametro es el intervalo en milisengudos
         5000

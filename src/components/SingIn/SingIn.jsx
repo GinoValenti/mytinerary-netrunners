@@ -28,7 +28,7 @@ function SignIn() {
   const addData = (e) => {
     e.preventDefault()
 
-    const getuserArr = localStorage.getItem("useryoutube")
+    const getuserArr = localStorage.getItem("user")
     console.log(getuserArr)
 
     const {email , password} = inpval

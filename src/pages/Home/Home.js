@@ -11,7 +11,12 @@ import { Route, Routes } from 'react-router-dom';
 function Home() {
   return (
     <>
-  <NavBar></NavBar><Main></Main><Text></Text><Carousel></Carousel><Testimonial></Testimonial><Banner></Banner><Cards></Cards><Footer></Footer> 
+  <Main></Main>
+  <Text></Text>
+  <Carousel></Carousel>
+  <Testimonial></Testimonial>
+  <Banner></Banner>
+  <Cards></Cards>
    
     </>
   )
