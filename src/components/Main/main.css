@@ -40,3 +40,11 @@
     font-size: 5rem;
     color: white;
 }
+@media only screen and (max-width: 452px){
+  .main h1 {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 4rem;
+    color: white;
+}
+  }
