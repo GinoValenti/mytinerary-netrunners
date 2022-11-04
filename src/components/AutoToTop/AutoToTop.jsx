@@ -1,4 +1,5 @@
 import React from 'react'
+import "./AutoToTop.css"
 import { useEffect, useState } from 'react'
 export default function AutoToTop() {
 
@@ -26,7 +27,7 @@ export default function AutoToTop() {
         <span>to</span>
         <span>top</span>
     </div>
-    <div class="clone">
+    <div className="clone">
         <span>Back</span>
         <span>to</span>
         <span>top</span>

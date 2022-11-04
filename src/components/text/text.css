@@ -4,8 +4,8 @@
 h3{
     font-family: 'Poppins', sans-serif;
     font-size: 35px;
-    margin-top: 30px;
-    margin-bottom: 25px;
+    margin-top: 50px;
+  
     
 }
 .container{
@@ -14,3 +14,18 @@ h3{
     align-items: center;
     justify-items: center;
 }
+@media screen and (max-width: 640px){
+   h3{
+    font-size: 25px;     
+} 
+}
+@media screen and (max-width: 445px){
+    h3{
+     font-size: 20px;     
+ } 
+ }
+ @media screen and (max-width: 355px){
+    h3{
+     font-size: 15px;     
+ } 
+ }

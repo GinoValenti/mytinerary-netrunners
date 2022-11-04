@@ -1,12 +1,5 @@
 import './App.css';
-
-import Footer from "./components/footer/Footer"
-
-
-import "./components/AutoToTop/AutoToTop.css"
-
 import NotFoundPage from './pages/NotFound/NotFoundPage';
-
 import { Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import Hotels from './pages/Hotels/Hotels';
@@ -24,6 +17,7 @@ function App() {
     <>
     <NavBar></NavBar>
 
+        <NavBar> </NavBar>
       <Routes>
         
         <Route path='/' element={<Home/> } ></Route>
@@ -33,8 +27,9 @@ function App() {
         <Route path='/signup' element={<SignUpPage/>} ></Route>
         <Route path="*" element={<NotFoundPage/>}></Route>
       </Routes>
+        <Footer></Footer>
 
-      <Footer></Footer>
+
     </>
 
     
