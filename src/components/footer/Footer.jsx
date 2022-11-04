@@ -1,5 +1,6 @@
 import React from 'react'
 import AutoToTop from '../AutoToTop/AutoToTop'
+import './footer.css'
 
 export default function Footer() {
   return (
