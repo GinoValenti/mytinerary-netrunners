@@ -7,6 +7,7 @@ import Home from './pages/Home/Home';
 import Cities from './pages/Cities/Cities';
 import SignUpPage from './pages/SignUp/SignUpPage';
 import SignInPage from './pages/SignIn/SignInPage';
+import Footer from './components/footer/Footer';
 
 
 

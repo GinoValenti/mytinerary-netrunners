@@ -46,7 +46,7 @@ function SignUp() {
             alert('password must have more than 5 digits')
         } else {
             history("/signin")
-            localStorage.setItem("useryoutube", JSON.stringify([...data, inpval]))
+            localStorage.setItem("user", JSON.stringify([...data, inpval]))
         }
     }
 
