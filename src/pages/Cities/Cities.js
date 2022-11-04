@@ -1,11 +1,12 @@
 import React from 'react'
+import CityCard from '../../components/CityCard/CityCard'
 import './cities.css'
 
 function Cities() {
   return (
-    <div>
-      <h1>Cities</h1>
-    </div>
+    <>
+      <CityCard></CityCard>
+    </>
   )
 }
 
