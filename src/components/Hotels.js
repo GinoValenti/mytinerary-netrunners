@@ -1,4 +1,4 @@
-let hotels = [ 
+let HotelsData = [ 
     {
         "id": "ho1",
     "name": "Hilton",
@@ -218,4 +218,4 @@ let hotels = [
 
 
 ]
-export default hotels;
+export default HotelsData;

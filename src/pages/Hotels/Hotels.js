@@ -1,12 +1,10 @@
 import React from 'react'
 import './hotels.css'
-
+import HotelCards from '../../components/HotelCards/HotelCards'
 
 function Hotels() {
   return (
-    <div>
-      <h1>Hotels</h1>
-    </div>
+<HotelCards></HotelCards>
   )
 }
 
