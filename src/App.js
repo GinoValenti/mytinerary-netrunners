@@ -9,6 +9,7 @@ import SignUpPage from './pages/SignUp/SignUpPage';
 import SignInPage from './pages/SignIn/SignInPage';
 import Footer from './components/footer/Footer';
 import SingleHotels from './pages/DetailHotel/Hotel';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 
 
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <>
+    <ScrollToTop></ScrollToTop>
     <NavBar></NavBar>
 
         <NavBar> </NavBar>

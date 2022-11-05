@@ -1,3 +1,33 @@
+
+.cute-input-container {
+    display: flex;
+    justify-content: center;
+}
+
+.bg-next {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(0deg,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)), url("https://wallpapercrafter.com/desktop/231510-young-woman-vacation-and-traveling-hd.jpg");;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-next>h2 {
+    font-size: 5rem;
+    padding: 10rem;
+    backdrop-filter: blur(0px) saturate(200%);
+    -webkit-backdrop-filter: blur(0px) saturate(200%);
+    background-color: rgba(17, 25, 40, 0.43);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    color: white;
+}
+
 .text-sign{
     padding-top: 60px;
     margin: 30px;
@@ -17,11 +47,7 @@
 
 .container-input {
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    background: #fff;
+    width: 100%;
 }
 
 .text-center{
