@@ -10,6 +10,7 @@ import SignInPage from './pages/SignIn/SignInPage';
 import Footer from './components/footer/Footer';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import DetailsCity from './pages/DetailsCity/DetailsCity';
+import NewCityPage from './pages/NewCityPage/NewCityPage';
 
 
 
@@ -19,7 +20,7 @@ function App() {
   return (
     <>
     <ScrollToTop></ScrollToTop>
-    <NavBar></NavBar>
+{/*     <NavBar></NavBar> */}
 
         <NavBar> </NavBar>
       <Routes>
@@ -27,6 +28,7 @@ function App() {
         <Route path='/' element={<Home/> } ></Route>
         <Route path='/hotels' element={<Hotels/>} ></Route>
         <Route path='/cities' element={<Cities/>}></Route>
+        <Route path='/newcity' element={<NewCityPage/>} ></Route>
         <Route path='/cities/detailsCity/:cityId' element={<DetailsCity/>}></Route>
         <Route path='/signin' element={<SignInPage/>}></Route>
         <Route path='/signup' element={<SignUpPage/>} ></Route>
