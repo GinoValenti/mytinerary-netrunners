@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import "./hotelcards.css"
-import SelectHotels from '../FilterProduct/SelectHotels'
+import SelectHotels from '../selectHotel/SelectHotels'
 import HotelsData from '../HotelsData'
 import "./searchbar.css"
 
