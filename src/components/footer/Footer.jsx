@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="footer">
         <AutoToTop></AutoToTop>
     <div className="container-footer">
-        <div className="row">
+        <div className="roww">
             <div className="footer-col">
                 <h4>company</h4>
                 <ul>
