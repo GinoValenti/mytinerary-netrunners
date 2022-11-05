@@ -6,8 +6,16 @@ function CallToAction() {
   return (
     <>
       <div className='call-to-action-container'>
-        <NavLink className='nav-link' to='/hotels'><button className='cta-button'>Hotels</button></NavLink>
-        <NavLink className='nav-link' to='/cities'><button className='cta-button'>Cities</button></NavLink>
+        <NavLink className='nav-link' to='/hotels'><button>
+    <span class="box">
+        Hotels
+    </span>
+</button></NavLink>
+        <NavLink className='nav-link' to='/cities'><button>
+    <span class="box">
+        Cities
+    </span>
+</button></NavLink>
       </div>
         </>
   )

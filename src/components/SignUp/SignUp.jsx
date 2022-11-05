@@ -1,6 +1,5 @@
 import React, {useRef, useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
-import Home from '../../pages/Home/Home'
 import './sign.css'
 
 
