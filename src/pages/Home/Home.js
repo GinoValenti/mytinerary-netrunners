@@ -16,7 +16,7 @@ function Home() {
   <Carousel></Carousel>
   <Testimonial></Testimonial>
   <Banner></Banner>
-  <Cards></Cards>
+<Cards></Cards>
    
     </>
   )

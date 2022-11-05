@@ -1,0 +1,18 @@
+.filter-area{
+height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.select{
+    background-color: rgb(197, 197, 197);
+    color: withe;
+    border: none;
+    width: 200px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 2rem;
+}
+option{
+    width: 100%;
+}

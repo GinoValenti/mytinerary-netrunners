@@ -13,7 +13,7 @@ let HotelsData = [
             'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/8e/0a/ec/swimming-pool.jpg?w=1100&h=-1&s=1'
         
     ],
-    "capacity":"7000",
+    "capacity":7000,
     "citiId":"city1",
     "userId":"admin2"},
     {
@@ -30,7 +30,7 @@ let HotelsData = [
          'https://www.tufieston.com/dynamic/gallery/1752/gran-hotel-ciudad-mexico-4.jpg'
         
     ],
-    "capacity":"7500",
+    "capacity":7500,
     "citiId":"city2",
     "userId":"admin3"},
     {
@@ -47,7 +47,7 @@ let HotelsData = [
              'https://www.kayak.com.ar/rimg/himg/43/d6/b7/leonardo-125230866-limwi-presidential-0907-hor-clsc_O-879710.jpg?width=1366&height=768&crop=true'
         
     ],
-    "capacity":"3500",
+    "capacity":3500,
     "citiId":"city3",
     "userId":"admin1"},
     {
@@ -64,7 +64,7 @@ let HotelsData = [
              'https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ia2n91DpDmTA/v1/-1x-1.jpg'
         
     ],
-    "capacity":"4500",
+    "capacity":4500,
     "citiId":"city4",
     "userId":"admin1"},
 
@@ -82,7 +82,7 @@ let HotelsData = [
          'https://cf.bstatic.com/xdata/images/hotel/max1024x768/78900513.jpg?k=eebdbe2e276786b8194c290de8540f4e2716c011bd8cc654420e2faf4a6515d1&o=&hp=1'
         
     ],
-    "capacity":"5500",
+    "capacity":5500,
     "citiId":"city5",
     "userId":"admin1"},
 
@@ -100,7 +100,7 @@ let HotelsData = [
         
         
     ],
-    "capacity":"5500",
+    "capacity":5500,
     "citiId":"city6",
     "userId":"admin1"},
 
@@ -118,7 +118,7 @@ let HotelsData = [
              'https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iSiCzTxGE9MY/v1/-1x-1.jpg'
         
     ],
-    "capacity":"5500",
+    "capacity":5500,
     "citiId":"city7",
     "userId":"admin1"},
 
@@ -136,7 +136,7 @@ let HotelsData = [
              'https://imagenesyogonet.b-cdn.net/data/imagenes/2019/12/05/29250/md_1625342645-rio-all-suite-hotel-casino-las-vegas-dreamscape.jpg'
         
     ],
-    "capacity":"2500",
+    "capacity":2500,
     "citiId":"city8",
     "userId":"admin1"},
 
@@ -156,7 +156,7 @@ let HotelsData = [
              'https://www.ahstatic.com/photos/6784_ho_00_p_1024x768.jpg'
         
     ],
-    "capacity":"2500",
+    "capacity":2500,
     "citiId":"city9",
     "userId":"admin1"},
 
@@ -174,7 +174,7 @@ let HotelsData = [
              'https://www.kayak.com.ar/rimg/himg/ef/8c/ae/revato-2634-5661950-178326.jpg?width=1366&height=768&crop=true'
         
     ],
-    "capacity":"2500",
+    "capacity":2500,
     "citiId":"city10",
     "userId":"admin1"},
 
@@ -192,7 +192,7 @@ let HotelsData = [
          'https://cf.bstatic.com/xdata/images/hotel/max1280x900/46037268.jpg?k=99fca936633307e89a40182eabffc08d8a33e174e35ee933ab20bf8a5209af3f&o=&hp=1'
     
 ],
-"capacity":"5000",
+"capacity":5000,
 "citiId":"city11",
 "userId":"admin2"},
 
@@ -210,7 +210,7 @@ let HotelsData = [
          'https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_627,q_auto,w_1200/itemimages/43/62/43623_v7.jpeg'
     
 ],
-"capacity":"5000",
+"capacity":5000,
 "citiId":"city12",
 "userId":"admin2"},
 

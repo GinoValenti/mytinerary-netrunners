@@ -5,7 +5,7 @@ export default function Cards() {
     <ul className="cards">
   <li>
     <div  className="card">
-      <img src="./img/hotelsimg/tokyo3.jpg" class="card__image" alt="" />
+      <img src="https://pix10.agoda.net/hotelImages/97518/-1/a162cc963abb35f95dbfb038e7d8fa56.jpg?ca=8&ce=1&s=1024x768" class="card__image" alt="" />
       <div className="card__overlay">
         <div className="card__header">
           <svg className="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
@@ -21,7 +21,7 @@ export default function Cards() {
   </li>
   <li>
     <div className="card">
-      <img src="./img/hotelsimg/orlando1.jpg" class="card__image" alt="" />
+      <img src="https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_627,q_auto,w_1200/itemimages/10/59/1059330_v4.jpeg" class="card__image" alt="" />
       <div className="card__overlay">        
         <div className="card__header">
           <svg className="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
@@ -38,7 +38,7 @@ The Walt Disney World Resort, also known as Disney World, is a tourist complex f
   </li>
   <li>
     <div className="card">
-      <img src="./img/hotelsimg/rosario1.jpg" class="card__image" alt="" />
+      <img src="https://citycenter-rosario.com.ar/assets/images/home/portada/FachadaDIA_PG_4.jpg" class="card__image" alt="" />
       <div className="card__overlay">
         <div className="card__header">
           <svg className="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
