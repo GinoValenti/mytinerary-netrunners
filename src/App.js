@@ -9,6 +9,7 @@ import SignUpPage from './pages/SignUp/SignUpPage';
 import SignInPage from './pages/SignIn/SignInPage';
 import Footer from './components/footer/Footer';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import DetailsCity from './pages/DetailsCity/DetailsCity';
 
 
 
@@ -26,6 +27,7 @@ function App() {
         <Route path='/' element={<Home/> } ></Route>
         <Route path='/hotels' element={<Hotels/>} ></Route>
         <Route path='/cities' element={<Cities/>}></Route>
+        <Route path='/cities/detailsCity/:cityId' element={<DetailsCity/>}></Route>
         <Route path='/signin' element={<SignInPage/>}></Route>
         <Route path='/signup' element={<SignUpPage/>} ></Route>
         <Route path="*" element={<NotFoundPage/>}></Route>
@@ -35,7 +37,7 @@ function App() {
 
     </>
 
-    
+
   )
 }
 

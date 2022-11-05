@@ -1,4 +1,5 @@
 import React ,{useEffect, useState} from 'react'
+import { Link } from 'react-router-dom'
 import citiesArr from '../citiesArray'
 import './cityCard.css'
 
@@ -95,7 +96,7 @@ function CityCard() {
       {cities && cities.map((x)=> 
             <div key={x.id} className="cardsIndividual">
               <img className='imgCardHotel' src={x.image} alt="" />
-              <h3 className="titleHotel">{x.title}</h3>
+              <Link to={`/cities/detailsCity/${x.id}`} > <h3 className="titleHotel">{x.title}</h3> </Link>
               <p className='descriptionHotel'>{x.continent}</p>
             </div>
      
