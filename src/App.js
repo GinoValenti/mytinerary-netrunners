@@ -8,6 +8,7 @@ import Cities from './pages/Cities/Cities';
 import SignUpPage from './pages/SignUp/SignUpPage';
 import SignInPage from './pages/SignIn/SignInPage';
 import Footer from './components/footer/Footer';
+import SingleHotels from './pages/DetailHotel/Hotel';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 
@@ -24,7 +25,10 @@ function App() {
       <Routes>
         
         <Route path='/' element={<Home/> } ></Route>
-        <Route path='/hotels' element={<Hotels/>} ></Route>
+        <Route path='/hotels' element={<Hotels/>} >
+        </Route>
+       <Route path='/hotels/details/:hotelId' element={<SingleHotels></SingleHotels>} ></Route>
+
         <Route path='/cities' element={<Cities/>}></Route>
         <Route path='/signin' element={<SignInPage/>}></Route>
         <Route path='/signup' element={<SignUpPage/>} ></Route>

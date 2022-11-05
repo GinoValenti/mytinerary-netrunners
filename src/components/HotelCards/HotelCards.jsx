@@ -3,6 +3,7 @@ import "./hotelcards.css"
 import SelectHotels from '../selectHotel/SelectHotels'
 import HotelsData from '../HotelsData'
 import "./searchbar.css"
+import { Link, useParams } from 'react-router-dom';
 
 
 
@@ -75,20 +76,24 @@ let filteredHotelList = HotelsData.filter((x)=>{
 </form>
 </main>
     <SelectHotels filterValueSelected={onFilterValueSelected}></SelectHotels>
+ 
     <div className='containerCardsHotel'> 
     {results.map((x)=>{
-        return(
-       
-<div className="cardsIndividual">
+      return(
+        
+     
+<div key={x.id} className="cardsIndividual">
 <img className='imgCardHotel' src={x.photo[0]} alt="" />
-  <h3 className="titleHotel">{x.name}</h3>
+<Link to={`/hotels/details/${x.id}`}>  <h3 className="titleHotel">{x.name}</h3>  </Link>
   <p className="descriptionHotel">This hotel has a capacity of <span className='Capacity'>{x.capacity}</span></p>
 </div>
+    
 
 
         )
     })}
   </div>
+
   </>
   )
 }
