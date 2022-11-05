@@ -29,7 +29,6 @@ function App() {
 
         <Route path='/cities' element={<Cities/>}></Route>
         <Route path='/signin' element={<SignInPage/>}></Route>
-        <Route path="/newhotel" element={<NewHotelPage></NewHotelPage>}></Route>
         <Route path='/signup' element={<SignUpPage/>} ></Route>
         <Route path="*" element={<NotFoundPage/>}></Route>
       </Routes>
