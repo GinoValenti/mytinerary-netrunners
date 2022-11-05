@@ -1,44 +1,121 @@
-import React, { useState } from 'react'
+import React ,{useEffect, useState} from 'react'
 import citiesArr from '../citiesArray'
-    
 import './cityCard.css'
-
-
 
 function CityCard() {
 
+  const [cityFilter, setCityFilter] = useState("all") /* Seria genderFilter */
+  const [cities, setCities] = useState(citiesArr) /* Seria dataMember */
 
-  const [cities, setCities] = useState(citiesArr)
+
+
+
+  useEffect(()=> {
+    if (cityFilter === "all"){
+      setCities(citiesArr)
+    } else {
+      const filteredContinent = citiesArr.filter(
+        (continent) => continent.continent === cityFilter
+      )
+      setCities(filteredContinent)
+    }
+
+  }, [cityFilter])
+
+  const checkboxFiltersValue = {
+    all : "all",
+    America: "America",
+    Europe: "Europe",
+    Asia: "Asia",
+    Australia: "Australia"
+  }
+
+  const [search, setSearch] = useState('')
+  console.log(search)
+  
+
+  console.log(cities)
 
 
 
   return (
-    <>
-    <div className='container-cities-cards'>
-        {citiesArr.map((x)=>{
+    <div className='checkbox-container'>
+      <main className='maino'> 
+        <form action="" className="search-bar">
+          <input onChange={(e)=> setSearch(e.target.value)} className="inputi" type="text" name="search"  required/>
+          <button className="search-btn" type="submit"></button>
+      </form>
+    </main>
+      <label>
+        <input
+          type="checkbox"
+          value={checkboxFiltersValue.all}
+          checked={cityFilter === checkboxFiltersValue.all}
+          onClick={({target})=> setCityFilter(target.value)}
+        />
+        All
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          value={checkboxFiltersValue.America}
+          checked={cityFilter === checkboxFiltersValue.America}
+          onClick={({target})=> setCityFilter(target.value)}
+        />
+        America
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          value={checkboxFiltersValue.Europe}
+          checked={cityFilter === checkboxFiltersValue.Europe}
+          onClick={({target})=> setCityFilter(target.value)}
+        />
+        Europe
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          value={checkboxFiltersValue.Asia}
+          checked={cityFilter === checkboxFiltersValue.Asia}
+          onClick={({target})=> setCityFilter(target.value)}
+        />
+        Asia
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          value={checkboxFiltersValue.Australia}
+          checked={cityFilter === checkboxFiltersValue.Australia}
+          onClick={({target})=> setCityFilter(target.value)}
+        />
+        Australia
+      </label>
+      <div className='containerCardsHotel'>
+      {cities && cities.map((x)=> 
+            <div key={x.id} className="cardsIndividual">
+              <img className='imgCardHotel' src={x.image} alt="" />
+              <h3 className="titleHotel">{x.title}</h3>
+              <p className='descriptionHotel'>{x.continent}</p>
+            </div>
+     
+      )}
+      </div>   
+    </div>
+
+/*         <div className='containerCardsHotel'>
+          {cities.map(x=>{
             return (
-                <div className="cards container-cards">
-                    <img className='card-img' src={x.photo} alt="" />
-                    <p className="title">{x.name}</p>
-                    <div className="overlay"></div>
-                    <div className="button"><a href="#"> BUTTON </a></div>
-                </div>                
+              <div className="cardsIndividual">
+                <img className='imgCardHotel' src={x.image} alt="" />
+                <h3 className="titleHotel">{x.title}</h3>
+              </div>
 
             )
-        })}
-    </div>
- 
-    </>
+          })}
 
-    
+      </div> */
   )
 }
 
 export default CityCard
-
-{/*         <div className="cards container-cards">
-            <img className='card-img' src="https://images.unsplash.com/photo-1488628075628-e876f502d67a?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=" alt="" />
-            <p className="title">card title</p>
-            <div className="overlay"></div>
-            <div className="button"><a href="#"> BUTTON </a></div>
-        </div> */}

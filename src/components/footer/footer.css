@@ -5,9 +5,9 @@
 	box-sizing: border-box;
 }
 
-.container{
+.container-footer{
 	max-width: 1170px;
-	margin:auto;
+	margin: 0 auto;
 }
 .row{
 	display: flex;
@@ -19,7 +19,6 @@ ul{
 .footer{
 	background-color: #24262b;
     padding: 70px 0;
-	
 }
 .footer-col{
    width: 25%;
