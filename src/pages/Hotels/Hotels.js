@@ -1,11 +1,17 @@
 import React from 'react'
 import './hotels.css'
+import HotelSection from '../../components/HotelSection/HotelSection'
 
-
+import HotelCards from '../../components/HotelCards/HotelCards'
 
 function Hotels() {
+
+  
   return (
-<div></div>
+    <> 
+<HotelSection></HotelSection>
+<HotelCards></HotelCards>
+</>
 
   )
 }
