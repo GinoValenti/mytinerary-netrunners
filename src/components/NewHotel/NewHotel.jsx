@@ -35,10 +35,10 @@ function NewHotel() {
     <div className='new-container'>
         <input htmlFor='name' className='new-input' name='name' type="text"
         onChange={getNewHotel}
-        placeholder='Enter city name' />
+        placeholder='Enter hotel name' />
         <input htmlFor='file' className='new-input' name='file' type="text"
         onChange={getNewHotel}
-        placeholder='Enter city photo' />
+        placeholder='Enter hotel photo' />
     <button
     className='save-new-button' onClick={addNewHotel}>
         Save

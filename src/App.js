@@ -10,6 +10,7 @@ import SignInPage from './pages/SignIn/SignInPage';
 import Footer from './components/footer/Footer';
 import SingleHotels from './pages/DetailHotel/Hotel';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import NewHotelPage from "./pages/NewHotelPage/NewHotelPage"
 import DetailsCity from './pages/DetailsCity/DetailsCity';
 import NewCityPage from './pages/NewCityPage/NewCityPage';
 
@@ -30,7 +31,7 @@ function App() {
         <Route path='/hotels' element={<Hotels/>} >
         </Route>
        <Route path='/hotels/details/:hotelId' element={<SingleHotels></SingleHotels>} ></Route>
-
+<Route path='/newhotel' element={<NewHotelPage></NewHotelPage>}> </Route>
         <Route path='/cities' element={<Cities/>}></Route>
         <Route path='/newcity' element={<NewCityPage/>} ></Route>
         <Route path='/cities/detailsCity/:cityId' element={<DetailsCity/>}></Route>
