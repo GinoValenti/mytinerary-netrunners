@@ -4,13 +4,16 @@
     object-fit: cover;
     margin: 10px;
     margin-top: 30px;
-  
+  filter: brightness(0.5);
+--webkit-transition: 0.10s;
+}
+.imgcarousel:hover{
+    filter: blur(1px);
+    transition: 500ms ease-in-out;
 }
 .absolute {
     position: absolute;
-    background: linear-gradient(0deg,
-    rgba(0, 0, 0, 0.6),
-    rgba(0, 0, 0, 0.6));
+    z-index: 1;
     color: white;
     padding: 10px;
     border-radius: 5px;

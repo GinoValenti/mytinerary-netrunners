@@ -7,7 +7,7 @@ function Main() {
   return (
     <>
     <div className='main'>
-        <h1>MyItenerary</h1>
+        <h1>MyTinerary</h1>
         <video src={videoBg} autoPlay loop muted/>
         <CallToAction></CallToAction>
     </div>
