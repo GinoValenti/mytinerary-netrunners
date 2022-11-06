@@ -1,23 +1,23 @@
 let carrusel = [
     {
     'id': '1',
-    'foto' : 'https://hdwallpaperim.com/wp-content/uploads/2017/08/24/100285-Dubai-Atlantis-The_Palm.jpg',
-    'name' : 'Dubai Atlantis'
+    'foto' : 'https://cdn.britannica.com/07/201607-050-0B5774CB/Orlando-Florida-aerial-cityscape-towards-Eola-Lake.jpg',
+    'name' : 'Orlando'
     },
     {
     'id': '2',
-    'foto' : 'https://wallpapercrafter.com/desktop/28097-maldives-tropical-underwater-hotel-4k.jpg',
-    'name' : 'Maldives underwater hotel'
+    'foto' : 'https://a.cdn-hotels.com/gdcs/production26/d1450/64fe038c-0da0-413f-9fcd-dbb337ce3012.jpg',
+    'name' : 'Tokyo'
     },
     {
     'id': '3',
-    'foto' : 'https://i.pinimg.com/originals/b6/7b/e0/b67be0d486859ee5eda96ecd336df320.jpg',
-    'name' : 'Sunset Hotel'
+    'foto' : 'https://lonelyplanetes.cdnstatics2.com/sites/default/files/styles/max_1300x1300/public/fotos/mexico_ciudaddemexico_paseoreforma_angelindependencia_shutterstockrf_1066463744_aberu.go_shutterstock.jpg?itok=MjJFsqoK',
+    'name' : 'Ciudad de Mexico'
     },
     {
     'id': '4',
-    'foto' : 'https://www.hollywoodreporter.com/wp-content/uploads/2022/09/Walt-Disney-World-Celebration-Castle-GettyImages-611910256-H-2022.jpg',
-    'name' : 'Disney World'
+    'foto' : 'https://wallpaperaccess.com/full/4091251.png',
+    'name' : 'Nigth City'
     },
 
     {
