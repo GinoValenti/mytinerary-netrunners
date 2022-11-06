@@ -49,6 +49,7 @@ function CityCard() {
     </main>
       <label>
         <input
+          className='checkbox'
           type="checkbox"
           value={checkboxFiltersValue.all}
           checked={cityFilter === checkboxFiltersValue.all}
@@ -58,6 +59,7 @@ function CityCard() {
       </label>
       <label>
         <input
+          className='checkbox'
           type="checkbox"
           value={checkboxFiltersValue.America}
           checked={cityFilter === checkboxFiltersValue.America}
@@ -67,6 +69,7 @@ function CityCard() {
       </label>
       <label>
         <input
+          className='checkbox'
           type="checkbox"
           value={checkboxFiltersValue.Europe}
           checked={cityFilter === checkboxFiltersValue.Europe}
@@ -76,6 +79,7 @@ function CityCard() {
       </label>
       <label>
         <input
+          className='checkbox'
           type="checkbox"
           value={checkboxFiltersValue.Asia}
           checked={cityFilter === checkboxFiltersValue.Asia}
@@ -85,6 +89,7 @@ function CityCard() {
       </label>
       <label>
         <input
+          className='checkbox'
           type="checkbox"
           value={checkboxFiltersValue.Australia}
           checked={cityFilter === checkboxFiltersValue.Australia}

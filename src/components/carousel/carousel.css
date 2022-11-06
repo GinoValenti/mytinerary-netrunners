@@ -3,7 +3,18 @@
     width: 400px;
     object-fit: cover;
     margin: 10px;
+    margin-top: 30px;
   
+}
+.absolute {
+    position: absolute;
+    background: linear-gradient(0deg,
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.6));
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
 }
 
 @media screen and (max-width: 860px){
@@ -11,17 +22,28 @@
         height: 150px;
         width: 250px;
     }
+
+    .absolute{
+        font-size: 16px;
+    }
 }
 @media screen and (max-width: 550px){
     .imgcarousel{
         height: 100px;
         width: 150px;
     }
+
+    .absolute{
+        font-size: 12px;
+    }
 }
 @media screen and (max-width: 350px){
     .imgcarousel{
         height: 100px;
         width: 100px;
+    }
+    .absolute{
+        font-size: 8px;
     }
 }
 
@@ -47,3 +69,4 @@
 .arrow {
     cursor: pointer;
 }
+

@@ -46,10 +46,10 @@ function Carousel() {
   return (
     <>
     <div className='carousel'>
-      <FotoCarrusel foto={carrusel[numero].foto} ></FotoCarrusel>
-      <FotoCarrusel foto={carrusel[numero+1].foto} ></FotoCarrusel>
-      <FotoCarrusel foto={carrusel[numero+2].foto} ></FotoCarrusel>
-      <FotoCarrusel foto={carrusel[numero+3].foto} ></FotoCarrusel>
+      <FotoCarrusel foto={carrusel[numero].foto} name={carrusel[numero].name} ></FotoCarrusel>
+      <FotoCarrusel foto={carrusel[numero+1].foto} name={carrusel[numero+1].name} ></FotoCarrusel>
+      <FotoCarrusel foto={carrusel[numero+2].foto} name={carrusel[numero+2].name} ></FotoCarrusel>
+      <FotoCarrusel foto={carrusel[numero+3].foto} name={carrusel[numero+3].name} ></FotoCarrusel>
     </div>
     <div className='btn-container'>
         <span className='arrow' onClick={prev}><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAK1JREFUSEvtlNsNgzAQBIcO0gkpgZSQSmgh6SgdQAnQSUpAJ4F0imLfGsMf/rZmbtePhpNXczKfSxA2XFLRDeiBd0h1G1SBwQfgvgpeqkQRePgMdMD3KEEV3IbIJaiG5wSHwFMCD1erTg77ryITjEBbQk/VnToDL5mAR8nN8YNFh7wl2S2J3kF1kkhgaaskiuBX8gQ+6gVQBZvEvgkZHr1kdcjsvpIEu4SXIKxtAb+eIBmkl/3TAAAAAElFTkSuQmCC"/></span>
