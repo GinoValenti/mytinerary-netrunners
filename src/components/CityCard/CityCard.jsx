@@ -5,8 +5,8 @@ import './cityCard.css'
 
 function CityCard() {
 
-  const [cityFilter, setCityFilter] = useState("all") /* Seria genderFilter */
-  const [cities, setCities] = useState(citiesArr) /* Seria dataMember */
+  const [cityFilter, setCityFilter] = useState("all") 
+  const [cities, setCities] = useState(citiesArr) 
 
 
 
