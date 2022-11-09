@@ -6,7 +6,9 @@ function NewCity() {
 
   const [inputText, setInputText] = useState({
     name: "",
-    file: ""
+    file: "",
+    continent: "",
+    population: ""
   })
 
   const [data, setData] = useState([])
@@ -25,24 +27,31 @@ function NewCity() {
   const addNewCity = (e)=> {
     e.preventDefault()
 
-    const {name, file} = inputText
-
     localStorage.setItem("newCity", JSON.stringify([...data, inputText]))
   }
 
 
   return (
     <div className='new-container'>
-        <input htmlFor='name' className='new-input' name='name' type="text"
+      <div className='form-container'>
+      <input htmlFor='name' className='new-input' name='name' type="text"
         onChange={getNewCity}
         placeholder='Enter city name' />
         <input htmlFor='file' className='new-input' name='file' type="text"
         onChange={getNewCity}
         placeholder='Enter city photo' />
-    <button
-    className='save-new-button' onClick={addNewCity}>
-        Save
-        </button>    
+        <input htmlFor='continent' className='new-input' name='continent' type="text"
+        onChange={getNewCity}
+        placeholder='Enter city continent' />
+        <input htmlFor='population' className='new-input' name='population' type="number" min="0"
+        onChange={getNewCity}
+        placeholder='Enter city population' />
+        <button
+        className='save-new-button' onClick={addNewCity}>
+            Save
+            </button>  
+      </div>
+  
     </div>
   )
 }

@@ -19,13 +19,23 @@ function NavBar() {
   };
   return (
     <nav className="nav">
-      <a href="/" className="nav__brand">
+      <NavLink to="/" className="nav__brand">
         mytinerary
-      </a>
+      </NavLink>
       <ul className={active}>
         <li className="nav__item">
           <NavLink to="/" className="nav__link">
             Home
+          </NavLink>
+        </li>
+        <li className="nav__item">
+          <NavLink to="/hotels" className="nav__link">
+            Hotels
+          </NavLink>
+        </li>
+        <li className="nav__item">
+          <NavLink to="/cities" className="nav__link">
+            Cities
           </NavLink>
         </li>
         <li className="nav__item nav__item__user">
