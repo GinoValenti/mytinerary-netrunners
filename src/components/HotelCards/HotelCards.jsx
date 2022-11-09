@@ -24,8 +24,7 @@ let filteredHotelList = HotelsData.filter((x)=>{
     updateFilterText(filterValue);
   }
   
-  const[HotelsArray,setHotelArray ]= useState([filteredHotelList])
-  const [users,setUsers ]= useState([])
+
   const [search,setSearch ]= useState("")
   
   //funcion busqueda
