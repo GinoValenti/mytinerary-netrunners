@@ -4,12 +4,15 @@
   overflow: hidden;
   border: none;
   color: #fff;
-  background: none;
+  background: #24262B;
   position: relative;
   padding-bottom: 2em;
   position: fixed;
   bottom: 50px;
   right: 50px;
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 9999;
 }
 
 .autoTopButton > div,button > svg {

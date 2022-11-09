@@ -60,7 +60,6 @@ width: 450px;
 .cardsIndividual:hover img {
   transition: 1000ms ease-in-out;
   transform: translateY(-10px);
-  filter:blur(1.5px);
 }
 @media screen and (max-width:510px){
   .cardsIndividual{
