@@ -1,0 +1,19 @@
+.BannerHotels {
+    min-height: 55vh;
+    width: 100%;
+    background-image: linear-gradient(0deg,
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.6)), url("https://i.pinimg.com/originals/74/7f/87/747f879655e7564f63ce565ae5e0e471.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;   
+  }
+  .titular{
+    font-size: 40px;
+    color: rgba(240, 248, 255, 0.776);
+  }
+
+  .upspan{color: brown;}

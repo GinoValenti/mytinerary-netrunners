@@ -1,0 +1,78 @@
+.containerCardsHotel {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+gap: 3rem;
+margin-bottom: 2rem;
+  min-height: 100vh;
+}
+  
+* {
+  font-family: "Poppins", sans-serif;
+}
+.cardsIndividual {
+height: 450px;
+width: 450px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+}
+
+.titleHotel {
+  color: white;
+  font-size: 24px;
+  margin: 20px 0 0 20px;
+
+}
+
+.descriptionHotel {
+  color: white;
+  font-weight: 400;
+  font-size: 16px;
+  align-self: end;
+  margin: 0 0 20px 20px;
+  letter-spacing: 0.5px;
+}
+
+.imgCardHotel{
+  position: absolute;
+  top: 0;
+  height: 110%;
+  width: 100%;
+  z-index: -1;
+  object-fit: cover;
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  filter: brightness(0.5);
+}
+
+.cardsIndividual:hover {
+  transform: scale(1.035, 1.035);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  
+}
+
+.cardsIndividual:hover img {
+  transition: 1000ms ease-in-out;
+  transform: translateY(-10px);
+}
+@media screen and (max-width:510px){
+  .cardsIndividual{
+    height: 250px;
+   width: 350px;
+  }
+}
+@media screen and (max-width:375px){
+  .cardsIndividual{
+    height: 200px;
+   width: 250px;
+  }
+}
+.Capacity{
+  font-weight: 600;
+}

@@ -1,0 +1,106 @@
+
+.cute-input-container {
+    display: flex;
+    justify-content: center;
+}
+
+.bg-next {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(0deg,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)), url("https://wallpapercrafter.com/desktop/231510-young-woman-vacation-and-traveling-hd.jpg");;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-next>h2 {
+    font-size: 5rem;
+    padding: 10rem;
+    backdrop-filter: blur(0px) saturate(200%);
+    -webkit-backdrop-filter: blur(0px) saturate(200%);
+    background-color: rgba(17, 25, 40, 0.43);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    color: white;
+}
+
+.text-sign{
+    padding-top: 60px;
+    margin: 30px;
+    font-size: 3.5rem;
+    letter-spacing: 2px;
+    color: #24262B;
+}
+
+.img-circle{
+    height: 200px;
+    background-image: url(./Gino.png);
+    background-position: center;
+    width: 150px;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+.container-input {
+    height: 100vh;
+    width: 100%;
+}
+
+.text-center{
+    text-align: center;
+    margin: 20px;
+}
+
+.btn-google {
+    width: 100%;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: 250ms ease-in-out;
+}
+
+.btn-google:hover {
+    transform: scale(1.02);
+}
+
+.container-input-box {
+    padding: 50px;
+}
+
+.input-space {
+    margin-bottom: 10px
+}
+
+.input-signup {
+    height: 50px;
+    width: 100%;
+    font-size: 18px;
+    border: none;
+    transition: 200ms ease-in-out;
+}
+
+.input-signup:enabled {
+    border: red;
+    outline: none;
+}
+
+.button-signup{
+    margin-top: 30px;
+    height: 30px;
+    width: 100%;
+    background-color: #24262B;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: 300ms ease-in-out;
+}
+
+.button-signup:hover{
+    transform: scale(1.02);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
