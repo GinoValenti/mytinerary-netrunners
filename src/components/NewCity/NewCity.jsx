@@ -4,50 +4,43 @@ import './newcity.css'
 function NewCity() {
 
 
-  const [inputText, setInputText] = useState({
-    name: "",
-    file: "",
-    continent: "",
-    population: ""
-  })
+  const [name, setName] = useState('');
+  const [continent,  setContinent] = useState('')
+  const [photo, setPhoto] = useState('');
+  const [population, setPopulation] = useState('');
+  const [adminId, setAdminId] = useState('')
 
-  const [data, setData] = useState([])
 
-  const getNewCity = (e) => {
-    const {value, name} = e.target
-
-    setInputText(()=> {
-      return {
-        ...inputText,
-        [name]:value
-      }
-    })
-  }
-
-  const addNewCity = (e)=> {
-    e.preventDefault()
-
-    localStorage.setItem("newCity", JSON.stringify([...data, inputText]))
-  }
+    const submit = () => {
+        if (name === "" || continent === "" || photo === "" || population === "" || adminId === "") {
+            alert("Complete all fields");
+        } else {
+            let newCity = JSON.stringify({name,continent,photo,population, adminId})
+            console.log(newCity)
+        }
+    };
 
 
   return (
     <div className='new-container'>
       <div className='form-container'>
-      <input htmlFor='name' className='new-input' name='name' type="text"
-        onChange={getNewCity}
+      <input htmlFor='title' className='new-input' name='title' type="text"
+        onChange={(e) => setName(e.target.value)}
         placeholder='Enter city name' />
-        <input htmlFor='file' className='new-input' name='file' type="text"
-        onChange={getNewCity}
+        <input htmlFor='image' className='new-input' name='image' type="text"
+        onChange={(e) => setPhoto(e.target.value)}
         placeholder='Enter city photo' />
         <input htmlFor='continent' className='new-input' name='continent' type="text"
-        onChange={getNewCity}
+        onChange={(e) => setContinent(e.target.value)}
         placeholder='Enter city continent' />
         <input htmlFor='population' className='new-input' name='population' type="number" min="0"
-        onChange={getNewCity}
+        onChange={(e) => setPopulation(Number(e.target.value))}
         placeholder='Enter city population' />
+        <input htmlFor='userId' className='new-input' name='userId' type="text"
+        onChange={(e) => setAdminId(e.target.value)}
+        placeholder='Enter admin id' />        
         <button
-        className='save-new-button' onClick={addNewCity}>
+        className='save-new-button' onClick={submit}>
             Save
             </button>  
       </div>
