@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import HotelsData from '../../components/HotelsData';
 import Show from '../../components/Show/Show';
 import "./detail.css"
+
 const SingleHotels = () => {
   const { hotelId } = useParams();
   const hotel = HotelsData.find((x) => x.id === hotelId);
