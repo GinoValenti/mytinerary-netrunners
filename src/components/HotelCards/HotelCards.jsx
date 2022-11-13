@@ -28,7 +28,7 @@ export default function HotelCards() {
         setSelect("&order="+value.target.value)
       }if(value.target.value === "desc") {
         setSelect("&order="+value.target.value)
-      } 
+      }
 
     console.log(select)
 
@@ -36,7 +36,10 @@ export default function HotelCards() {
         setSearched(value.target.value)
         console.log(setSearched)
     }
-    
+    if(value.target.type==="text"){
+      setSearched(value.target.value)
+      console.log(setSearched)
+  }
    
 }
 useEffect(()=>{
