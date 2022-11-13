@@ -54,7 +54,7 @@ console.log(filter)
          <main className='maino'> 
     <form action="" className="search-bar">
 	<input onChange={listen} className="inputi"   type="text"  pattern=".*\S.*" required/>
-	<button className="search-btn" type="submit">
+	<button className="search-btn" >
 
 	</button>
 </form>

@@ -1,9 +1,10 @@
 .itinerary-container {
     text-align: center;
+
 }
 
 .messi-chiquito {
-    height: 200px;
+    height: 400px;
     width: 70%;
     object-fit: cover;
 }
