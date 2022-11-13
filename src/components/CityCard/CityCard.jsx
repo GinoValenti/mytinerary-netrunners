@@ -1,21 +1,22 @@
 import React from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import './cityCard.css'
 
 function CityCard(props) {
 
-  let {name,description,photo}= props
+  let {id,name,description,photo}= props
 
 
 
   return (
 
-      <div className='containerCardsHotel'>
+
             <div className="cardsIndividual">
-              <h2>{name} </h2>
-              <img className='imgCardHotel' src={photo} alt={name} />
+              <h3 className='titleHotel'>{name} </h3>
+              <NavLink to={`/details/:${id}`}> <img className='imgCardHotel' src={photo} alt={name} /></NavLink>
               <p className='descriptionHotel'>{description}</p>
             </div>
-      </div>   
+ 
 
 /*         <div className='containerCardsHotel'>
           {cities.map(x=>{

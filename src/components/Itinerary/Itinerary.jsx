@@ -6,7 +6,7 @@ function Itinerary(props) {
 
   const [mostrarOcultar, setMostrarOcultar] = useState(false)
 
-  let {photo} = props
+  let {title, photo, description,price,duration} = props
 
   let hide = () => {
     setMostrarOcultar(!mostrarOcultar)
@@ -17,7 +17,9 @@ function Itinerary(props) {
   return (
     <>
     <div className='itinerary-container'>
-      
+      <h1>{title} </h1>
+      <h2>{price}</h2>
+      <h2>{duration} </h2>
       <img className='messi-chiquito' src={photo} alt="" />
       {
         mostrarOcultar ?
@@ -27,7 +29,7 @@ function Itinerary(props) {
         <div>
           <div className='user-comment-container'>
             <img className='user-img' src="https://img.a.transfermarkt.technology/portrait/big/28003-1631171950.jpg?lm=1" alt="Imagen usuario" />
-            <p className='user-comment'>A life changing experience </p>
+            <p className='user-comment'> {description} </p>
           </div>
         </div>
       <input className='comment-imput' placeholder='Leave your comment...'></input>          

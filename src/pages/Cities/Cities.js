@@ -1,5 +1,8 @@
 import CityCard from '../../components/CityCard/CityCard'
 import CitySection from '../../components/CitySection/CitySection'
+import '../../components/CityCard/cityCard.css'
+import '../../components/CityCard/searchBarcities.css'
+import './cities.css'
 import {useEffect, useState, React} from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../../api/url'
@@ -18,6 +21,12 @@ export default function Cities() {
     },[])
 
     function listen(value){
+
+        
+        if(value.target.type==="text"){
+            setSearched(value.target.value)
+        }
+
         if(value.target.checked){
             if(value.target.type==="checkbox"){
                 setChecked(checked.concat("&continent="+value.target.value))
@@ -26,15 +35,12 @@ export default function Cities() {
             setChecked(checked.filter(element=>element!=="&continent="+value.target.value))
         }
 
-        if(value.target.type==="text"){
-            setSearched(value.target.value)
-        }
     }
     
     useEffect(()=>{
         axios.get(`${BASE_URL}/cities?name=${searched}${checked.join('')}`)
         .then(response=>setFilter(response.data.allcities))
-    },[checked,searched])
+    },[searched,checked])
     console.log(checked)
     console.log(filter)
 
@@ -44,13 +50,19 @@ export default function Cities() {
     <CitySection></CitySection>
     <main className='maino'> 
         <form action="" className="search-bar">
-          <input onChange={listen} className="inputi" type="text" placeholder='Search'  required/>
-      </form>
+          <input onKeyUp={listen} className="inputi" type="text" placeholder='Search'  required/>
+          <button className="search-btn" >
+
+</button>
+      </form>	
     </main>
     {
         Array.from(new Set(cities.map(city=> city.continent))).map(element => {
             return (
-                <label key={element}>
+                <div className='checkbox-container'>
+
+
+                <label  key={element}>
                 <input
                 id={element}
                 value={element}
@@ -60,6 +72,7 @@ export default function Cities() {
                 />
                 {element}
             </label>
+            </div>
             )
         })
 
@@ -67,7 +80,7 @@ export default function Cities() {
     <div className='containerCardsHotel'>
 
 
-    {filter.map(city=><CityCard key={city?._id} name={city?.title} photo={city?.image} />)}
+    {filter.map(city=><CityCard key={city?._id} id={city?._id} name={city?.title} photo={city?.image} />)}
     </div>
     </>
 
