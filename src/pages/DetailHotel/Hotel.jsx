@@ -79,7 +79,7 @@ console.log(filter);
             <div class="card__footer">
               <div class="recommend">
                 <p>Recommended by</p>
-                <h3>Gino Valenti & Gaston Zapulla</h3>
+                <h3>Gino Valenti & Gaston Zappulla</h3>
               </div>
               
             </div>

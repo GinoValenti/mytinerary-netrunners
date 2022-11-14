@@ -23,7 +23,7 @@ function DetailsCity() {
 
   console.log(filter)
   useEffect(()=>{
-    axios.get(`${BASE_URL}/itineraries`)
+    axios.get(`${BASE_URL}/itinerary`)
     .then(response=>setItineraries(response.data.allcities))
   },[])
 
@@ -38,17 +38,48 @@ function DetailsCity() {
     <>{
       <div>
         <div className='city-details-container'>
-            <div className='city-details-banner'>
+{            <div className='city-details-banner'>
                 <img className='city-details-banner-img' src={image} alt="" />
-                
-                <h2 className='details-title'>{title} </h2>
-{                <h4 className='details-title'>--{continent}--</h4>}
+            </div>}
+            <div class="card">
+            <div class="card__title">
+              <div class="icon">
+                <a href="#"><i class="fa fa-arrow-left"></i></a>
+              </div>
+              <h3>City</h3>
             </div>
+            <div class="card__body">
+              <div class="half">
+                <div class="featured_text">
+                  <h1>{title}</h1>
+                </div>
+               
+              <div class="half">
+                <span class="stock"><i class="fa fa-pen"></i>Population</span>
+                <div class="reviews">
+                  <ul class="stars">
+                    <li><i class="fa fa-star"></i></li>
+                    <li><i class="fa fa-star"></i></li>
+                    <li><i class="fa fa-star"></i></li>
+                    <li><i class="fa fa-star"></i></li>
+                    <li><i class="fa fa-star-o"></i></li>
+                  </ul>
+                  <span>{population} Persons</span>
+                </div>
+              </div>
+              </div>
+            </div>
+            <div class="card__footer">
+              <div class="recommend">
+                <p>Recommended by</p>
+                <h3>Gino Valenti & Gaston Zappulla</h3>
+              </div>
+              
+            </div>
+          </div>
             <div>
                 <div className='info-details'>
-                <p>Almost {population} people lives in this city </p>
-
-                <h2>Popular Itinerarys in your city</h2>
+                <h2 className='popular-itineraries'>Popular Itinerarys in your city</h2>
                 </div>
 
                 <div className='itinerary-container'>

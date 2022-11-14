@@ -21,6 +21,7 @@ function NewCity() {
             console.log(newCity)
             axios.post(('http://localhost:8000/api/cities'), newCity)
         }
+        alert('A city has been created')
     };
 
 

@@ -31,8 +31,9 @@ function Itinerary(props) {
             <img className='user-img' src="https://img.a.transfermarkt.technology/portrait/big/28003-1631171950.jpg?lm=1" alt="Imagen usuario" />
             <p className='user-comment'> {description} </p>
           </div>
+          <input className='comment-imput' placeholder='Leave your comment...'></input>   
         </div>
-      <input className='comment-imput' placeholder='Leave your comment...'></input>          
+       
           </>
         ) :
         <p className='btn-show' onClick={hide}>Show comments</p>

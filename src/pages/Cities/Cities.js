@@ -25,7 +25,9 @@ export default function Cities() {
         
         if(value.target.type==="text"){
             setSearched(value.target.value)
+            console.log(searched)
         }
+        
 
         if(value.target.checked){
             if(value.target.type==="checkbox"){
@@ -38,7 +40,7 @@ export default function Cities() {
     }
     
     useEffect(()=>{
-        axios.get(`${BASE_URL}/cities?name=${searched}${checked.join('')}`)
+        axios.get(`${BASE_URL}/cities?title=${searched}${checked.join('')}`)
         .then(response=>setFilter(response.data.allcities))
     },[searched,checked])
     console.log(checked)
@@ -80,7 +82,7 @@ export default function Cities() {
     <div className='containerCardsHotel'>
 
 
-    {filter.map(city=><CityCard key={city?._id} id={city?._id} name={city?.title} photo={city?.image} />)}
+    {(filter.length===0) ? <div className='carita'>🗿?</div> : filter.map(city=><CityCard key={city?._id} id={city?._id} name={city?.title} photo={city?.image} />) }
     </div>
     </>
 

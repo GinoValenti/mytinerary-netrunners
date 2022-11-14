@@ -12,7 +12,7 @@ function CityCard(props) {
 
 
             <div className="cardsIndividual">
-              <h3 className='titleHotel'>{name} </h3>
+              <NavLink to={`/details/:${id}`} ><h3 className='titleHotel'>{name} </h3></NavLink>
               <NavLink to={`/details/:${id}`}> <img className='imgCardHotel' src={photo} alt={name} /></NavLink>
               <p className='descriptionHotel'>{description}</p>
             </div>
