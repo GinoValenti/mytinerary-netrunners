@@ -50,19 +50,19 @@ export default function Cities() {
     <CitySection></CitySection>
     <main className='maino'> 
         <form action="" className="search-bar">
-          <input onKeyUp={listen} className="inputi" type="text" placeholder='Search'  required/>
+          <input onChange={listen} className="inputi" type="text"/>
           <button className="search-btn" >
 
 </button>
       </form>	
     </main>
+    <div className='checkbox-container'>
     {
         Array.from(new Set(cities.map(city=> city.continent))).map(element => {
             return (
-                <div className='checkbox-container'>
 
 
-                <label  key={element}>
+                <label className='kid-of-checkbox'  key={element}>
                 <input
                 id={element}
                 value={element}
@@ -72,11 +72,11 @@ export default function Cities() {
                 />
                 {element}
             </label>
-            </div>
             )
         })
 
     }
+    </div>
     <div className='containerCardsHotel'>
 
 

@@ -4,7 +4,7 @@
 }
 
 .city-details-container{
-    min-height: 190vh;
+    height: 100vh;
 
 }
 @media screen and (max-width:380px){

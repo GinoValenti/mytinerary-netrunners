@@ -48,13 +48,13 @@
     z-index: -1;
     object-fit: cover;
     transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-    filter: brightness(0.5);
+
   }
   
   .cardsIndividual:hover {
     transform: scale(1.035, 1.035);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-    
+    filter: brightness(1.5);
   }
   
   .cardsIndividual:hover img {
