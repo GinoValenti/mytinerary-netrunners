@@ -151,10 +151,9 @@
 }
 
 .checkbox-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 40px;
+	display: flex;
+	justify-content: center;
+	padding: 40px;
 }
 
 .checkbox-container input{

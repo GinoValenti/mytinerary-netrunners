@@ -27,11 +27,10 @@ export default function Footer() {
                 </ul>
             </div>
             <div className="footer-col">
-                <h4>Find your perfect place</h4>
+                <h4>Create a new City/Hotel reccomendation</h4>
                 <ul>
-                    <li><NavLink to="/cities">City</NavLink></li>
-                    <li><NavLink to="/hotels">Hotel</NavLink></li>
-                    <li><NavLink to="/hotels">Shows</NavLink></li>
+                    <li><NavLink to="/newcity">City</NavLink></li>
+                    <li><NavLink to="/newhotel">Hotel</NavLink></li>
                 </ul>
             </div>
             <div className="footer-col">
