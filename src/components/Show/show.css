@@ -1,5 +1,7 @@
 .itinerary-container {
     text-align: center;
+    margin-top: 60px;
+
 }
 
 .messi-chiquito {
@@ -13,11 +15,12 @@
     justify-content: space-evenly;
     height: 100px;
     background: #fff;
-    height: 100%;
+
     width: 70%;
     font-size: 2rem;
     margin: 0 auto;
     padding: 20px;
+
 }
 .user-img {
     height: 50px;
@@ -28,7 +31,8 @@
 
 .comment-imput {
     width: 70%;
-    height: 50px;
+    height: 100px;
+   
 }
 
 .btn-show {

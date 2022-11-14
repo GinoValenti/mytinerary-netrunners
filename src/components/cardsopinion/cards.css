@@ -26,7 +26,7 @@
    justify-content: space-around;
   }
   
-  .card {
+  .cardi {
     position: relative;
     display: block;
     height: 100%;  
@@ -54,7 +54,7 @@
     transition: .2s ease-in-out;
   }
   
-  .card:hover .card__overlay {
+  .cardi:hover .card__overlay {
     transform: translateY(0);
   }
   
@@ -83,7 +83,7 @@
     fill: var(--surface-color);
   }       
   
-  .card:hover .card__header {
+  .cardi:hover .card__header {
     transform: translateY(0);
   }
   
@@ -96,7 +96,7 @@
 
   }
   @media screen and (max-width:541px){
-    .card{
+    .cardi{
      width: 300px;
     }
   }
