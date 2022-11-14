@@ -30,7 +30,7 @@ function App() {
         <Route path='/' element={<Home/> } ></Route>
         <Route path='/hotels' element={<Hotels/>} >
         </Route>
-       <Route path='/hotels/details/:hotelId' element={<SingleHotels></SingleHotels>} ></Route>
+       <Route path='/hotels/details/:id' element={<SingleHotels></SingleHotels>} ></Route>
 <Route path='/newhotel' element={<NewHotelPage></NewHotelPage>}> </Route>
         <Route path='/cities' element={<Cities/>}></Route>
         <Route path='/newcity' element={<NewCityPage/>} ></Route>
