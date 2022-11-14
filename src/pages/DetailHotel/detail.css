@@ -4,8 +4,13 @@
 }
 
 .city-details-container{
-    min-height: 100vh;
+    min-height: 190vh;
 
+}
+@media screen and (max-width:380px){
+	.city-details-container{
+		min-height: 200vh;
+	}
 }
 
 .city-details-banner .city-details-banner-img {
