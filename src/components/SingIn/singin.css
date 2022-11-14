@@ -16,7 +16,10 @@
     justify-content: center;
     align-items: center;
 }
-
+@media screen and (max-width:620px){
+    .bg-next{
+    display: none;
+    }}
 .bg-next>h2 {
     font-size: 5rem;
     padding: 10rem;
@@ -31,6 +34,7 @@
 .text-sign{
     padding-top: 60px;
     margin: 30px;
+    text-align: center;
     font-size: 3.5rem;
     letter-spacing: 2px;
     color: #24262B;
