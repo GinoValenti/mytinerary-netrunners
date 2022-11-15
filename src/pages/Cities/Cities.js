@@ -38,7 +38,8 @@ export default function Cities() {
         }
 
     }
-    
+    console.log(checked)
+
     useEffect(()=>{
         axios.get(`${BASE_URL}/cities?title=${searched}${checked.join('')}`)
         .then(response=>setFilter(response.data.allcities))
