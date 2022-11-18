@@ -6,9 +6,14 @@ import './cities.css'
 import {useEffect, useState, React} from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../../api/url'
+import toDoActions from '../../redux/actions/toDoActions'
+import { useDispatch } from 'react-redux'
 
 
 export default function Cities() {
+
+    let {getCities} = toDoActions
+    const dispatch = useDispatch()
   
     let [cities, setCities]=useState([])
     let [checked, setChecked]= useState([])
