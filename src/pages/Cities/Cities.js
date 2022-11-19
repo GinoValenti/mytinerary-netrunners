@@ -7,51 +7,47 @@ import {useEffect, useState, React} from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../../api/url'
 import toDoActions from '../../redux/actions/toDoActions'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 
 export default function Cities() {
 
-    let {getCities} = toDoActions
-    const dispatch = useDispatch()
-  
-    let [cities, setCities]=useState([])
-    let [checked, setChecked]= useState([])
-    let [searched, setSearched]= useState([])
-    let [filter, setFilter] = useState([])
- 
+    let {getCitiesFilter,getCities}=toDoActions
+    const dispatch= useDispatch()
+    
+   const {cities} = useSelector((state) => state.cities);
+   
+   
+
+    /* let [cities,setcities]=useState([]) */
+    let [checked,setChecked]=useState([])
+    let [searched,setSearched]=useState('')
+    let check=[]
+    
     useEffect(()=>{
-        axios.get(`${BASE_URL}/cities`)
-        .then(response=>setCities(response.data.allcities))
+        dispatch(getCitiesFilter({cities:'cities',search:searched,check:checked}))
+    },[checked,searched])
+    
+    useEffect(()=>{
+        dispatch(getCities('cities'))
     },[])
 
     function listen(value){
-
         
-        if(value.target.type==="text"){
-            setSearched(value.target.value)
-            console.log(searched)
-        }
-        
-
         if(value.target.checked){
             if(value.target.type==="checkbox"){
-                setChecked(checked.concat("&continent="+value.target.value))
-            }
+            setChecked(checked.concat("&continent="+value.target.value))
+        }
         }else{
             setChecked(checked.filter(element=>element!=="&continent="+value.target.value))
         }
 
+        if(value.target.type==="text"){
+            setSearched(value.target.value)
+            console.log()
+        }
+       
     }
-    console.log(checked)
-
-    useEffect(()=>{
-        axios.get(`${BASE_URL}/cities?title=${searched}${checked.join('')}`)
-        .then(response=>setFilter(response.data.allcities))
-    },[searched,checked])
-    console.log(checked)
-    console.log(filter)
-
 
     return (
     <>
@@ -88,7 +84,7 @@ export default function Cities() {
     <div className='containerCardsHotel'>
 
 
-    {(filter.length===0) ? <div className='carita'>🗿?</div> : filter.map(city=><CityCard key={city?._id} id={city?._id} name={city?.title} photo={city?.image} />) }
+    {(cities.length===0) ? <div className='carita'>🗿?</div> : cities.map(city=><CityCard key={city?._id} id={city?._id} name={city?.title} photo={city?.image} />) }
     </div>
     </>
 
