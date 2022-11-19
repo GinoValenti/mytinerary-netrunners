@@ -6,21 +6,23 @@ import axios from "axios"
 import { Link, useParams } from 'react-router-dom';
 import { useEffect } from 'react'
 import { BASE_URL } from '../../api/url'
-
+import hotelAction from '../../redux/actions/hotelAction'
+import { useDispatch, useSelector } from 'react-redux'
 
 
 export default function HotelCards() {
-  let [filter,setFilter]=useState([])
+
+  let {getHotelsFilter}=hotelAction
+    const dispatch= useDispatch()
+    const {hotels} = useSelector((state) => state.hotels);
   let [searched,setSearched]=useState([])
   let [select, setSelect]=useState([])
-  const [hotels, setHotels] = useState([]) 
+ 
   
   useEffect(()=>{
-    axios.get(`${BASE_URL}/hotels`)
-    .then (response =>setHotels(response.data.allhotels))
-    
-    
-  }, [])
+    dispatch(getHotelsFilter({hotels:'hotels',search:searched}))
+},[searched])
+
   
   function listen(value){
     
@@ -42,14 +44,11 @@ export default function HotelCards() {
   }
    
 }
-useEffect(()=>{
-  axios.get(`${BASE_URL}/hotels?name=${searched}${select}`)
-  .then(response=>setFilter(response.data.allhotels))
-},[searched, select])
 
-console.log(filter)
 
-      return (
+/* console.log(filter) */
+
+       return (
         <>
          <main className='maino'> 
     <form action="" className="search-bar">
@@ -59,7 +58,7 @@ console.log(filter)
 	</button>
 </form>
 </main>
-
+{/* 
 <div className="filter-area">
             <select onChange={listen} className="select" name="isAvailable">
                 <option value="desc">Capacidad Ascendendente</option>
@@ -67,8 +66,8 @@ console.log(filter)
             </select>
         </div>
          
-    <div className='containerCardsHotel'> 
-    {filter.map((x)=>{
+   {  <div className='containerCardsHotel'> 
+    {hotels.map((x)=>{
       return(
         
      
@@ -82,7 +81,7 @@ console.log(filter)
 
         )
     })}
-  </div>
+  </div> } */}
 
-  </>)
-}
+  </>) 
+} 

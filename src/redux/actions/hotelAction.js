@@ -6,11 +6,11 @@ const getHotelFilter = createAsyncThunk("getHotelFilter", async ({ hotels, searc
     try {
 
       const res = await axios.get(
-        `http://localhost:8000/api/${hotels}?title=${search}${check.join('')}`
+        `http://localhost:8000/api/?name=${search}`
       );
   
-      console.log(res.data.allcities);
-      return {value2:check, value: search, cities: res.data.allcities };
+      console.log(res.data.allhotels);
+      return { value: search, hotels: res.data.allhotels };
     } catch (error) {
       console.log(error);
       return {
@@ -18,3 +18,9 @@ const getHotelFilter = createAsyncThunk("getHotelFilter", async ({ hotels, searc
       };
     }
   });
+
+  const hotelAction = {
+    getHotelFilter
+  };
+  
+  export default hotelAction;
