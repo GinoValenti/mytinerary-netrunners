@@ -8,7 +8,7 @@ const initialState={
     value: "",
     value2: [],
     cities: [],
-    array: []
+    categories: []
 }
 
 const toDoReducer = createReducer(initialState,
@@ -16,11 +16,19 @@ const toDoReducer = createReducer(initialState,
         builder
         .addCase(getCitiesFilter.fulfilled,(state,action)=>{
             console.log(action.payload)
-                return action.payload;
+                return {
+                    ...state,
+                    ...action.payload
+                }
         })
         .addCase(getCities.fulfilled,(state,action)=>{
-            console.log(action.payload)
-                return action.payload;
+            let categories = Array.from(new Set(action.payload.cities.map(city=>city.continent)))
+            return {
+                ...state,
+                value:action.payload.value,
+                categories,
+                cities: action.payload.cities
+            }
         })
 })
 

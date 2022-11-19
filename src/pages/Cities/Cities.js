@@ -16,13 +16,13 @@ export default function Cities() {
     const dispatch= useDispatch()
     
    const {cities} = useSelector((state) => state.cities);
+   const {categories} = useSelector((state) => state.cities)
    
    
 
     /* let [cities,setcities]=useState([]) */
     let [checked,setChecked]=useState([])
     let [searched,setSearched]=useState('')
-    let check=[]
     
     useEffect(()=>{
         dispatch(getCitiesFilter({cities:'cities',search:searched,check:checked}))
@@ -62,10 +62,8 @@ export default function Cities() {
     </main>
     <div className='checkbox-container'>
     {
-        Array.from(new Set(cities.map(city=> city.continent))).map(element => {
+        categories.map(element => {
             return (
-
-
                 <label className='kid-of-checkbox'  key={element}>
                 <input
                 id={element}
