@@ -1,56 +1,52 @@
 import React, { useState } from 'react'
 import './newhotel.css'
+import axios from "axios"
 
 function NewHotel() {
 
 
-  const [inputText, setInputText] = useState({
-    name: "",
-    capacity:"",
-    file: ""
+  const [name, setName] = useState('');
+  const [photo, setPhoto] = useState('');
+  const [capacity, setCapacity] = useState('');
+  const [citiId, setCitiId] = useState('');
+  const [userId, setUserId] = useState('')
 
-  })
 
-  const [data, setData] = useState([])
-
-  const getNewHotel = (e) => {
-    const {value, name} = e.target
-
-    setInputText(()=> {
-      return {
-        ...inputText,
-        [name]:value
-      }
-    })
-  }
-
-  const addNewHotel = (e)=> {
-    e.preventDefault()
-
-    const {name, file, capacity} = inputText
-
-    localStorage.setItem("newHotel", JSON.stringify([...data, inputText]))
-  }
+    const submit = async () => {
+        if (name === "" || photo === "" || capacity === "" || citiId === ""  || userId === "") {
+            alert("Complete all fields");
+        } else {
+            let newHotel = {name,photo,capacity,citiId, userId}
+            console.log(newHotel)
+            axios.post(("http://localhost:8000/api/hotels"),newHotel)
+        }
+    };
 
 
   return (
     <div className='new-container'>
-      <div className='form-container'> 
-        <input htmlFor='name' className='new-input' name='name' type="text"
-        onChange={getNewHotel}
+      <div className='form-container'>
+      <input htmlFor='name' className='new-input' name='name' type="text"
+        onChange={(e) => setName(e.target.value)}
         placeholder='Enter hotel name' />
-         <input htmlFor='capacity' className='new-input' name='capacity' type="text"
-        onChange={getNewHotel}
-        placeholder='Enter the capacity'/>
-        <input htmlFor='file' className='new-input' name='file' type="text"
-        onChange={getNewHotel}
+        <input htmlFor='photo' className='new-input' name='photo' type="text"
+        onChange={(e) => setPhoto(e.target.value)}
         placeholder='Enter hotel photo' />
-          <button
-    className='save-new-button' onClick={addNewHotel}>
-        Save
-        </button>
-        </div>
-  
+        <input htmlFor='capacity' className='new-input' name='capacity' type="number" min="0"
+        onChange={(e) => setCapacity(Number(e.target.value))}
+        placeholder='Enter hotel capacity' />
+        <input htmlFor='citiId' className='new-input' name='citiId' type="text"
+        onChange={(e) => setCitiId(e.target.value)}
+        placeholder='Enter city id' />
+        <input htmlFor='userId' className='new-input' name='userId' type="text"
+        onChange={(e) => setUserId(e.target.value)}
+        placeholder='Enter admin id' />
+        <button
+        className='save-new-button' onClick={submit}>
+            Save
+            </button>
+      </div>
+
     </div>
   )
 }

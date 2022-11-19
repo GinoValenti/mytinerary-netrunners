@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import './show.css'
 
-function Show() {
-
+function Show(props) {
+  let{name,photo}=props
   const [mostrarOcultar, setMostrarOcultar] = useState(false)
 
 
@@ -13,8 +13,8 @@ function Show() {
   return (
     <>
     <div className='itinerary-container'>
-      
-      <img className='messi-chiquito' src="https://cdn.britannica.com/07/201607-050-0B5774CB/Orlando-Florida-aerial-cityscape-towards-Eola-Lake.jpg" alt="" />
+       <h3>{name}</h3>
+      <img className='messi-chiquito' src={photo} alt="" />
       {
         mostrarOcultar ?
         (

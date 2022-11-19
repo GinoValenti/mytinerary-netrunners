@@ -1,9 +1,10 @@
 .itinerary-container {
     text-align: center;
+    height: 100%;
 }
 
 .messi-chiquito {
-    height: 200px;
+    height: 400px;
     width: 70%;
     object-fit: cover;
 }
@@ -11,7 +12,6 @@
 .user-comment-container {
     display: flex;
     justify-content: space-evenly;
-    height: 100px;
     background: #fff;
     height: 100%;
     width: 70%;
@@ -28,6 +28,7 @@
 .btn-show {
     font-size: 3.2rem;
     cursor: pointer;
+    margin-bottom: 3%;
 }
 
 .user-img {

@@ -4,7 +4,7 @@ export default function Cards() {
   return (
     <ul className="cards">
   <li>
-    <div  className="card">
+    <div  className="cardi">
       <img src="https://pix10.agoda.net/hotelImages/97518/-1/a162cc963abb35f95dbfb038e7d8fa56.jpg?ca=8&ce=1&s=1024x768" class="card__image" alt="" />
       <div className="card__overlay">
         <div className="card__header">
@@ -20,7 +20,7 @@ export default function Cards() {
     </div>      
   </li>
   <li>
-    <div className="card">
+    <div className="cardi">
       <img src="https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_627,q_auto,w_1200/itemimages/10/59/1059330_v4.jpeg" class="card__image" alt="" />
       <div className="card__overlay">        
         <div className="card__header">
@@ -37,7 +37,7 @@ The Walt Disney World Resort, also known as Disney World, is a tourist complex f
     </div>
   </li>
   <li>
-    <div className="card">
+    <div className="cardi">
       <img src="https://citycenter-rosario.com.ar/assets/images/home/portada/FachadaDIA_PG_4.jpg" class="card__image" alt="" />
       <div className="card__overlay">
         <div className="card__header">

@@ -3,12 +3,10 @@ import './citydetails.css'
 import Itinerary from '../Itinerary/Itinerary'
 import { useParams } from 'react-router-dom'
 import citiesArr from '../citiesArray'
-import activities from '../activities'
 
-function City() {
-    const { cityId} = useParams()
-    const city = citiesArr.find((x) => x.id === cityId)
-    const {image, title, photo } = city;
+function City(props) {
+
+    let {title, image, description, price, duration, userId} = props
 
   return (
     <>
@@ -25,8 +23,12 @@ function City() {
                 </div>
 
                 <div className='itinerary-container'>
+                    
                     <article className='itinerary-article'>
-                    <Itinerary photo={citiesArr[0].photo} />
+                    <h2>{description}</h2>
+                    <h3>{price}</h3>
+                    <h3>{duration}</h3>
+                    <img src={image} ></img>
                     </article>
                 </div>
             </div>

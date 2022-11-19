@@ -24,17 +24,17 @@ function App() {
     <ScrollToTop></ScrollToTop>
 {/*     <NavBar></NavBar> */}
 
-        <NavBar> </NavBar>
+{        <NavBar> </NavBar>}
       <Routes>
         
         <Route path='/' element={<Home/> } ></Route>
         <Route path='/hotels' element={<Hotels/>} >
         </Route>
-       <Route path='/hotels/details/:hotelId' element={<SingleHotels></SingleHotels>} ></Route>
+       <Route path='/hotels/details/:id' element={<SingleHotels></SingleHotels>} ></Route>
 <Route path='/newhotel' element={<NewHotelPage></NewHotelPage>}> </Route>
         <Route path='/cities' element={<Cities/>}></Route>
         <Route path='/newcity' element={<NewCityPage/>} ></Route>
-        <Route path='/cities/detailsCity/:cityId' element={<DetailsCity/>}></Route>
+        <Route path='/details/:id' element={<DetailsCity/>}></Route>
         <Route path='/signin' element={<SignInPage/>}></Route>
         <Route path='/signup' element={<SignUpPage/>} ></Route>
         <Route path="*" element={<NotFoundPage/>}></Route>

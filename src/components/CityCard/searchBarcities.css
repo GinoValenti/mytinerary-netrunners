@@ -3,7 +3,7 @@
 	line-height: 1.5em;
 }
 .maino, .inputi {
-	color: #f1f1f1;
+	color: #f1f1f1 !important;
 }
 .maino, .search-bar {
 	display: flex;
