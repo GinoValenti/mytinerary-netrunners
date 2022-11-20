@@ -1,10 +1,48 @@
-import React, { useState } from 'react'
+import React, { useState ,useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './newhotel.css'
-import axios from "axios"
+import Swal from 'sweetalert2'
+import {useDispatch} from "react-redux"
+import hotelsAction from "../../redux/actions/hotelsAction"
+import alertActions from '../../redux/actions/alertaHotel'
 
 function NewHotel() {
+  let dispatch = useDispatch()
+  let {newHotel} = hotelsAction
+  let {alerta}=alertActions
+  let navigate = useNavigate()
+  let form = useRef()
+  async function submit(event) {
+    event.preventDefault()
+    let data = {name,capacity,photo,citiId,userId}
+    
+    try{
+      let res = await dispatch(newHotel(data))
+      if(res.payload.success){
+        dispatch(alerta(Swal.fire({
+          title: 'Congratulation!',
+          text: 'Your hotel has been created',
+          imageUrl: photo,
+          imageWidth: 400,
+          imageHeight: 200,
+          imageAlt: 'Custom image',
+        })))
+        navigate(`/hotels/details/${res.payload.responseId}`)
+      }else{
 
-
+        dispatch(alerta(Swal.fire({
+          title: 'Error!',
+          text: res.payload.response,
+          icon: 'error',
+          confirmButtonText: 'Cool'
+        })))
+        
+      }
+    }catch(error){
+      console.log(error);
+    }
+  };
+  
   const [name, setName] = useState('');
   const [photo, setPhoto] = useState('');
   const [capacity, setCapacity] = useState('');
@@ -12,20 +50,12 @@ function NewHotel() {
   const [userId, setUserId] = useState('')
 
 
-    const submit = async () => {
-        if (name === "" || photo === "" || capacity === "" || citiId === ""  || userId === "") {
-            alert("Complete all fields");
-        } else {
-            let newHotel = {name,photo,capacity,citiId, userId}
-            console.log(newHotel)
-            axios.post(("http://localhost:8000/api/hotels"),newHotel)
-        }
-    };
+
 
 
   return (
     <div className='new-container'>
-      <div className='form-container'>
+      <div onSubmit={submit} className='form-container' ref={form}>
       <input htmlFor='name' className='new-input' name='name' type="text"
         onChange={(e) => setName(e.target.value)}
         placeholder='Enter hotel name' />

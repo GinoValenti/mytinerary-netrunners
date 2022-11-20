@@ -1,6 +1,6 @@
 import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
+import { BASE_URL } from '../../api/url'
 const getHotels = createAsyncThunk("getHotels", async ({string,valueSearch,valueSelect}) => {
     try {
       const res = await axios.get(
@@ -17,8 +17,32 @@ const getHotels = createAsyncThunk("getHotels", async ({string,valueSearch,value
     }
   });
 
+  const newHotel = createAsyncThunk("newHotel", async (data) =>{
+let url = `${BASE_URL}/hotels`
+try{
+  let res = await axios.post(url,data)
+    console.log(res.data);
+  if(res.data.id){
+    return {
+      responseId: res.data.id,
+      success: true,
+       response:data
+    }
+  }else{
+    return {
+      success: false, response:res.data.message
+    }
+  }
+}catch(error){
+  console.log(error);
+  return {
+    success: false, response:"error"
+  }
+}
+  })
   const hotelsAction = {
     getHotels
+    ,newHotel
   };
 
   export default hotelsAction
