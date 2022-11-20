@@ -8,14 +8,18 @@ import axios from 'axios'
 import { BASE_URL } from '../../api/url'
 import toDoActions from '../../redux/actions/toDoActions'
 import { useDispatch, useSelector } from 'react-redux'
+import NewCity from '../../components/NewCity/NewCity'
 
 
 export default function Cities() {
 
     let {getCitiesFilter,getCities}=toDoActions
+
+
     const dispatch= useDispatch()
     
-   const {cities} = useSelector((state) => state.cities);
+   const { cities } = useSelector((state) => state.cities);
+
    const {categories} = useSelector((state) => state.cities)
    
    

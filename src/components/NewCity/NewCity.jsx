@@ -1,22 +1,34 @@
 import axios from 'axios';
-import React, { useState  , useRef } from 'react'
-import { useDispatch } from 'react-redux';
+import React, { useState  , useRef, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { BASE_URL } from '../../api/url';
 import alertActions from '../../redux/actions/alertaCity';
 import toDoActions from '../../redux/actions/toDoActions';
-/* import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content' */
+ import Swal from 'sweetalert2'
+/* import withReactContent from 'sweetalert2-react-content'  */
 import './newcity.css'
 
 
 
 function NewCity() {
 
-/*   const MySwal = withReactContent(Swal) */
+  const history = useNavigate()
 
   let form = useRef()
+
   let dispatch = useDispatch()
+
   let { alerta } = alertActions
-  let { newCity } = toDoActions 
+  let { newCity, getCities} = toDoActions
+
+  let {res} = NewCity
+  console.log(res)
+  
+  useEffect(()=>{
+    dispatch(getCities('cities'))
+  },[])
+
 
 
   async function newCityCreate(event) {
@@ -25,11 +37,26 @@ function NewCity() {
 
     try {
       let res = await dispatch(newCity(data))
-      console.log(res)
+
       if (res.payload.success){
-        alert('se creo la ciudad')
+        Swal.fire({
+          title: `${title} city has been created`,
+          imageUrl: image,
+          imageWidth: 400,
+          imageHeight: 200,
+          imageAlt: 'image',
+        })
+        history(`/details/:${res.payload.responseid}`)
       } else {
-        dispatch(alerta(res.payload.response))
+        dispatch(alerta(
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: res.payload.response,
+/*             text: res.payload.response2  */
+
+          })))
+        console.log(res.payload.response)
       }
     } catch (error) {
       console.log(error.message)

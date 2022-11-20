@@ -11,7 +11,6 @@ const getCitiesFilter = createAsyncThunk("getCitiesFilter", async ({ cities, sea
       `http://localhost:8000/api/${cities}?title=${search}${check.join('')}`
     );
 
-    console.log(res.data.allcities);
     return { value: search, cities: res.data.allcities };
   } catch (error) {
     console.log(error);
@@ -21,16 +20,12 @@ const getCitiesFilter = createAsyncThunk("getCitiesFilter", async ({ cities, sea
   }
 });
 
-
-
-
 const getCities = createAsyncThunk("getCities", async (value) => {
     try {
       const res = await axios.get(
         `http://localhost:8000/api/${value}`
       );
   
-      console.log(res.data.allcities);
       return { value, cities: res.data.allcities };
     } catch (error) {
       console.log(error);
@@ -47,9 +42,11 @@ const newCity = createAsyncThunk('newCity', async (data) => {
     let res = await axios.post(url,data)
 
     if (res.data.id){
+      console.log(res.data.id)
       return {
         success: true,
-        response: data
+        response: data,
+        responseid: res.data.id
       }
     } else {
       return {

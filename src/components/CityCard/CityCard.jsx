@@ -6,7 +6,7 @@ function CityCard(props) {
 
   let {id,name,description,photo}= props
 
-
+  
 
   return (
 
