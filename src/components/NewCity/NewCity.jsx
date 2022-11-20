@@ -1,11 +1,37 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useState  , useRef } from 'react'
+import { useDispatch } from 'react-redux';
+import alertActions from '../../redux/actions/alertaCity';
+import toDoActions from '../../redux/actions/toDoActions';
 import './newcity.css'
 
 
 
 function NewCity() {
 
+
+  let form = useRef()
+  let dispatch = useDispatch()
+  let { alerta } = alertActions
+  let { newCity } = toDoActions 
+
+
+  async function newCityCreate(event) {
+    event.preventDefault()
+    let data = {title,continent,image,population,userId}
+
+    try {
+      let res = await dispatch(newCity(data))
+      console.log(res)
+      if (res.payload.success){
+        alert('se creo la ciudad')
+      } else {
+        dispatch(alerta(res.payload.response))
+      }
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
 
   const [title, setTitle] = useState('');
   const [continent,  setContinent] = useState('')
@@ -14,21 +40,9 @@ function NewCity() {
   const [userId, setUserId] = useState('')
 
 
-    const submit = async () => {
-        if (title === "" || continent === "" || image === "" || population === "" || userId === "") {
-            alert("Complete all fields");
-        } else {
-            let newCity = {title,continent,image,population, userId}
-            console.log(newCity)
-            axios.post(('http://localhost:8000/api/cities'), newCity)
-        }
-        alert('A city has been created')
-    };
-
-
   return (
     <div className='new-container'>
-      <div className='form-container'>
+      <div onSubmit={newCityCreate} className='form-container' ref={form}>
       <input htmlFor='title' className='new-input' name='title' type="text"
         onChange={(e) => setTitle(e.target.value)}
         placeholder='Enter city name' />
@@ -44,8 +58,8 @@ function NewCity() {
         <input htmlFor='userId' className='new-input' name='userId' type="text"
         onChange={(e) => setUserId(e.target.value)}
         placeholder='Enter admin id' />        
-        <button
-        className='save-new-button' onClick={submit}>
+        <button type='submit'
+        className='save-new-button' onClick={newCityCreate}>
             Save
             </button>  
       </div>

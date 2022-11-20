@@ -2,11 +2,10 @@ import { createReducer } from "@reduxjs/toolkit";
 import { type } from "@testing-library/user-event/dist/type";
 import toDoActions from "../actions/toDoActions";
 
-const {getCitiesFilter,getCities}= toDoActions
+const {getCitiesFilter,getCities,newCity}= toDoActions
 
 const initialState={
     value: "",
-    value2: [],
     cities: [],
     categories: []
 }
@@ -28,6 +27,11 @@ const toDoReducer = createReducer(initialState,
                 value:action.payload.value,
                 categories,
                 cities: action.payload.cities
+            }
+        })
+        .addCase(newCity.fulfilled, (state,action)=> {
+            if (action.payload.success) {
+                state.cities.push(action.payload.response)
             }
         })
 })

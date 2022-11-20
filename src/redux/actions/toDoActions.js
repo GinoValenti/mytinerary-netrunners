@@ -12,7 +12,7 @@ const getCitiesFilter = createAsyncThunk("getCitiesFilter", async ({ cities, sea
     );
 
     console.log(res.data.allcities);
-    return {value2:check, value: search, cities: res.data.allcities };
+    return { value: search, cities: res.data.allcities };
   } catch (error) {
     console.log(error);
     return {
@@ -40,9 +40,37 @@ const getCities = createAsyncThunk("getCities", async (value) => {
     }
   });
 
+
+const newCity = createAsyncThunk('newCity', async (data) => {
+  let url = `${BASE_URL}/cities`
+  try {
+    let res = await axios.post(url,data)
+
+    if (res.data.id){
+      return {
+        success: true,
+        response: data
+      }
+    } else {
+      return {
+        success: false,
+        response: res.data.message
+      }
+    }
+  } catch(error) {
+    return {
+      success: false,
+      response: 'lptm un error'
+    }
+  }
+})
+
+
+
 const toDoActions = {
   getCitiesFilter,
-  getCities
+  getCities,
+  newCity
 };
 
 export default toDoActions;
