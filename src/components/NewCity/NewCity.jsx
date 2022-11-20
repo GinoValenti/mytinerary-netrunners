@@ -3,12 +3,15 @@ import React, { useState  , useRef } from 'react'
 import { useDispatch } from 'react-redux';
 import alertActions from '../../redux/actions/alertaCity';
 import toDoActions from '../../redux/actions/toDoActions';
+/* import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content' */
 import './newcity.css'
 
 
 
 function NewCity() {
 
+/*   const MySwal = withReactContent(Swal) */
 
   let form = useRef()
   let dispatch = useDispatch()
