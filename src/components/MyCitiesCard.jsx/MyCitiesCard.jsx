@@ -1,6 +1,4 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import toDoActions from '../../redux/actions/toDoActions'
 
 function MyCitiesCard(props) {
 

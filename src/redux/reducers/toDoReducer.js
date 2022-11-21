@@ -8,7 +8,8 @@ const initialState={
     value: "",
     cities: [],
     categories: [],
-    cityId : ''
+    cityId : '',
+    citiesAdmin: []
 }
 
 const toDoReducer = createReducer(initialState,
@@ -38,7 +39,7 @@ const toDoReducer = createReducer(initialState,
         .addCase(getCitiesUser.fulfilled,(state,action)=>{
             return {
                 ...state,
-                cities: action.payload.cities
+                citiesAdmin: action.payload.cities
             }
         })
         .addCase(getAndDestroy.fulfilled,(state,action)=>{
