@@ -62,10 +62,27 @@ try{
         };
       }
     });
+
+    const deleteHotel = createAsyncThunk("deleteHotel", async ({id}) => {
+      try {
+        const res = await axios.delete(
+          `http://localhost:8000/api/hotels/${id}`
+          );
+          
+          console.log(res.data.allhotels);
+          return { hotels: res.data.allhotels };
+        } catch (error) {
+          console.log(error);
+          return {
+            payload: "Error",
+          };
+        }
+      });
     const hotelsAction = {
       getHotels
       ,newHotel,
-      getHotelsByUserId
+      getHotelsByUserId,
+      deleteHotel
     };
     
   export default hotelsAction
