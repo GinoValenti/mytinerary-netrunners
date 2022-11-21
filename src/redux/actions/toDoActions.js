@@ -65,6 +65,34 @@ const getCities = createAsyncThunk("getCities", async (value) => {
     }
   })
 
+  const getAndEdit = createAsyncThunk("getAndEdit", async ({data},id)=> {
+
+    let url = `${BASE_URL}/cities/citiesUpdate/${id}`
+    console.log(data)
+    try {
+      const res = await axios.put(url,data)
+
+      if (res.data.id){
+      console.log(res.data.id)
+      return {
+        success: true,
+        response: data,
+        responseid: res.data.id
+      }
+    } else {
+      return {
+        success: false,
+        response: res.data.message
+      }
+    }
+    } catch (error) {
+      console.log(error)
+      return {
+        payload: "Error"
+      }
+    }
+  })
+
 
 
 const newCity = createAsyncThunk('newCity', async (data) => {
@@ -100,7 +128,8 @@ const toDoActions = {
   getCities,
   newCity,
   getCitiesUser,
-  getAndDestroy
+  getAndDestroy,
+  getAndEdit
 };
 
 export default toDoActions;
