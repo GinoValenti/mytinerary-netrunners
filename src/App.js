@@ -13,6 +13,7 @@ import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import NewHotelPage from "./pages/NewHotelPage/NewHotelPage"
 import DetailsCity from './pages/DetailsCity/DetailsCity';
 import NewCityPage from './pages/NewCityPage/NewCityPage';
+import MyHotelPage from './pages/MyHotel/MyHotel';
 
 
 
@@ -38,6 +39,8 @@ function App() {
         <Route path='/signin' element={<SignInPage/>}></Route>
         <Route path='/signup' element={<SignUpPage/>} ></Route>
         <Route path="*" element={<NotFoundPage/>}></Route>
+        <Route path='/myhotel' element={<MyHotelPage/>} ></Route>
+       
       </Routes>
         <Footer></Footer>
 
