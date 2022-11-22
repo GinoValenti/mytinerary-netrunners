@@ -6,22 +6,24 @@ import axios from "axios"
 import { Link, useParams } from 'react-router-dom';
 import { useEffect } from 'react'
 import { BASE_URL } from '../../api/url'
+import { useDispatch,useSelector } from 'react-redux';
+import hotelsAction from '../../redux/actions/hotelsAction'
 
 
 
 export default function HotelCards() {
-  let [filter,setFilter]=useState([])
-  let [searched,setSearched]=useState([])
-  let [select, setSelect]=useState([])
-  const [hotels, setHotels] = useState([]) 
+  let [searched,setSearched]=useState('')
+  let [select, setSelect]=useState('')
   
+  let {getHotels}=hotelsAction
+  const dispatch= useDispatch()
+  
+  const {hotels} = useSelector((state) => state.hotels); 
+
   useEffect(()=>{
-    axios.get(`${BASE_URL}/hotels`)
-    .then (response =>setHotels(response.data.allhotels))
-    
-    
-  }, [])
-  
+    dispatch(getHotels({string:'hotels',valueSearch:searched,valueSelect:select}))
+  },[searched,select])
+
   function listen(value){
     
       if(value.target.value === "asc"){
@@ -30,24 +32,19 @@ export default function HotelCards() {
         setSelect("&order="+value.target.value)
       }
 
-    console.log(select)
-
     if(value.target.type==="text"){
         setSearched(value.target.value)
-        console.log(setSearched)
     }
-    if(value.target.type==="text"){
-      setSearched(value.target.value)
-      console.log(setSearched)
-  }
-   
 }
-useEffect(()=>{
+
+console.log(hotels)
+
+/* useEffect(()=>{
   axios.get(`${BASE_URL}/hotels?name=${searched}${select}`)
   .then(response=>setFilter(response.data.allhotels))
 },[searched, select])
 
-console.log(filter)
+console.log(filter) */
 
       return (
         <>
@@ -68,20 +65,17 @@ console.log(filter)
         </div>
          
     <div className='containerCardsHotel'> 
-    {filter.map((x)=>{
+    {hotels.map((x)=>{
       return(
         
      
-<div key={x._id} className="cardsIndividual">
-<img className='imgCardHotel' src={x.photo[0]} alt="" />
-<Link to={`/hotels/details/${x._id}`}>  <h3 className="titleHotel">{x.name}</h3>  </Link>
-  <p className="descriptionHotel">This hotel has a capacity of <span className='Capacity'>{x.capacity}</span></p>
-</div>
-    
-
-
-        )
-    })}
+              <div key={x._id} className="cardsIndividual">
+              <img className='imgCardHotel' src={x.photo[0]} alt="" />
+              <Link to={`/hotels/details/${x._id}`}>  <h3 className="titleHotel">{x.name}</h3>  </Link>
+                <p className="descriptionHotel">This hotel has a capacity of <span className='Capacity'>{x.capacity}</span></p>
+              </div>
+            
+            )})}
   </div>
 
   </>)
