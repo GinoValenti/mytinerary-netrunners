@@ -8,7 +8,7 @@ import alertActions from '../../redux/actions/alertaHotel'
 
 function NewHotel() {
   let dispatch = useDispatch()
-  let {newHotel} = hotelsAction
+  let {newHotel} = hotelsAction //se importa las acciones y desectrusturamos la accion que necesitamos
   let {alerta}=alertActions
   let navigate = useNavigate()
   let form = useRef()
@@ -17,8 +17,9 @@ function NewHotel() {
     let data = {name,capacity,photo,citiId,userId}
     
     try{
-      let res = await dispatch(newHotel(data))
-      if(res.payload.success){
+      let res = await dispatch(newHotel(data))//llamo al dispatch y requiero la accion que necesito y la data del nuevo hotel
+      if(res.payload.success){//la carga esta en res.payload que viene de la accion 
+        //si es success que llame a la accion alerta de exito
         dispatch(alerta(Swal.fire({
           title: 'Congratulation!',
           text: 'Your hotel has been created',
@@ -28,6 +29,8 @@ function NewHotel() {
           imageAlt: 'Custom image',
         })))
         navigate(`/hotels/details/${res.payload.responseId}`)
+        //uso el hook useNavigate para que luego de creado el hotel me redirija al details del mismo 
+        //usando el res.payload.responseId que es una propiedad del objeto que retorna la accion
       }else{
 
         dispatch(alerta(Swal.fire({
@@ -35,7 +38,7 @@ function NewHotel() {
           text: res.payload.response,
           icon: 'error',
           confirmButtonText: 'Cool'
-        })))
+        })))//si no es success dispara la alerta de error
         
       }
     }catch(error){
