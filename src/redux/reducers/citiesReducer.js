@@ -1,8 +1,8 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { type } from "@testing-library/user-event/dist/type";
-import toDoActions from "../actions/toDoActions";
+import citiesAction from "../actions/citiesActions";
 
-const {getCitiesFilter,getCities,newCity, getCitiesUser, getAndDestroy, getAndEdit}= toDoActions
+const {getCitiesFilter,getCities,newCity, getCitiesUser, getAndDestroy, getAndEdit}= citiesAction
 
 const initialState={
     value: "",
@@ -12,7 +12,7 @@ const initialState={
     citiesAdmin: []
 }
 
-const toDoReducer = createReducer(initialState,
+const citiesReducer = createReducer(initialState,
     (builder)=>{
         builder
         .addCase(getCitiesFilter.fulfilled,(state,action)=>{
@@ -63,4 +63,4 @@ const toDoReducer = createReducer(initialState,
 
 })
 
-export default toDoReducer;
+export default citiesReducer;

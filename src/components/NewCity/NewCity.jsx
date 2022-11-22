@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { BASE_URL } from '../../api/url';
 import alertActions from '../../redux/actions/alertaCity';
-import toDoActions from '../../redux/actions/toDoActions';
+import citiesActions from '../../redux/actions/citiesActions';
  import Swal from 'sweetalert2'
 /* import withReactContent from 'sweetalert2-react-content'  */
 import './newcity.css'
@@ -20,7 +20,7 @@ function NewCity() {
   let dispatch = useDispatch()
 
   let { alerta } = alertActions
-  let { newCity, getCities , getCitiesUser} = toDoActions
+  let { newCity, getCities , getCitiesUser} = citiesActions
 
   let {res} = NewCity
   console.log(res)

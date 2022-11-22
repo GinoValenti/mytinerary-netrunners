@@ -1,5 +1,5 @@
 import alertaReducer from "./alertaCityReducer";
-import toDoReducer from "./toDoReducer"
+import citiesReducer from "./citiesReducer"
 import hotelsReducer from "./hotelsReducer";
 import alertReducer from "./alertHotelReducer"
 import showsReducer from "./showsReducer";
@@ -12,7 +12,7 @@ const rootReducer={
     shows: showsReducer,
     alerta: alertReducer,
     alerta: alertaReducer,
-    cities : toDoReducer,
+    cities : citiesReducer,
     itinerary: itineraryReducer
 }
 

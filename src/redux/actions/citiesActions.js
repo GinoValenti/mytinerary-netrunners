@@ -2,6 +2,8 @@ import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { BASE_URL } from "../../api/url";
 
+// En la UI se dispara la accion, la accion se carga con lo necesario, esa misma accion la recibe
+// el reducer, este toma el state y carga el payload para ir actualizando el state
 
 const getCitiesFilter = createAsyncThunk("getCitiesFilter", async ({ cities, search ,check }) => {
   // getcitiesfilter recibe primero el nombre de la accion , el segundo argumento es una funcion callback asyncronico
@@ -123,7 +125,7 @@ const newCity = createAsyncThunk('newCity', async (data) => {
 
 
 
-const toDoActions = {
+const citiesActions = {
   getCitiesFilter,
   getCities,
   newCity,
@@ -132,4 +134,4 @@ const toDoActions = {
   getAndEdit
 };
 
-export default toDoActions;
+export default citiesActions;

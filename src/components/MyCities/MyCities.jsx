@@ -1,6 +1,6 @@
 import React  from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import toDoActions from '../../redux/actions/toDoActions'
+import citiesActions from '../../redux/actions/citiesActions'
 import alertActions from '../../redux/actions/alertaCity';
 import MyCitiesCard from '../MyCitiesCard.jsx/MyCitiesCard'
 import { useState } from 'react'
@@ -10,7 +10,7 @@ import './mycities.css'
 
 function MyCities() {
 
-  let { getCitiesUser, getAndDestroy, getAndEdit } = toDoActions
+  let { getCitiesUser, getAndDestroy, getAndEdit } = citiesActions
   const dispatch = useDispatch()
 
   const { citiesAdmin } = useSelector((state)=> state.cities)
