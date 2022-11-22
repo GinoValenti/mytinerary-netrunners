@@ -77,7 +77,7 @@ console.log(data);
           imageHeight: 200,
           imageAlt: 'image',
         })
-      setIsOpen(true)
+      setIsOpen(false)
       dispatch(getHotelsByUserId({userId:userIdSearch}))
       } else {
         dispatch(alerta(

@@ -56,8 +56,8 @@ function MyShow() {
         console.log(id);
 
         dispatch(deleteShow({ id: id }));
-        dispatch(getShowsByUserId({ userId: userIdSearch }));
       }
+      dispatch(getShowsByUserId({ userId: userIdSearch }));
     });
   };
 
