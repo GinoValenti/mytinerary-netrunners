@@ -35,6 +35,65 @@ const getCities = createAsyncThunk("getCities", async (value) => {
     }
   });
 
+  const getCitiesUser = createAsyncThunk("getCitiesUser", async ({userId}) => {
+    try {
+      const res = await axios.get(
+        `${BASE_URL}/cities?userId=${userId}`
+      );
+  
+      console.log(res.data.allcities);
+      return { cities: res.data.allcities };
+    } catch (error) {
+      console.log(error);
+      return {
+        payload: "Error",
+      };
+    }
+  });
+
+  const getAndDestroy = createAsyncThunk("getAndDestroy", async ({cityId})=> {
+    try {
+      const res = await axios.delete(
+        `${BASE_URL}/cities/citiesDelete/${cityId}`
+      )
+      return { cities: res.data.city }
+    } catch (error) {
+      console.log(error)
+      return {
+        payload: "Error"
+      }
+    }
+  })
+
+  const getAndEdit = createAsyncThunk("getAndEdit", async ({data, go})=> {
+
+    let url = `${BASE_URL}/cities/citiesUpdate/${go}`
+    
+    try {
+      let res = await axios.put(url,data)
+  
+      if (res.data.id){
+        console.log(res.data.id)
+        return {
+          success: true,
+          response: data,
+          responseid: res.data.id
+        }
+      } else {
+        return {
+          success: false,
+          response: res.data.message
+        }
+      }
+    } catch(error) {
+      return {
+        success: false,
+        response: 'lptm un error'
+      }
+    }
+  })
+
+
 
 const newCity = createAsyncThunk('newCity', async (data) => {
   let url = `${BASE_URL}/cities`
@@ -67,7 +126,10 @@ const newCity = createAsyncThunk('newCity', async (data) => {
 const toDoActions = {
   getCitiesFilter,
   getCities,
-  newCity
+  newCity,
+  getAndDestroy,
+  getCitiesUser,
+  getAndEdit
 };
 
 export default toDoActions;
