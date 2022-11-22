@@ -127,8 +127,8 @@ const toDoActions = {
   getCitiesFilter,
   getCities,
   newCity,
-  getAndDestroy,
   getCitiesUser,
+  getAndDestroy,
   getAndEdit
 };
 

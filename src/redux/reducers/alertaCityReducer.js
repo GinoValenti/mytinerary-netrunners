@@ -9,7 +9,7 @@ const initialState = {
     mensaje: ''
 }
 
-const alertReducer = createReducer(initialState,
+const alertaReducer = createReducer(initialState,
     (builder) => {
         builder
         .addCase(alerta, (state, action) => {
@@ -25,4 +25,4 @@ const alertReducer = createReducer(initialState,
     }
 )
 
-export default alertReducer
+export default alertaReducer
