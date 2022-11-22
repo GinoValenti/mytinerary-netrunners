@@ -32,6 +32,8 @@ export default function Footer() {
                     <li><NavLink to="/newcity">City</NavLink></li>
                     <li><NavLink to="/newhotel">Hotel</NavLink></li>
                     <li><NavLink to="/mycities">My Cities</NavLink></li>
+                    <li><NavLink to="/myhotel">MyHotel</NavLink></li>
+                    <li><NavLink to="/myshow">MyShow</NavLink></li>
                 </ul>
             </div>
             <div className="footer-col">
