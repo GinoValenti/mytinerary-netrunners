@@ -1,10 +1,67 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useState  , useRef, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { BASE_URL } from '../../api/url';
+import alertActions from '../../redux/actions/alertaCity';
+import toDoActions from '../../redux/actions/toDoActions';
+ import Swal from 'sweetalert2'
+/* import withReactContent from 'sweetalert2-react-content'  */
 import './newcity.css'
+
 
 
 function NewCity() {
 
+  const history = useNavigate()
+
+  let form = useRef()
+
+  let dispatch = useDispatch()
+
+  let { alerta } = alertActions
+  let { newCity, getCities} = toDoActions
+
+  let {res} = NewCity
+  console.log(res)
+  
+  useEffect(()=>{
+    dispatch(getCities('cities'))
+  },[])
+
+
+
+  async function newCityCreate(event) {
+    event.preventDefault()
+    let data = {title,continent,image,population,userId}
+
+    try {
+      let res = await dispatch(newCity(data))
+
+      if (res.payload.success){
+        Swal.fire({
+          title: `${title} city has been created`,
+          imageUrl: image,
+          imageWidth: 400,
+          imageHeight: 200,
+          imageAlt: 'image',
+        })
+        history(`/details/:${res.payload.responseid}`)
+      } else {
+        dispatch(alerta(
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: res.payload.response,
+/*             text: res.payload.response2  */
+
+          })))
+        console.log(res.payload.response)
+      }
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
 
   const [title, setTitle] = useState('');
   const [continent,  setContinent] = useState('')
@@ -13,21 +70,9 @@ function NewCity() {
   const [userId, setUserId] = useState('')
 
 
-    const submit = async () => {
-        if (title === "" || continent === "" || image === "" || population === "" || userId === "") {
-            alert("Complete all fields");
-        } else {
-            let newCity = {title,continent,image,population, userId}
-            console.log(newCity)
-            axios.post(('http://localhost:8000/api/cities'), newCity)
-        }
-        alert('A city has been created')
-    };
-
-
   return (
     <div className='new-container'>
-      <div className='form-container'>
+      <div onSubmit={newCityCreate} className='form-container' ref={form}>
       <input htmlFor='title' className='new-input' name='title' type="text"
         onChange={(e) => setTitle(e.target.value)}
         placeholder='Enter city name' />
@@ -43,8 +88,8 @@ function NewCity() {
         <input htmlFor='userId' className='new-input' name='userId' type="text"
         onChange={(e) => setUserId(e.target.value)}
         placeholder='Enter admin id' />        
-        <button
-        className='save-new-button' onClick={submit}>
+        <button type='submit'
+        className='save-new-button' onClick={newCityCreate}>
             Save
             </button>  
       </div>
