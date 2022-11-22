@@ -10,7 +10,7 @@ function Modal({open , children, onClose, editId}) {
     <>
         <div className='overlay-modal'>
             <div className='modal'>
-                <h2 className='modal-title'>Edit City</h2>
+                <h2 className='modal-title'>Edit</h2>
                 <button className='modal-button' onClick={onClose}>Close</button>
                 {children}
             </div>
