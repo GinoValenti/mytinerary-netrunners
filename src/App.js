@@ -14,7 +14,7 @@ import NewHotelPage from "./pages/NewHotelPage/NewHotelPage"
 import DetailsCity from './pages/DetailsCity/DetailsCity';
 import NewCityPage from './pages/NewCityPage/NewCityPage';
 import MyHotelPage from './pages/MyHotel/MyHotel';
-
+import MyShowPage from './pages/MyShow/MyShow';
 
 
 function App() {
@@ -40,6 +40,7 @@ function App() {
         <Route path='/signup' element={<SignUpPage/>} ></Route>
         <Route path="*" element={<NotFoundPage/>}></Route>
         <Route path='/myhotel' element={<MyHotelPage/>} ></Route>
+        <Route path='/myshow' element={<MyShowPage/>} ></Route>
        
       </Routes>
         <Footer></Footer>
