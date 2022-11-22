@@ -11,15 +11,20 @@ function MyHotel() {
   let {alerta}=alertActions
   const [isOpen, setIsOpen] = useState(false);
   let [userIdSearch, setUserId] = useState("");
+
+  //variable que contiene el id de la card que queremos editar
   let [id, setId] = useState("");
+
+  //desestructuro las acciones que necesito
   let { getHotelsByUserId, deleteHotel,editHotel } = hotelsAction;
   const dispatch = useDispatch();
+
+  //requiero hotelUser (array que se va a llenar con los id que coincidan con lo que ingrese el usuario)
   const { hotelsUser } = useSelector((state) => state.hotels);
   const [name, setName] = useState('');
   const [photo, setPhoto] = useState('');
   const [capacity, setCapacity] = useState('');
   const [citiId, setCitiId] = useState('');
-  const [userId, setUserID] = useState('')
 
   function listen() {
     if (userIdSearch.length !== 24) {
@@ -32,6 +37,8 @@ function MyHotel() {
     }
   }
 
+
+  //funcion que recibe un id para mandarle a la accion de eliminar un hotel
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -51,6 +58,9 @@ function MyHotel() {
       }
     });
   };
+
+  //funcion para editar un hotel, envia el id y la data (objeto con lo que ingreso el usuario)
+  //hacia la accion
   let listenEdit = async (event) => {
     event.preventDefault()
 
@@ -103,6 +113,7 @@ console.log(e);
           id="checkbox-container"
         ></div>
       </div>
+      {/* searchbar */}
       <main className="maino">
         <div className="search-bar">
           <input
@@ -117,6 +128,7 @@ console.log(e);
         </div>
       </main>
 
+         {/*  CARDS */}
       <div className="containerCardsHotel">
         {hotelsUser.length == 0 ? (
           <div className="errorMyHotel">
@@ -151,6 +163,7 @@ console.log(e);
           })
         )}
 
+                      {/* MODAL */}
         <ModalHotel  open={isOpen} onClose={() => setIsOpen(false)}>
           <div className="edit-form-container">
             <input
