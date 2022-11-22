@@ -7,11 +7,7 @@
     height: 100vh;
 
 }
-@media screen and (max-width:380px){
-	.city-details-container{
-		min-height: 200vh;
-	}
-}
+
 
 .city-details-banner .city-details-banner-img {
     height: 500px;
@@ -189,17 +185,7 @@ border-bottom: 1px solid rgba(0, 0, 0, 0.128);
 	 align-items: center;
 	 position: relative;
 }
- .card .card__footer::before {
-	 content: "";
-	 position: absolute;
-	 display: block;
-	 top: 0;
-	 left: 40px;
-	 width: calc(100% - 40px);
-	 height: 3px;
-	 background: #115dd8;
-	 background: linear-gradient(to right, #115dd8 0%, #115dd8 20%, #ddd 20%, #ddd 100%);
-}
+
  .card .card__footer .recommend {
 	 flex: 1 0 10px;
 }
@@ -234,4 +220,6 @@ border-bottom: 1px solid rgba(0, 0, 0, 0.128);
 	 background: #fff;
 	 color: #115dd8;
 }
- 
+ .ShowError{
+	margin-top: 10px;
+ }
