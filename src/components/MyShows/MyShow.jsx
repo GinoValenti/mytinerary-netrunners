@@ -79,8 +79,7 @@ console.log(data);
           imageHeight: 200,
           imageAlt: 'image',
         })
-      setIsOpen(true)
-      dispatch(getShowsByUserId({userId:userIdSearch}))
+        dispatch(getShowsByUserId({userId:userIdSearch}))
       } else {
         dispatch(alerta(
           Swal.fire({
