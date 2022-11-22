@@ -2,7 +2,6 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { BASE_URL } from '../../api/url'
-import City from '../../components/City/City'
 import Itinerary from '../../components/Itinerary/Itinerary'
 import '../../components/Itinerary/itinerary.css'
 
@@ -24,7 +23,7 @@ function DetailsCity() {
   console.log(filter)
   useEffect(()=>{
     axios.get(`${BASE_URL}/itinerary`)
-    .then(response=>setItineraries(response.data.allcities))
+    .then(response=>setItineraries(response.data.itineraries))
   },[])
 
   console.log(itineraries)

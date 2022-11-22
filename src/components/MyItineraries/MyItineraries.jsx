@@ -137,7 +137,7 @@ function MyItineraries() {
     <Modal editId={go} open={isOpen} onClose={()=> setIsOpen(false)}>
     <div className='edit-form-container' >
         <input htmlFor='title' className='new-input' name='title' type="text"
-        placeholder='Enter city name' required 
+        placeholder='Enter itinerary name' required 
         onChange={(e) => setName(e.target.value)} />
         <input htmlFor='cityId' className='new-input' name='title' type="text"
         placeholder='Enter city Id' required 
