@@ -1,0 +1,51 @@
+.deletedButton{
+    background-color: red;
+}
+.BannerMyHotels {
+    min-height: 40vh;
+width: 100%;
+    background-image: linear-gradient(0deg,
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.6)), url("https://i.pinimg.com/originals/b6/7b/e0/b67be0d486859ee5eda96ecd336df320.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  
+    
+  }
+  .titulari{
+    font-size: 40px;
+    color: rgba(240, 248, 255, 0.776);
+  }
+  .upspann{color: brown;}
+.inputMyhotel{
+    width: 300px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 1.8rem;
+}
+.sendMyHotel{
+    position: relative;
+    right: 40px;
+ transition: 500ms ease-in-out;
+}
+.sendMyHotel:hover{
+    color: brown;
+}
+.errorMyHotel{
+ height: 50vh;
+ font-size: 30px
+}
+.edit-form-container{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+.new-input{
+    border: 1px solid black;
+}

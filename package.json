@@ -15,7 +15,11 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
+<<<<<<< HEAD
     "sweetalert2": "^11.6.9",
+=======
+    "sweetalert2": "^11.6.10",
+>>>>>>> 53270932bed350478ed469f239557668d45035a9
     "web-vitals": "^2.1.4"
   },
   "scripts": {

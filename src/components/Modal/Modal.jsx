@@ -3,7 +3,6 @@ import './modal.css'
 
 function Modal({open , children, onClose, editId}) {
 
-  console.log(editId)
 
   if (!open) return null
 

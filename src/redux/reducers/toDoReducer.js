@@ -54,7 +54,10 @@ const toDoReducer = createReducer(initialState,
                 cityId : action.payload.cityId
             } */
             if (action.payload.success) {
-                state.cities.push(action.payload.response)
+                return {
+                    ...state,
+                    cityId : action.payload.cityId
+                }
             }
         })
 

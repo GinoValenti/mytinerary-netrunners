@@ -20,7 +20,7 @@ function NewCity() {
   let dispatch = useDispatch()
 
   let { alerta } = alertActions
-  let { newCity, getCities} = toDoActions
+  let { newCity, getCities , getCitiesUser} = toDoActions
 
   let {res} = NewCity
   console.log(res)
@@ -29,6 +29,7 @@ function NewCity() {
     dispatch(getCities('cities'))
   },[])
 
+  
 
 
   async function newCityCreate(event) {
@@ -47,6 +48,7 @@ function NewCity() {
           imageAlt: 'image',
         })
         history(`/details/:${res.payload.responseid}`)
+        dispatch(getCitiesUser({userId:userId}))
       } else {
         dispatch(alerta(
           Swal.fire({
