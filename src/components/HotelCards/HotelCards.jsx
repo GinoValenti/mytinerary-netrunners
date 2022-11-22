@@ -5,7 +5,7 @@ import "./searchbar.css"
 import axios from "axios"
 import { Link, useParams } from 'react-router-dom';
 import { useEffect } from 'react'
-import { BASE_URL } from '../../api/url'
+
 import { useDispatch,useSelector } from 'react-redux';
 import hotelsAction from '../../redux/actions/hotelsAction'
 
