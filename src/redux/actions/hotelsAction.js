@@ -78,11 +78,36 @@ try{
           };
         }
       });
+
+      const editHotel = createAsyncThunk("editHotel", async  ({id,data})=>{
+        let url = `${BASE_URL}/hotels/${id}`
+        try {
+          let res = await axios.patch(url,data)
+          if(res.data.id)  {
+          return {
+            responseId: res.data.id,
+            success: true,
+             response:data
+          }
+        }else{
+          return {
+            success: false, 
+            response:res.data.message
+          }
+        }
+      }catch(error){
+        console.log(error);
+        return {
+          success: false, response:"error"
+        }
+      }
+        })
     const hotelsAction = {
       getHotels
       ,newHotel,
       getHotelsByUserId,
-      deleteHotel
+      deleteHotel,
+      editHotel
     };
     
   export default hotelsAction
