@@ -202,11 +202,11 @@ console.log(e);
               onChange={(e) => setDescription(e.target.value)}
             />
             <input
-              htmlFor="citiId"
+              htmlFor="Hotel ID"
               type="text"
               className="new-input"
-              name="city id"
-              placeholder="City ID"
+              name="Hotel ID"
+              placeholder="Hotel ID"
               onChange={(e) => setHotelId(e.target.value)}
             />
         
