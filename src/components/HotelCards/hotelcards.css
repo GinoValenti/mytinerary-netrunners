@@ -3,6 +3,7 @@ display: flex;
 flex-wrap: wrap;
 justify-content: center;
 align-items: center;
+text-align: center;
 gap: 3rem;
 margin-bottom: 2rem;
   min-height: 100vh;
@@ -21,6 +22,8 @@ width: 450px;
   display: grid;
   grid-template-rows: 1fr 1fr;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: flex;
+  justify-content: center;
 
 }
 
@@ -75,4 +78,59 @@ width: 450px;
 }
 .Capacity{
   font-weight: 600;
+}
+.deleteButton {
+  padding: 12.5px 30px;
+  border: 0;
+  border-radius: 100px;
+  background-color: red;
+  color: #ffffff;
+  font-weight: Bold;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  width:150px;
+  
+  
+}
+
+.deleteButton :hover {
+  background-color: red;
+  box-shadow: 0 0 20px #6fc5ff50;
+}
+
+.deleteButton :active {
+  background-color: red;
+  transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  box-shadow: none;
+}
+.buttonContainer{
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 10px;
+}
+.editButton {
+  padding: 12.5px 30px;
+  border: 0;
+  border-radius: 100px;
+  background-color: rgba(35, 197, 35, 0.225);
+  color: #ffffff;
+  font-weight: Bold;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  width:150px;
+  
+  
+}
+
+.editButton :hover {
+  background-color: rgb(27, 184, 27);
+  box-shadow: 0 0 20px #6fc5ff50;
+}
+
+.editButton :active {
+  background-color: rgb(27, 184, 27);
+  transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  box-shadow: none;
 }

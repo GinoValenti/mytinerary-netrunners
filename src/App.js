@@ -13,7 +13,13 @@ import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import NewHotelPage from "./pages/NewHotelPage/NewHotelPage"
 import DetailsCity from './pages/DetailsCity/DetailsCity';
 import NewCityPage from './pages/NewCityPage/NewCityPage';
+<<<<<<< HEAD
+import MyCities from './components/MyCities/MyCities';
 
+=======
+import MyHotelPage from './pages/MyHotel/MyHotel';
+import MyShowPage from './pages/MyShow/MyShow';
+>>>>>>> 53270932bed350478ed469f239557668d45035a9
 
 
 function App() {
@@ -24,20 +30,24 @@ function App() {
     <ScrollToTop></ScrollToTop>
 {/*     <NavBar></NavBar> */}
 
-        <NavBar> </NavBar>
+{        <NavBar> </NavBar>}
       <Routes>
         
         <Route path='/' element={<Home/> } ></Route>
         <Route path='/hotels' element={<Hotels/>} >
         </Route>
-       <Route path='/hotels/details/:hotelId' element={<SingleHotels></SingleHotels>} ></Route>
+       <Route path='/hotels/details/:id' element={<SingleHotels></SingleHotels>} ></Route>
 <Route path='/newhotel' element={<NewHotelPage></NewHotelPage>}> </Route>
         <Route path='/cities' element={<Cities/>}></Route>
         <Route path='/newcity' element={<NewCityPage/>} ></Route>
-        <Route path='/cities/detailsCity/:cityId' element={<DetailsCity/>}></Route>
+        <Route path='/mycities' element={<MyCities/>}></Route>
+        <Route path='/details/:id' element={<DetailsCity/>}></Route>
         <Route path='/signin' element={<SignInPage/>}></Route>
         <Route path='/signup' element={<SignUpPage/>} ></Route>
         <Route path="*" element={<NotFoundPage/>}></Route>
+        <Route path='/myhotel' element={<MyHotelPage/>} ></Route>
+        <Route path='/myshow' element={<MyShowPage/>} ></Route>
+       
       </Routes>
         <Footer></Footer>
 

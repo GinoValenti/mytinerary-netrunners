@@ -1,0 +1,64 @@
+.inputSearch-mycities {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.card-mycities {
+    margin: 25px;
+}
+
+.button-delete {
+    background: firebrick;
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    bottom: 0;
+}
+
+.button-edit {
+    background: rgb(103, 103, 183);
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    top: 0;
+}
+
+.titleHotel-mod {
+    margin-top: 50px;
+}
+
+.cardsIndividual-mod {
+    height: 500px;
+    width: 300px;
+}
+
+.cardsIndividual-mod:hover {
+    filter: brightness(1.4);
+}
+
+.save-new-buttonn {
+    background: firebrick;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    border: none;
+}
+
+.edit-form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-form-container>input{
+    margin: 15px;
+}
+
+.edit-new-button{
+    background: rgb(94, 94, 244);
+    color: #fff;
+    padding: 5px;
+    margin: 2px;
+    border: none;
+}
