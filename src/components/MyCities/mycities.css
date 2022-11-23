@@ -51,10 +51,10 @@
     flex-direction: column;
 }
 
-.edit-form-container>input{
+/* .edit-form-container>input{
     margin: 15px;
 }
-
+ */
 .edit-new-button{
     background: rgb(94, 94, 244);
     color: #fff;
