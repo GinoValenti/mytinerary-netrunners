@@ -1,7 +1,6 @@
 import React  from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import citiesActions from '../../redux/actions/citiesActions'
-import alertActions from '../../redux/actions/alertaCity';
 import MyCitiesCard from '../MyCitiesCard.jsx/MyCitiesCard'
 import { useState } from 'react'
 import Swal from 'sweetalert2'
@@ -14,7 +13,6 @@ function MyCities() {
   const dispatch = useDispatch()
 
   const { citiesAdmin } = useSelector((state)=> state.cities)
-  let { alerta } = alertActions
   const [userId, setUserId] = useState('')
 
   let listenDeleted=(id, e)=>{
@@ -51,8 +49,7 @@ function MyCities() {
 
 
 
-  let listenEdit = async (event) => {
-    event.preventDefault()
+  let listenEdit = async () => {
 
     let data = { title,continent,image,population}
 
@@ -79,13 +76,13 @@ function MyCities() {
         setIsOpen(false)
         dispatch(getCitiesUser({userId:userId}))
       } else {
-        dispatch(alerta(
+        
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: res.payload.response,
 /*             text: res.payload.response2  */
-          })))
+          })
 
 
       }

@@ -38,7 +38,7 @@ const citiesReducer = createReducer(initialState,
         })
         .addCase(getCitiesUser.fulfilled,(state,action)=>{
             return {
-                ...state,
+/*                 ...state, */
                 citiesAdmin: action.payload.cities
             }
         })

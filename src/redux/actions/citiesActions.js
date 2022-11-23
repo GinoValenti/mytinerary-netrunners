@@ -54,17 +54,21 @@ const getCities = createAsyncThunk("getCities", async (value) => {
   });
 
   const getAndDestroy = createAsyncThunk("getAndDestroy", async ({cityId})=> {
+
     try {
       const res = await axios.delete(
         `${BASE_URL}/cities/citiesDelete/${cityId}`
-      )
+        )
+        console.log(res.data.city)
       return { cities: res.data.city }
+      
     } catch (error) {
       console.log(error)
       return {
         payload: "Error"
       }
     }
+    
   })
 
   const getAndEdit = createAsyncThunk("getAndEdit", async ({data, go})=> {
@@ -118,7 +122,7 @@ const newCity = createAsyncThunk('newCity', async (data) => {
   } catch(error) {
     return {
       success: false,
-      response: 'lptm un error'
+      response: 'ocurrio un error'
     }
   }
 })
