@@ -1,8 +1,10 @@
 import { createReducer } from "@reduxjs/toolkit";
 import userActions from "../actions/userAction";
-
+import usersActions from "../actions/usersActions";
+const { newUser } = usersActions
 const {enter,enterAgain} = userActions
 const initialState ={
+    profiles : [],
     name:"",
     photo:"",
     logged:false,
@@ -12,7 +14,16 @@ const initialState ={
 
 const userReducer = createReducer (initialState,
     (builder)=>{
-        builder.addCase(enter.fulfilled, (state, action) => {
+     
+      
+        builder   
+        .addCase(newUser.fulfilled, (state, action)=> {
+            if (action.payload.success) {
+                state.profiles.push(action.payload.response)
+            }
+        })
+   
+        .addCase(enter.fulfilled, (state, action) => {
             //console.log(action.payload.response)
             const { success,response } = action.payload
             console.log(action.payload);
@@ -59,6 +70,9 @@ const userReducer = createReducer (initialState,
             }
             return newState
         }
-    })  })
+    }) })
+    
 
-    export default userReducer
+
+
+export default userReducer

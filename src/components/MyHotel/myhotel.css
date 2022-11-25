@@ -40,12 +40,12 @@ width: 100%;
  height: 50vh;
  font-size: 30px
 }
-.edit-form-container{
+/* .edit-form-container{
     margin-top: 10px;
     display: flex;
     flex-direction: column;
     gap: 3rem;
-}
+} */
 .new-input{
     border: 1px solid black;
 }

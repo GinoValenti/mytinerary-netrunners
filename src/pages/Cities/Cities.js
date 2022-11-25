@@ -6,14 +6,14 @@ import './cities.css'
 import {useEffect, useState, React} from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../../api/url'
-import toDoActions from '../../redux/actions/toDoActions'
+import citiesActions from '../../redux/actions/citiesActions'
 import { useDispatch, useSelector } from 'react-redux'
 import NewCity from '../../components/NewCity/NewCity'
 
 
 export default function Cities() {
 
-    let {getCitiesFilter,getCities}=toDoActions
+    let {getCitiesFilter,getCities}=citiesActions
 
 
     const dispatch= useDispatch()
