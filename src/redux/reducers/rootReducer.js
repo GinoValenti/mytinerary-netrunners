@@ -4,7 +4,7 @@ import hotelsReducer from "./hotelsReducer";
 import alertReducer from "./alertHotelReducer"
 import showsReducer from "./showsReducer";
 import itineraryReducer from "./itineraryReducer";
-import userReducer from "./userReducer"
+import userReducer from "./userReducer";
 
 
 
@@ -13,6 +13,8 @@ const rootReducer={
     shows: showsReducer,
     alerta: alertReducer,
     alerta: alertaReducer,
+    itinerary: itineraryReducer,
+    usuario:userReducer,
     cities : citiesReducer,
     itinerary: itineraryReducer,
     user: userReducer,
