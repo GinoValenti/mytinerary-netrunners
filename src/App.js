@@ -19,6 +19,14 @@ import MyHotelPage from './pages/MyHotel/MyHotel';
 import MyShowPage from './pages/MyShow/MyShow';
 
 
+// RUTAS ESPECIALES DISPONIBLES PARA USUARIOS COMUNES 
+// MyTineraries y MyShows 
+// RUTAS ESPECIALES NOOOOO DISPONIBLES PARA USUARIOS COMUNES
+// MyCities MyHotels NewCity NewHotel
+// RUTAS ESPECIALES NOOOO DISPONIBLES PARA USUARIOS NO LOGUEADOS
+// Todas las anteriores XD
+
+
 function App() {
 
 
@@ -31,10 +39,9 @@ function App() {
       <Routes>
         
         <Route path='/' element={<Home/> } ></Route>
-        <Route path='/hotels' element={<Hotels/>} >
-        </Route>
-       <Route path='/hotels/details/:id' element={<SingleHotels></SingleHotels>} ></Route>
-<Route path='/newhotel' element={<NewHotelPage></NewHotelPage>}> </Route>
+        <Route path='/hotels' element={<Hotels/>} ></Route>
+        <Route path='/hotels/details/:id' element={<SingleHotels></SingleHotels>} ></Route>
+        <Route path='/newhotel' element={<NewHotelPage></NewHotelPage>}> </Route>
         <Route path='/cities' element={<Cities/>}></Route>
         <Route path='/newcity' element={<NewCityPage/>} ></Route>
         <Route path='/mycities' element={<MyCities/>}></Route>
