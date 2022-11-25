@@ -93,14 +93,7 @@ function DetailsCity() {
     }
     {
         (itinerarie.length!=0)?itinerarie.map(e=><Itinerary key={e?._id} name={e?.title} photo={e?.photo[0]} description={e?.description} /* price={e?.price} duration={e?.duration} */ />):<h2 className='text-center'>No itineraries were found in this city</h2>
-       
-      
-      }
-          {
-        (itinerarie.length!=0)?itinerarie.map(e=><Itinerary key={e?._id} name={e?.title} photo={e?.photo[1]} description={e?.description} /* price={e?.price} duration={e?.duration} */ />):console.log(true)
-       
-      
-      }    
+      }  
     </>
 
 
