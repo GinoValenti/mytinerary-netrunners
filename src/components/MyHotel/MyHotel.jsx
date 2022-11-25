@@ -61,8 +61,8 @@ function MyHotel() {
 
   //funcion para editar un hotel, envia el id y la data (objeto con lo que ingreso el usuario)
   //hacia la accion
-  let listenEdit = async (event) => {
-    event.preventDefault()
+  let listenEdit = async () => {
+    
 
     let data = {name,capacity,photo,citiId}
 console.log(data);

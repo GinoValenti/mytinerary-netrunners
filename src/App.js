@@ -18,10 +18,20 @@ import MyItineraries from './components/MyItineraries/MyItineraries';
 import MyHotelPage from './pages/MyHotel/MyHotel';
 import MyShowPage from './pages/MyShow/MyShow';
 
-
+import { useDispatch, useSelector } from "react-redux";
+import userActions from './redux/actions/userAction';
+import { useEffect } from 'react';
 function App() {
+let {enterAgain}= userActions
+let dispatch = useDispatch()
+let { logged } = useSelector(store => store.usuario)
+  useEffect(()=>{
+    let token = JSON.parse(localStorage.getItem("token"))
 
-
+    if (token){
+      dispatch(enterAgain(token.token.user))
+    }
+  },[])
   return (
     <>
     <ScrollToTop></ScrollToTop>
@@ -40,7 +50,7 @@ function App() {
         <Route path='/mycities' element={<MyCities/>}></Route>
         <Route path='/myitineraries' element={<MyItineraries/>}></Route>
         <Route path='/details/:id' element={<DetailsCity/>}></Route>
-        <Route path='/signin' element={<SignInPage/>}></Route>
+        <Route path='/signin' element={logged ? <Home></Home>:<SignInPage/>}></Route>
         <Route path='/signup' element={<SignUpPage/>} ></Route>
         <Route path="*" element={<NotFoundPage/>}></Route>
         <Route path='/myhotel' element={<MyHotelPage/>} ></Route>
