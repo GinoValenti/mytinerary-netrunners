@@ -20,9 +20,11 @@ function SignUp() {
 
     let dispatch = useDispatch()
 
+    let role = 'user'
+
     async function createNewUser() {
         
-        let data = {name, lastname, photo,  age, email, password}
+        let data = {name, lastname, photo,  age, email, password, role}
         console.log(data)
         try {
             let res = await dispatch(newUser(data))
