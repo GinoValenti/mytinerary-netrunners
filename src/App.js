@@ -58,38 +58,38 @@ useEffect(()=>{
     <ScrollToTop></ScrollToTop>
 
 {        <NavBar> </NavBar>}
-      <Routes>
+          <Routes>
 
-        <Route path='/' element={<Home/> } ></Route>
-        <Route path='/hotels' element={<Hotels/>} ></Route>
-        <Route path='/hotels/details/:id' element={<SingleHotels></SingleHotels>} ></Route>
-        <Route path='/cities' element={<Cities/>}></Route>
-        <Route path='/details/:id' element={<DetailsCity/>}></Route>
-        <Route path='/signin' element={<SignInPage/> }></Route>
-        <Route path='/signup' element={<SignUpPage/> }></Route>
-        <Route path="*" element={<NotFoundPage/>}></Route>
-        
-        <Route element={<ProtectedRoute isAllowed={logged ? true : false} reDirect={"/"} />}>
-          <Route path='/myitineraries' element={<MyItineraries/>}></Route>
-          <Route path='/myshow' element={<MyShowPage/>} ></Route>
-        </Route>
-       
+          <Route path='/' element={<Home/> } ></Route>
+          <Route path='/hotels' element={<Hotels/>} ></Route>
+          <Route path='/hotels/details/:id' element={<SingleHotels></SingleHotels>} ></Route>
+          <Route path='/cities' element={<Cities/>}></Route>
+          <Route path='/details/:id' element={<DetailsCity/>}></Route>
+          <Route path='/signin' element={<SignInPage/> }></Route>
+          <Route path='/signup' element={<SignUpPage/> }></Route>
+          <Route path="*" element={<NotFoundPage/>}></Route>
 
-        <Route path='/myhotel' element={
-          <ProtectedRoute isAllowed={!!logged && role === "admin"} reDirect={"/"}> <MyHotelPage/> </ProtectedRoute>
-       }
-        ></Route>
-        <Route path='/mycities' element={
-          <ProtectedRoute isAllowed={!!logged && role === "admin"} reDirect={"/"}> <MyCities/> </ProtectedRoute>}
-        ></Route>
-        <Route path='/newcity' element={
-          <ProtectedRoute isAllowed={!!logged && role === "admin"} reDirect={"/"}> <NewCityPage/> </ProtectedRoute>} 
-        ></Route>
-        <Route path='/newhotel' element={
-          <ProtectedRoute isAllowed={!!logged && role === "admin"} reDirect={"/"}> <NewHotelPage/> </ProtectedRoute>}
-        ></Route>
+          <Route element={<ProtectedRoute isAllowed={logged ? true : false} reDirect={"/"} />}>
+            <Route path='/myitineraries' element={<MyItineraries/>}></Route>
+            <Route path='/myshow' element={<MyShowPage/>} ></Route>
+          </Route>
 
-      </Routes>
+
+          <Route path='/myhotel' element={
+            <ProtectedRoute isAllowed={!!logged && role === "admin"} reDirect={"/"}> <MyHotelPage/> </ProtectedRoute>
+          }
+          ></Route>
+          <Route path='/mycities' element={
+            <ProtectedRoute isAllowed={!!logged && role === "admin"} reDirect={"/"}> <MyCities/> </ProtectedRoute>}
+          ></Route>
+          <Route path='/newcity' element={
+            <ProtectedRoute isAllowed={!!logged && role === "admin"} reDirect={"/"}> <NewCityPage/> </ProtectedRoute>} 
+          ></Route>
+          <Route path='/newhotel' element={
+            <ProtectedRoute isAllowed={!!logged && role === "admin"} reDirect={"/"}> <NewHotelPage/> </ProtectedRoute>}
+          ></Route>
+
+          </Routes>
         <Footer></Footer>
 
 
