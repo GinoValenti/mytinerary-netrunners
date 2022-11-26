@@ -8,7 +8,10 @@ const initialState ={
     name:"",
     photo:"",
     logged:false,
-    token:""
+    token:"",
+    role:"",
+   
+
 }
 
 
@@ -36,7 +39,8 @@ const userReducer = createReducer (initialState,
                     name: user.name,
                     photo: user.photo,
                     logged: true,
-                    token: token
+                    token: token,
+                    
                 }
                 return newState
             } else {
@@ -54,13 +58,15 @@ const userReducer = createReducer (initialState,
         console.log(action.payload);
         if (success) {
             let { user,token } = response 
-
+console.log(user);
             let newState = {
                 ...state,
+               
                 name: user.name,
                 photo: user.photo,
                 logged: true,
-                token: token
+                token: token,
+                role:user.role
             }
             return newState
         } else {
