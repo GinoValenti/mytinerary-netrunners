@@ -8,7 +8,8 @@ const initialState ={
     name:"",
     photo:"",
     logged:false,
-    token:""
+    token:"",
+    role: ""
 }
 
 
@@ -36,6 +37,7 @@ const userReducer = createReducer (initialState,
                     name: user.name,
                     photo: user.photo,
                     logged: true,
+                    role: user.role,
                     token: token
                 }
                 return newState
@@ -60,7 +62,8 @@ const userReducer = createReducer (initialState,
                 name: user.name,
                 photo: user.photo,
                 logged: true,
-                token: token
+                token: token,
+                role: user.role
             }
             return newState
         } else {

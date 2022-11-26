@@ -35,11 +35,11 @@ const enterAgain = createAsyncThunk('enterAgain', async (token) => {
     let headers = {headers: {'Authorization': `Bearer ${token}`}}
     try {
         let user = await axios.post(url,null,headers)
-        console.log(user.data.response)
+        console.log(user.data.response.user)
         return {
             success: true,
             response: {
-                user: user.data.response,
+                user: user.data.response.user,
                 token
             }
         }
