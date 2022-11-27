@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './show.css'
 
 function Show(props) {
-  let{name,photo}=props
+  let{name,photo,description}=props
   const [mostrarOcultar, setMostrarOcultar] = useState(false)
 
 
@@ -23,7 +23,7 @@ function Show(props) {
         <div>
           <div className='user-comment-container'>
             <img className='user-img' src="https://img.a.transfermarkt.technology/portrait/big/28003-1631171950.jpg?lm=1" alt="Imagen usuario" />
-            <p className='user-comment'>A life changing experience </p>
+            <p className='user-comment'>{description} </p>
           </div>
         </div>
       <input className='comment-imput' placeholder='Leave your comment...'></input>          

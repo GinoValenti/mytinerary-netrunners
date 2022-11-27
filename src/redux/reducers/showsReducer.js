@@ -2,12 +2,12 @@ import { createReducer } from "@reduxjs/toolkit";
 import showsAction from "../actions/showsAction"; 
 
 //desestructuro los createAsyncThunk de la accion HotelsAction
-const { getShowsByUserId,deleteShow,editShow}= showsAction
+const { getShowsByUserId,deleteShow,editShow,newShow}= showsAction
 
 //defino el initial state que va a tomar el reductor
 //hotels un array vacio que posteriormente se va a cargar con el payload de la accion getHotels
 const initialState={
- 
+ shows:[],
     userId:"",
     showsUser:[],
 }
@@ -37,6 +37,11 @@ const showsReducer = createReducer(initialState,
             return{
                 ...state,
                 id:action.payload.id
+            }
+        })
+        .addCase(newShow.fulfilled,(state,action) =>{
+            if(action.payload.success){//si la accion es success que se pushee el nuevo hotel al array de hotels vacio 
+                state.shows.push(action.payload.response)
             }
         })
 

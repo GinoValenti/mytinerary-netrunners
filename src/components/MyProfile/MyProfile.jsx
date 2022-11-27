@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import ModalHotel from "../../components/ModalHotel/ModalHotel";
 import { useState,useEffect } from 'react'
 import userActions from '../../redux/actions/userAction'
-
+import  CreateShow  from '../../components/createShow/CreateShow';
 function MyProfile(props) {
   
   const [name, setName] = useState('');
@@ -68,10 +68,11 @@ console.log(data);
 }
 
 
+
   return (
 <> 
-<div className='full-height'>
 
+<div className='full-height'>
 <div class="content-profile-page">
    <div class="profile-user-page card">
       <div class="img-user-profile">
@@ -83,7 +84,9 @@ console.log(data);
            
             <p>{profile[0]?.name }</p>
             <button onClick={() => (setIsOpen(true))}>Edit profile</button>
+
           </div> 
+  <CreateShow></CreateShow>
         
       
       </div>

@@ -19,7 +19,7 @@ export default function HotelCards() {
   const dispatch= useDispatch()
   
   const {hotels} = useSelector((state) => state.hotels); 
-
+console.log(hotels);
   useEffect(()=>{
     dispatch(getHotels({string:'hotels',valueSearch:searched,valueSelect:select}))
   },[searched,select])

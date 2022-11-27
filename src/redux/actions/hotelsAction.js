@@ -16,18 +16,30 @@ const getHotels = createAsyncThunk("getHotels", async ({string,valueSearch,value
       };
     }
   });
-//la accion lo unico que hace es despachar o enviar los datos que se requieren reducir
-//async thunk es como create action pero asyncrona
-//para la peticion necesito que me llegue por parametro un objeto con toda la data q necesito 
+
+  const getOnlyHotels = createAsyncThunk("getOnlyHotels", async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:8000/api/hotels`
+      );
+  
+      console.log(res.data.allhotels);
+      return { hotels: res.data.allhotels };
+    } catch (error) {
+      console.log(error);
+      return {
+        payload: "Error",
+      };
+    }
+  });
+
 
   const newHotel = createAsyncThunk("newHotel", async (data) =>{
 let url = `${BASE_URL}/hotels`
 try{
   let res = await axios.post(url,data)
     console.log(res.data);
-  if(res.data.id){//si tiene id significa que se creo el hotel
-    //si se creo voy a despachar al reductor el id(para redirigir al hotel creado)
-    //despachamos el payload al reductor que va a ser un objeto con los datos del nuevo hotel
+  if(res.data.id){
 
     return {
       responseId: res.data.id,
@@ -107,7 +119,8 @@ try{
       ,newHotel,
       getHotelsByUserId,
       deleteHotel,
-      editHotel
+      editHotel,
+      getOnlyHotels
     };
     
   export default hotelsAction

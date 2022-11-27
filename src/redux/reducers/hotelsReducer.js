@@ -2,7 +2,7 @@ import { createReducer } from "@reduxjs/toolkit";
 import hotelsAction from "../actions/hotelsAction"; 
 
 //desestructuro los createAsyncThunk de la accion HotelsAction
-const {getHotels, newHotel, getHotelsByUserId,deleteHotel,editHotel}= hotelsAction
+const {getHotels, newHotel, getHotelsByUserId,deleteHotel,editHotel,getOnlyHotels}= hotelsAction
 
 //defino el initial state que va a tomar el reductor
 //hotels un array vacio que posteriormente se va a cargar con el payload de la accion getHotels
@@ -29,10 +29,17 @@ const hotelsReducer = createReducer(initialState,
             }
             
         })
+        .addCase(getOnlyHotels.fulfilled,(state,action)=>{
+            return{
+                ...state,
+                hotels:action.payload.hotels
+            }
+        })
         //el primer parametro es la accion en su estado fulfilled(completada) y el segundo una funcion flecha que depende del state actual
         //y de la accion
         .addCase(newHotel.fulfilled,(state,action) =>{
-            if(action.payload.success){//si la accion es success que se pushee el nuevo hotel al array de hotels vacio 
+            if(action.payload.success){
+        
                 state.hotels.push(action.payload.response)
             }
         })
