@@ -35,8 +35,7 @@ export default function Footer() {
                     <li><NavLink to="/myhotel">MyHotel</NavLink></li>
                     <li><NavLink to="/myshow">MyShow</NavLink></li>
                     <li><NavLink to="/myitineraries">MyItineraries</NavLink></li>
-                    
-                <li><Link to="/myprofile">myProfile</Link></li></ul>
+                </ul>
             </div>
             <div className="footer-col">
                 <h4>follow us</h4>

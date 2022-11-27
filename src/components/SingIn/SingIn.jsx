@@ -39,9 +39,9 @@ let {alerta} = alertActions
             })
             navigate(`/`)
             
-            setTimeout(function(){
+/*             setTimeout(function(){
                 window.location.reload();
-             }, 2000);
+             }, 2000); */
         }
         else {
             Swal.fire({
