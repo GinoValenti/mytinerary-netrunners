@@ -83,7 +83,7 @@ export default function Cities() {
 
     }
     </div>
-    <div className='containerCardsHotel'>
+    <div className='containerCardsHotel-cities'>
 
 
     {(cities.length===0) ? <div className='carita'>🗿?</div> : cities.map(city=><CityCard key={city?._id} id={city?._id} name={city?.title} photo={city?.image} />) }

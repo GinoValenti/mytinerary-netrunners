@@ -1,0 +1,18 @@
+.test-profile-main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: grey;
+}
+
+.logout-btn {
+    background-color: firebrick;
+    padding: 25px;
+    color: white;
+    transition: 400ms ease-in-out;
+}
+
+.logout-btn:hover {
+    transform: scale(1.1);
+}

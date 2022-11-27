@@ -22,6 +22,9 @@ import { useDispatch, useSelector } from "react-redux";
 import userActions from './redux/actions/userAction';
 import { useEffect } from 'react';
 
+
+import TestProfile from './components/profile-deprueba/TestProfile';
+
 // RUTAS ESPECIALES DISPONIBLES PARA USUARIOS COMUNES 
 // MyTineraries y MyShows 
 
@@ -39,10 +42,11 @@ let { enterAgain }= userActions
 
 let dispatch = useDispatch()
 
-let { logged , name , role , photo } = useSelector(store => store.usuario)
+let { logged , name , role , photo, id } = useSelector(store => store.usuario)
 console.log(role)
 console.log(name)
 console.log(photo)
+console.log(id)
 
 useEffect(()=>{
 
@@ -68,6 +72,8 @@ useEffect(()=>{
           <Route path='/signin' element={<SignInPage/> }></Route>
           <Route path='/signup' element={<SignUpPage/> }></Route>
           <Route path="*" element={<NotFoundPage/>}></Route>
+
+          <Route path="/testprofile" element={<TestProfile/>} ></Route>
 
           <Route element={<ProtectedRoute isAllowed={logged ? true : false} reDirect={"/"} />}>
             <Route path='/myitineraries' element={<MyItineraries/>}></Route>

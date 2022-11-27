@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import userActions from "../actions/userAction";
 import usersActions from "../actions/usersActions";
-const { newUser } = usersActions
+const { newUser, logOut } = usersActions
 const {enter,enterAgain} = userActions
 const initialState ={
     profiles : [],
@@ -9,7 +9,8 @@ const initialState ={
     photo:"",
     logged:false,
     token:"",
-    role: ""
+    role: "",
+    id: ""
 }
 
 
@@ -56,14 +57,15 @@ const userReducer = createReducer (initialState,
         console.log(action.payload);
         if (success) {
             let { user,token } = response 
-
+            console.log(user);
             let newState = {
                 ...state,
                 name: user.name,
                 photo: user.photo,
                 logged: true,
                 token: token,
-                role: user.role
+                role: user.role,
+                id: user.id
             }
             return newState
         } else {
@@ -73,7 +75,26 @@ const userReducer = createReducer (initialState,
             }
             return newState
         }
-    }) })
+    })
+
+    .addCase(logOut.fulfilled, (state, action) => {
+        const {success, response} = action.payload
+
+        if (success){
+            localStorage.removeItem('token')
+            let newState = {
+                ...state,
+                name : '',
+                photo : '',
+                logged : false,
+                token : ''
+            }
+            return newState
+        } else {
+            return console.log(response)
+        }
+    })
+})
     
 
 
