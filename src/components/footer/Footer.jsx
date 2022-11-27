@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import AutoToTop from '../AutoToTop/AutoToTop'
 import "./footer.css"
 export default function Footer() {
@@ -35,7 +35,8 @@ export default function Footer() {
                     <li><NavLink to="/myhotel">MyHotel</NavLink></li>
                     <li><NavLink to="/myshow">MyShow</NavLink></li>
                     <li><NavLink to="/myitineraries">MyItineraries</NavLink></li>
-                </ul>
+                    
+                <li><Link to="/myprofile">myProfile</Link></li></ul>
             </div>
             <div className="footer-col">
                 <h4>follow us</h4>
