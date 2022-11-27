@@ -6,6 +6,7 @@ import ModalHotel from "../../components/ModalHotel/ModalHotel";
 import { useState,useEffect } from 'react'
 import userActions from '../../redux/actions/userAction'
 import Logoutbtn from '../LogOutBtn/Logoutbtn';
+import NewItinerary from '../NewItinerary/NewItinerary';
 
 function MyProfile(props) {
   const [name, setName] = useState('');
@@ -113,8 +114,11 @@ console.log(data);
             </div>
           </div>
           </ModalHotel>
-</div>
+    <div>
+      <NewItinerary/>
+    </div>
 
+</div>
 
  </>
 
