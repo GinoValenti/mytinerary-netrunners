@@ -1,17 +1,17 @@
 import { createReducer } from "@reduxjs/toolkit";
 import userActions from "../actions/userAction";
 import usersActions from "../actions/usersActions";
-const { newUser } = usersActions
-const {enter,enterAgain} = userActions
+const { newUser, logOut } = usersActions
+const {enter,enterAgain,getOneUser,editUser} = userActions
 const initialState ={
     profiles : [],
     name:"",
     photo:"",
     logged:false,
     token:"",
-    role:"",
-   
-
+    role: "",
+    id:"",
+    profile: []
 }
 
 
@@ -39,7 +39,8 @@ const userReducer = createReducer (initialState,
                     name: user.name,
                     photo: user.photo,
                     logged: true,
-                    token: token,
+                    role: user.role,
+                    token: token
                     
                 }
                 return newState
@@ -58,15 +59,15 @@ const userReducer = createReducer (initialState,
         console.log(action.payload);
         if (success) {
             let { user,token } = response 
-console.log(user);
+            console.log(user);
             let newState = {
                 ...state,
-               
                 name: user.name,
                 photo: user.photo,
                 logged: true,
                 token: token,
-                role:user.role
+                role: user.role,
+                id: user.id
             }
             return newState
         } else {
@@ -76,7 +77,39 @@ console.log(user);
             }
             return newState
         }
-    }) })
+    })
+
+    .addCase(logOut.fulfilled, (state, action) => {
+        const {success, response} = action.payload
+
+        if (success){
+            localStorage.removeItem('token')
+            let newState = {
+                ...state,
+                name : '',
+                photo : '',
+                logged : false,
+                token : ''
+            }
+            return newState
+        } else {
+            return console.log(response)
+        }
+    })
+    .addCase(getOneUser.fulfilled,(state,action)=>{
+    console.log(action.payload);
+    return{
+        ...state,
+    profile: action.payload.user
+    }
+
+    }).addCase(editUser.fulfilled,(state,action)=>{
+        return{
+            ...state,
+            id:action.payload.id
+        }
+    })
+})
     
 
 

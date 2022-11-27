@@ -3,7 +3,7 @@ import React from 'react'
 function MyItineariesCard(props) {
 
 
-  let { name, img, id, event1 , event2, go } = props
+  let { name, img, id, event1 , event2, go, cityIdGO, cityId  } = props
 
 
   let listen=(e)=> {
@@ -13,7 +13,9 @@ function MyItineariesCard(props) {
   let listenEdit=(e)=>{
     event2(id,e)
     go(id)
+    cityIdGO(cityId)
   }
+
 
 
 

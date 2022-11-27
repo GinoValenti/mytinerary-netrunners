@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import itineraryAction from '../../redux/actions/itineraryAction'
 import alertActions from '../../redux/actions/alertaCity';
 import MyItinerariesCard from '../MyItinerariesCard/MyItinerariesCard'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Swal from 'sweetalert2'
 import Modal from '../Modal/Modal'
 
@@ -12,13 +12,18 @@ function MyItineraries() {
   let { getItinerariesUser, getAndDestroy, getAndEdit } = itineraryAction
   const dispatch = useDispatch()
 
-  const { itineraryAdmin} = useSelector((state)=> state.itinerary)
-  let { alerta } = alertActions
-  const [userId, setUserId] = useState('')
+  let { id } = useSelector(store => store.usuario)
+  console.log(id)
 
-  let listenDeleted=(id, e)=>{
-    console.log(userId)
-    console.log(id)
+
+
+  const { itineraryAdmin } = useSelector((state)=> state.itinerary)
+
+  let { alerta } = alertActions
+
+  let listenDeleted=(idItinerary, e)=>{
+
+    console.log(idItinerary)
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -34,28 +39,22 @@ function MyItineraries() {
           'Your city has been deleted.',
           'success'
         )
-        console.log(id)
-    
-        dispatch(getAndDestroy({itineraryId: id}))
-
-        dispatch(getItinerariesUser({userId:userId}))
-        if (userId.length !== 24){
-          alert('el admind id es invalido')
-/*           dispatch(getItinerariesUser()) */
-        }
+        console.log(idItinerary)
+        dispatch(getAndDestroy({itineraryId: idItinerary}))
+        dispatch(getItinerariesUser({userId: id}))
       }
+      dispatch(getItinerariesUser({userId: id}))
     })
 
   }
 
 
-
   let listenEdit = async (event) => {
     event.preventDefault()
 
-    let data = { name, cityId ,photo, duration, price, description}
-
-    if (name === '' || cityId === '' || photo === '' || photo === null || description === '' || price === '' || duration === '' ) {
+    let data = { name, cityIdGo ,photo, duration, price, description}
+    console.log(data)
+    if (name === '' || photo === '' || photo === null || description === '' || price === '' || duration === '' ) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -76,7 +75,7 @@ function MyItineraries() {
           imageAlt: 'image',
         })
         setIsOpen(false)
-        dispatch(getItinerariesUser({userId:userId}))
+        dispatch(getItinerariesUser({userId:id}))
       } else {
         dispatch(alerta(
           Swal.fire({
@@ -100,22 +99,25 @@ function MyItineraries() {
   let listenEditGO = (id) => {
     setGo(id)
   }
-
-
-
-  let listenInput=()=>{
-    if (userId.length !== 24){
-      alert('no se pudo')
-    } else {
-      dispatch(getItinerariesUser({userId:userId}))
-    }
   
+  const [cityIdGo, setCityIdGo] = useState('')
+
+  let cityIdGO = (cityId) => {
+    setCityIdGo(cityId)
   }
+
+  async function getLoggedItineraries() {
+    await dispatch(getItinerariesUser({userId: id}))
+  }
+
+  useEffect(()=> {
+    getLoggedItineraries()
+  },[])
+
 
   const [isOpen, setIsOpen] = useState(false)
 
   const [name, setName] = useState('');
-  const [cityId, setCityId] = useState('')
   const [price,  setPrice] = useState('')
   const [photo, setPhoto] = useState('');
   const [duration, setDuration] = useState('')
@@ -124,24 +126,24 @@ function MyItineraries() {
     
   return (
     <>
-    <div className='inputSearch-mycities'>
+{/*     <div className='inputSearch-mycities'>
     <input type="text" placeholder="CodeAdmin..." onChange={(e) => setUserId(e.target.value)} />
     <button type='submit'
         className='save-new-buttonn' onClick={listenInput}>
             send adminId
     </button>  
-    </div>
+    </div> */}
     <div className='containerCardsHotel'>
-      {itineraryAdmin === undefined ? <h2>Nothing to see here</h2> : itineraryAdmin.map(e=><MyItinerariesCard key={e._id} event1={listenDeleted} event2={()=> setIsOpen(true)} go={listenEditGO} id={e._id} name={e.name} img={e.photo} ></MyItinerariesCard>)}
+      {itineraryAdmin === undefined ? <h2>Nothing to see here</h2> : itineraryAdmin.map(e=><MyItinerariesCard key={e._id} event1={listenDeleted} event2={()=> setIsOpen(true)} go={listenEditGO} cityIdGO={cityIdGO} cityId={e.cityId} id={e._id} name={e.name} img={e.photo} ></MyItinerariesCard>)}
     </div>
     <Modal editId={go} open={isOpen} onClose={()=> setIsOpen(false)}>
     <div className='edit-form-container' >
         <input htmlFor='title' className='new-input' name='title' type="text"
         placeholder='Enter itinerary name' required 
         onChange={(e) => setName(e.target.value)} />
-        <input htmlFor='cityId' className='new-input' name='title' type="text"
+{/*         <input htmlFor='cityId' className='new-input' name='title' type="text"
         placeholder='Enter city Id' required 
-        onChange={(e) => setCityId(e.target.value)} />
+        onChange={(e) => setCityId(e.target.value)} /> */}
         <input htmlFor='photo' className='new-input' name='photo' type="text"
         placeholder='Enter itinerary photo' required 
         onChange={(e) => setPhoto(e.target.value)} />

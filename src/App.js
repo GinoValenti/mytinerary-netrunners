@@ -1,4 +1,5 @@
 import './App.css';
+import TestProfile from './components/profile-deprueba/TestProfile';
 import NotFoundPage from './pages/NotFound/NotFoundPage';
 import { Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
@@ -14,6 +15,7 @@ import NewHotelPage from "./pages/NewHotelPage/NewHotelPage"
 import DetailsCity from './pages/DetailsCity/DetailsCity';
 import NewCityPage from './pages/NewCityPage/NewCityPage';
 import MyCities from './components/MyCities/MyCities';
+import MyProfilePage from './pages/MyProfile/MyProfile';
 import MyItineraries from './components/MyItineraries/MyItineraries';
 import MyHotelPage from './pages/MyHotel/MyHotel';
 import MyShowPage from './pages/MyShow/MyShow';
@@ -26,23 +28,24 @@ let {enterAgain}= userActions
 let dispatch = useDispatch()
 
 
-let { logged,role} = useSelector(store => store.usuario)
+let { logged,role,id} = useSelector(store => store.usuario)
+console.log(id);
 
-console.log(role);
-
-  useEffect( async ()=>{
-    let token = JSON.parse(localStorage.getItem("token"))
-    if (token){
-     await dispatch(enterAgain(token.token.user))
-      
-    }
+async function enterAgainToken(){
+  let token = JSON.parse(localStorage.getItem("token"))
+  if (token){
+   await dispatch(enterAgain(token.token.user))
+    
+  }
+}
+  useEffect(  ()=>{
+ enterAgainToken()
   },[])
 
 
   return (
     <>
     <ScrollToTop></ScrollToTop>
-{/*     <NavBar></NavBar> */}
 
 {        <NavBar> </NavBar>}
 <Routes>
@@ -55,8 +58,10 @@ console.log(role);
         <Route path='/signin' element={logged?<Home></Home>:<SignInPage/> }></Route>
         <Route path='/signup' element={logged?<Home></Home>:<SignUpPage/> }></Route>
         <Route path="*" element={<NotFoundPage/>}></Route>
+        <Route path="/testprofile" element={<TestProfile/>} ></Route>
 
         <Route element={<ProtectedRoute isAllowed={logged ? true : false} reDirect={"/"} />}>
+          <Route path='/myprofile' element={<MyProfilePage id={id}/>} ></Route>
           <Route path='/myitineraries' element={<MyItineraries/>}></Route>
           <Route path='/myshow' element={<MyShowPage/>} ></Route>
         </Route>

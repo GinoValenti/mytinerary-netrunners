@@ -35,7 +35,6 @@ const enterAgain = createAsyncThunk('enterAgain', async (token) => {
     let headers = {headers: {'Authorization': `Bearer ${token}`}}
     try {
         let user = await axios.post(url,null,headers)
-        console.log(user.data.response.user.role)
         return {
             success: true,
             response: {
@@ -52,9 +51,56 @@ const enterAgain = createAsyncThunk('enterAgain', async (token) => {
     }
 })
 
+const editUser = createAsyncThunk("editHotel", async  ({id,data})=>{
+    let url = `http://localhost:8000/api/auth/me/${id}`
+    try {
+      let res = await axios.patch(url,data)
+      if(res.data.id)  {
+      return {
+        responseId: res.data.id,
+        success: true,
+         response:data
+      }
+    }else{
+      return {
+        success: false, 
+        response:res.data.message
+      }
+    }
+  }catch(error){
+    console.log(error);
+    return {
+      success: false, response:"error"
+    }
+  }
+    })
+const getOneUser = createAsyncThunk("getOneUser", async (id) => {
+    try {
+      const res = await axios.get(
+        `http://localhost:8000/api/auth/me/${id}`
+        );
+        
+
+        return { id:id, user: res.data.user};
+      } catch (error) {
+        console.log(error);
+        return {
+          payload: "Error",
+        };
+      }
+
+      
+    })
+    
+    ;
+
+
+
 const userActions={
     enter,
-    enterAgain
+    enterAgain,
+    getOneUser,
+    editUser
 }
 
 export default userActions

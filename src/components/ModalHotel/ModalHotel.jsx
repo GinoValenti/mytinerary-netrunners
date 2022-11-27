@@ -5,7 +5,7 @@ export default function ModalHotel ({open,children,onClose})  {
   return (
     <div className='overlay-modal'>
     <div className='modal'>
-        <h2 className='modal-title'>Edit Hotel</h2>
+        <h2 className='modal-title'>Edit </h2>
         <button className='modal-button' onClick={onClose}>Close</button>
         {children}
     </div>

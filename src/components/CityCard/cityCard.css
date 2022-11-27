@@ -1,11 +1,11 @@
-.containerCardsHotel {
+.containerCardsHotel-cities {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 3rem;
   margin-bottom: 2rem;
-    min-height: 100vh;
-    align-items: center;
+  min-height: 100vh;
+  align-items: center;
   }
 
 
@@ -13,16 +13,23 @@
   * {
     font-family: "Poppins", sans-serif;
   }
-  .cardsIndividual {
+  .cardsIndividual-cities {
   height: 450px;
   width: 450px;
-    position: relative;
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  grid-template-rows: 1fr 1fr;
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+/*     position: relative;
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
     display: grid;
     grid-template-rows: 1fr 1fr;
-    transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); */
   
   }
   
@@ -53,24 +60,21 @@
 
   }
   
-  .cardsIndividual:hover {
+  .cardsIndividual-cities:hover {
     transform: scale(1.035, 1.035);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
     filter: brightness(1.5);
-  }
-  
-  .cardsIndividual:hover img {
-    transition: 1000ms ease-in-out;
     transform: translateY(-10px);
   }
+  
   @media screen and (max-width:510px){
-    .cardsIndividual{
+    .cardsIndividual-cities{
       height: 250px;
       width: 350px;
     }
   }
   @media screen and (max-width:375px){
-    .cardsIndividual{
+    .cardsIndividual-cities{
       height: 200px;
      width: 250px;
     }
