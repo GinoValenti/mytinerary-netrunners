@@ -2,7 +2,7 @@ import { createReducer } from "@reduxjs/toolkit";
 import userActions from "../actions/userAction";
 import usersActions from "../actions/usersActions";
 const { newUser } = usersActions
-const {enter,enterAgain,getOneUser} = userActions
+const {enter,enterAgain,getOneUser,editUser} = userActions
 const initialState ={
     profiles : [],
     name:"",
@@ -76,6 +76,7 @@ const userReducer = createReducer (initialState,
             }
             return newState
         }
+        
     })
 .addCase(getOneUser.fulfilled,(state,action)=>{
 console.log(action.payload);
@@ -84,6 +85,11 @@ return{
 profile: action.payload.user
 }
 
+}).addCase(editUser.fulfilled,(state,action)=>{
+    return{
+        ...state,
+        id:action.payload.id
+    }
 })
 })
     

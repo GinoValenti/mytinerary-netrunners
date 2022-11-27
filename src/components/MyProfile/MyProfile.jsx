@@ -1,15 +1,17 @@
 import React from 'react'
 import "./myprofile.css"
 import { useSelector , useDispatch} from 'react-redux'
-
+import Swal from "sweetalert2";
+import ModalHotel from "../../components/ModalHotel/ModalHotel";
 import { useState,useEffect } from 'react'
 import userActions from '../../redux/actions/userAction'
 
 function MyProfile(props) {
-  
+  const [name, setName] = useState('');
+  const [photo, setPhoto] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
 
-
-let{getOneUser}= userActions
+let{getOneUser,editUser}= userActions
 
 let {id}= props
 console.log(id);
@@ -31,6 +33,38 @@ useEffect( ()=>{
 },[])
 
 
+let listenEdit = async (event) => {
+  event.preventDefault()
+
+  let data = {name,photo}
+console.log(data);
+  try {
+    let res = await dispatch(editUser({id, data}))
+
+    if (res.payload.success){
+      Swal.fire({
+        title: `${name} show has been updated`,
+        imageUrl: photo,
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: 'image',
+      })
+      dispatch(getOneUser(id))
+    } else {
+      dispatch((
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: res.payload.response,
+/*             text: res.payload.response2  */
+        })))
+    }
+
+  } catch(error) {
+    console.log(error.message)
+  }
+}
+
 
   return (
 <> 
@@ -46,11 +80,36 @@ useEffect( ()=>{
           <div class="user-profile-data">
            
             <p>{profile[0]?.name}</p>
+            <button onClick={() => (setIsOpen(true))}>Edit profile</button>
           </div> 
         
       
       </div>
     </div>
+    <ModalHotel  open={isOpen} onClose={() => setIsOpen(false)}>
+          <div className="edit-form-container">
+            <input
+              htmlFor="name"
+              className="new-input"
+              type="text"
+              name="name"
+              placeholder="Name"
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              htmlFor="photo"
+              type="text"
+              className="new-input"
+              name="photo"
+              placeholder="Photo"
+              onChange={(e) => setPhoto(e.target.value)}
+            />
+          
+            <div className="edit-button">
+              <button onClick={listenEdit}  type="submit">Edit</button>
+            </div>
+          </div>
+          </ModalHotel>
 </div>
 
 

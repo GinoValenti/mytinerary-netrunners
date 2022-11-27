@@ -30,6 +30,7 @@
   border-radius: .4em;
   margin-top: -10em;
   box-shadow: 0 0 .1em rgba(0, 0, 0, 0.35);
+  object-fit: cover;
 }
 
 

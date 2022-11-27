@@ -18,7 +18,6 @@ let {alerta} = alertActions
 
   async function singIn(event) {
     event.preventDefault()
-    window.location.reload(false);
     let data = {}
     Array.from(form.current).forEach(input=>{
         if(input.name) {
@@ -37,9 +36,12 @@ let {alerta} = alertActions
                 title: "Welcome" + " " + res.payload.response.user.name,
                 showConfirmButton: false,
                 timer: 2000
-              })
-              navigate(`/`)
-
+            })
+            navigate(`/`)
+            
+            setTimeout(function(){
+                window.location.reload();
+             }, 2000);
         }
         else {
             Swal.fire({
@@ -47,7 +49,7 @@ let {alerta} = alertActions
                 title: 'Oops...',
                 text: 'Enter valid credentials or verify your email',
                 footer: 'Try Again'
-              })
+            })
         }
     } catch(error) {
         console.log(error.message)
