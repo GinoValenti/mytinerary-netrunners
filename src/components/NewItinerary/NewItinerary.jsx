@@ -1,6 +1,5 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { BASE_URL } from '../../api/url'
 import alertActions from '../../redux/actions/alertaCity'
 import citiesActions from '../../redux/actions/citiesActions'
 import itineraryAction from '../../redux/actions/itineraryAction'
@@ -72,7 +71,8 @@ function NewItinerary() {
   return (
     <>
       <div className='new-itinerary-container'>
-        <div onSubmite={''} className='new-itinerary-form'>
+        <h2 className='new-itinerary-title'>Create a new Itinerary</h2>
+        <div className='new-itinerary-form'>
         <select onClick={getCityId}>
           {
             cities.map(x => <option value={x._id} id={x._id} >{x.title}</option>)
@@ -94,7 +94,7 @@ function NewItinerary() {
           onChange={(e) => setDuration(Number(e.target.value))}
           placeholder='Enter duration' />
         <button type='submit'
-        className='save-new-button' onClick={NewItineraryCreate}>
+        className='save-itinerary-new-button' onClick={NewItineraryCreate}>
             Save
             </button>            
         </div>

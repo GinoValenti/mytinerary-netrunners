@@ -23,7 +23,7 @@ function NavBar() {
 
 
   };
-  let { logged , name , role , photo } = useSelector(store => store.usuario)
+  let { logged  } = useSelector(store => store.usuario)
   console.log(logged)
   return (
     <nav className="nav">
