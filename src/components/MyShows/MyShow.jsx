@@ -1,19 +1,24 @@
 import React from "react";
 import "./myshow.css";
 import { useDispatch, useSelector } from "react-redux";
-import {  useState } from "react";
+import {  useState ,useEffect} from "react";
 import showsAction from "../../redux/actions/showsAction";
 import Swal from "sweetalert2";
 import alertActions from '../../redux/actions/alertaHotel'
 
 import ModalHotel from "../../components/ModalHotel/ModalHotel";
-function MyShow() {
+function MyShow(props) {
+
+  const [idEdit, setIdEdit] = useState()
+  console.log(idEdit);
+  let {id}= props
+console.log(id);
   let {alerta}=alertActions
   const [isOpen, setIsOpen] = useState(false);
-  let [userIdSearch, setUserId] = useState("");
+
 
   //variable que contiene el id de la card que queremos editar
-  let [id, setId] = useState("");
+
 
   //desestructuro las acciones que necesito
   let { getShowsByUserId, deleteShow,editShow } = showsAction;
@@ -27,21 +32,22 @@ function MyShow() {
   const [price, setPrice] = useState('');
   const [hotelId, setHotelId] = useState('');
   const [description, setDescription] = useState('');
-  function listen() {
-    if (userIdSearch.length !== 24) {
-        console.log(userIdSearch);
-      Swal.fire({
-        title: "Error",
-        text: "The id that you send is wrong, try again.",
-      });
-    } else {
-      dispatch(getShowsByUserId({ userId: userIdSearch }));
-    }
-  }
+ 
+     
+      async function getUsers(){
+  
+        await  dispatch(getShowsByUserId({ userId: id }));
+      }
+      
+      
+      useEffect( ()=>{
+      
+        getUsers()
+      },[])
 
 
   //funcion que recibe un id para mandarle a la accion de eliminar un hotel
-  const handleDelete = (id) => {
+  const handleDelete = (idDelete) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -55,10 +61,12 @@ function MyShow() {
         Swal.fire("Deleted!", "Your city has been deleted.", "success");
         console.log(id);
 
-        dispatch(deleteShow({ id: id }));
+        dispatch(deleteShow({ id: idDelete }));
+        dispatch(getShowsByUserId({ userId: id }));
       }
-      dispatch(getShowsByUserId({ userId: userIdSearch }));
+      dispatch(getShowsByUserId({ userId: id }));
     });
+    dispatch(getShowsByUserId({ userId: id }));
   };
 
   //funcion para editar un hotel, envia el id y la data (objeto con lo que ingreso el usuario)
@@ -66,10 +74,10 @@ function MyShow() {
   let listenEdit = async (event) => {
     event.preventDefault()
 
-    let data = {name,photo,hotelId,price,description}
+    let data = {name,photo,price,description}
 console.log(data);
     try {
-      let res = await dispatch(editShow({id, data}))
+      let res = await dispatch(editShow({idEdit, data}))
 
       if (res.payload.success){
         Swal.fire({
@@ -79,7 +87,8 @@ console.log(data);
           imageHeight: 200,
           imageAlt: 'image',
         })
-        dispatch(getShowsByUserId({userId:userIdSearch}))
+        setIsOpen(false)
+        dispatch(getShowsByUserId({userId:id}))
       } else {
         dispatch(alerta(
           Swal.fire({
@@ -115,25 +124,13 @@ console.log(e);
         ></div>
       </div>
       {/* searchbar */}
-      <main className="maino">
-        <div className="search-bar">
-          <input
-            className="inputMyhotel"
-            onChange={(e) => setUserId(e.target.value)}
-            type="text"
-            placeholder="Search by your ID"
-          />
-          <button className="sendMyHotel" onClick={listen}>
-            Send
-          </button>
-        </div>
-      </main>
+   
 
          {/*  CARDS */}
       <div className="containerCardsHotel">
         {showsUser.length == 0 ? (
           <div className="errorMyHotel">
-            <h2>Please search a valid ID</h2>
+            <h2>You dont have shows</h2>
           </div>
         ) : (
             showsUser.map((x) => {
@@ -154,7 +151,7 @@ console.log(e);
                   </button>
                   <button
                     className="editButton"
-                    onClick={() => (setId(x._id),(setIsOpen(true)))}
+                    onClick={() => (setIdEdit(x._id),(setIsOpen(true)))}
                   >
                     EDIT HOTEL
                   </button>
@@ -200,14 +197,7 @@ console.log(e);
               placeholder="description"
               onChange={(e) => setDescription(e.target.value)}
             />
-            <input
-              htmlFor="Hotel ID"
-              type="text"
-              className="new-input"
-              name="Hotel ID"
-              placeholder="Hotel ID"
-              onChange={(e) => setHotelId(e.target.value)}
-            />
+         
         
             <div className="edit-button">
               <button onClick={listenEdit}  type="submit">Edit</button>

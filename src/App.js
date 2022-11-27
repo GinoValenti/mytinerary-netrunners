@@ -63,7 +63,7 @@ async function enterAgainToken(){
         <Route element={<ProtectedRoute isAllowed={logged ? true : false} reDirect={"/"} />}>
           <Route path='/myprofile' element={<MyProfilePage id={id}/>} ></Route>
           <Route path='/myitineraries' element={<MyItineraries/>}></Route>
-          <Route path='/myshow' element={<MyShowPage/>} ></Route>
+          <Route path='/myshow' element={<MyShowPage id={id}/>} ></Route>
         </Route>
 
 
