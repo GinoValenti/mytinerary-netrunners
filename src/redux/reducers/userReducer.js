@@ -2,7 +2,7 @@ import { createReducer } from "@reduxjs/toolkit";
 import userActions from "../actions/userAction";
 import usersActions from "../actions/usersActions";
 const { newUser } = usersActions
-const {enter,enterAgain} = userActions
+const {enter,enterAgain,getOneUser} = userActions
 const initialState ={
     profiles : [],
     name:"",
@@ -10,8 +10,8 @@ const initialState ={
     logged:false,
     token:"",
     role:"",
-   
-
+id:"",
+profile: []
 }
 
 
@@ -58,15 +58,15 @@ const userReducer = createReducer (initialState,
         console.log(action.payload);
         if (success) {
             let { user,token } = response 
-console.log(user);
+
             let newState = {
                 ...state,
-               
                 name: user.name,
                 photo: user.photo,
                 logged: true,
                 token: token,
-                role:user.role
+                role:user.role,
+                id:user.id
             }
             return newState
         } else {
@@ -76,7 +76,16 @@ console.log(user);
             }
             return newState
         }
-    }) })
+    })
+.addCase(getOneUser.fulfilled,(state,action)=>{
+console.log(action.payload);
+return{
+    ...state,
+profile: action.payload.user
+}
+
+})
+})
     
 
 

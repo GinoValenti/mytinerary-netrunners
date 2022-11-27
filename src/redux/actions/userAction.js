@@ -51,10 +51,28 @@ const enterAgain = createAsyncThunk('enterAgain', async (token) => {
         }
     }
 })
+const getOneUser = createAsyncThunk("getOneUser", async (id) => {
+    try {
+      const res = await axios.get(
+        `http://localhost:8000/api/auth/me/${id}`
+        );
+        
+
+        return { id:id, user: res.data.user};
+      } catch (error) {
+        console.log(error);
+        return {
+          payload: "Error",
+        };
+      }
+    });
+
+
 
 const userActions={
     enter,
-    enterAgain
+    enterAgain,
+    getOneUser
 }
 
 export default userActions

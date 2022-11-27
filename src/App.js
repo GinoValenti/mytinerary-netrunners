@@ -14,6 +14,7 @@ import NewHotelPage from "./pages/NewHotelPage/NewHotelPage"
 import DetailsCity from './pages/DetailsCity/DetailsCity';
 import NewCityPage from './pages/NewCityPage/NewCityPage';
 import MyCities from './components/MyCities/MyCities';
+import MyProfilePage from './pages/MyProfile/MyProfile';
 import MyItineraries from './components/MyItineraries/MyItineraries';
 import MyHotelPage from './pages/MyHotel/MyHotel';
 import MyShowPage from './pages/MyShow/MyShow';
@@ -26,16 +27,18 @@ let {enterAgain}= userActions
 let dispatch = useDispatch()
 
 
-let { logged,role} = useSelector(store => store.usuario)
+let { logged,role,id} = useSelector(store => store.usuario)
+console.log(id);
 
-console.log(role);
-
-  useEffect( async ()=>{
-    let token = JSON.parse(localStorage.getItem("token"))
-    if (token){
-     await dispatch(enterAgain(token.token.user))
-      
-    }
+async function enterAgainToken(){
+  let token = JSON.parse(localStorage.getItem("token"))
+  if (token){
+   await dispatch(enterAgain(token.token.user))
+    
+  }
+}
+  useEffect(  ()=>{
+ enterAgainToken()
   },[])
 
 
@@ -59,6 +62,7 @@ console.log(role);
         <Route element={<ProtectedRoute isAllowed={logged ? true : false} reDirect={"/"} />}>
           <Route path='/myitineraries' element={<MyItineraries/>}></Route>
           <Route path='/myshow' element={<MyShowPage/>} ></Route>
+          <Route path='/myprofile' element={<MyProfilePage id={id}/>} ></Route>
         </Route>
 
 

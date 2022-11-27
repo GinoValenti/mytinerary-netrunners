@@ -48,6 +48,7 @@ function NavBar() {
             Sign Up
           </NavLink>
         </li>
+       
         <Userbtn></Userbtn>
       </ul>
       <div onClick={navToggle} className={icon}>

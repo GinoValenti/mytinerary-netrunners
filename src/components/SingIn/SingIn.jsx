@@ -18,6 +18,7 @@ let {alerta} = alertActions
 
   async function singIn(event) {
     event.preventDefault()
+    window.location.reload(false);
     let data = {}
     Array.from(form.current).forEach(input=>{
         if(input.name) {
