@@ -7,8 +7,10 @@ import { useState,useEffect } from 'react'
 import userActions from '../../redux/actions/userAction'
 
 function MyProfile(props) {
+  
   const [name, setName] = useState('');
   const [photo, setPhoto] = useState('');
+  const [lastName, setlastName] = useState('');
   const [isOpen, setIsOpen] = useState(false);
 
 let{getOneUser,editUser}= userActions
@@ -36,14 +38,14 @@ useEffect( ()=>{
 let listenEdit = async (event) => {
   event.preventDefault()
 
-  let data = {name,photo}
+  let data = {name,photo,lastName}
 console.log(data);
   try {
     let res = await dispatch(editUser({id, data}))
 
     if (res.payload.success){
       Swal.fire({
-        title: `${name} show has been updated`,
+        title: `${name} has been updated`,
         imageUrl: photo,
         imageWidth: 400,
         imageHeight: 200,
@@ -79,7 +81,7 @@ console.log(data);
 
           <div class="user-profile-data">
            
-            <p>{profile[0]?.name}</p>
+            <p>{profile[0]?.name }</p>
             <button onClick={() => (setIsOpen(true))}>Edit profile</button>
           </div> 
         
@@ -96,6 +98,14 @@ console.log(data);
               placeholder="Name"
               onChange={(e) => setName(e.target.value)}
             />
+              <input
+                htmlFor="photo"
+                type="text"
+                className="new-input"
+                name="lastname"
+                placeholder="Last Name"
+                onChange={(e) => setlastName(e.target.value)}
+              />
             <input
               htmlFor="photo"
               type="text"

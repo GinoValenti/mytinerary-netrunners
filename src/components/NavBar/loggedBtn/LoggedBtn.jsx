@@ -13,6 +13,7 @@ function LoggedBtn() {
 
   return (
     <>
+    
       <Link to="/myprofile"><img className='user-logged-img' src={photo} alt={name} /></Link>
     </>
 
