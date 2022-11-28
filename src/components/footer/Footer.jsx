@@ -39,6 +39,7 @@ let { role } = useSelector(store => store.usuario)
                     {role === 'admin' ? <li><NavLink to="/mycities">MyCities</NavLink></li> : <></>}
                     {role === 'admin' ? <li><NavLink to="/myhotel">MyHotels</NavLink></li> : <></>}
                     {role === 'admin' || role === 'user' ? <li><NavLink to="/myshow">MyShow</NavLink></li> : <></>}
+                    {role === 'admin' || role === 'user' ? <li><NavLink to="/newitinerary">New Itinerary</NavLink></li> : <></>}
                     {role === 'admin' || role === 'user' ? <li><NavLink to="/myitineraries">MyItineraries</NavLink></li> : <></>}
                 </ul>
             </div>

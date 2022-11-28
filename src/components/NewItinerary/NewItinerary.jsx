@@ -7,7 +7,8 @@ import {useState, useEffect} from 'react'
 import './newitinerary.css'
 import Swal from 'sweetalert2'
 
-function NewItinerary() {
+function NewItinerary(props) {
+  
 
   let dispatch = useDispatch()
   let {getCities}=citiesActions

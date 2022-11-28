@@ -1,11 +1,13 @@
 .new-itinerary-container{
-    width: 50vw;
-    height: 100%;
-}
-.new-itinerary-form {
+    width: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
-    width: 100%;
+}
+.new-itinerary-form {   
+    display: flex;
+    justify-content: center;
+    width: 50%;
     padding: 15px;
     flex-direction: column;
     height: 100%;
