@@ -1,5 +1,4 @@
 import './App.css';
-import TestProfile from './components/profile-deprueba/TestProfile';
 import NotFoundPage from './pages/NotFound/NotFoundPage';
 import { Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
@@ -58,7 +57,6 @@ async function enterAgainToken(){
         <Route path='/signin' element={logged?<Home></Home>:<SignInPage/> }></Route>
         <Route path='/signup' element={logged?<Home></Home>:<SignUpPage/> }></Route>
         <Route path="*" element={<NotFoundPage/>}></Route>
-        <Route path="/testprofile" element={<TestProfile/>} ></Route>
 
         <Route element={<ProtectedRoute isAllowed={logged ? true : false} reDirect={"/"} />}>
           <Route path='/myprofile' element={<MyProfilePage id={id}/>} ></Route>

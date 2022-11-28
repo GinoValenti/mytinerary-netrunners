@@ -5,6 +5,8 @@ import Swal from "sweetalert2";
 import ModalHotel from "../../components/ModalHotel/ModalHotel";
 import { useState,useEffect } from 'react'
 import userActions from '../../redux/actions/userAction'
+import Logoutbtn from '../LogOutBtn/Logoutbtn';
+
 import  CreateShow  from '../../components/createShow/CreateShow';
 function MyProfile(props) {
   
@@ -77,6 +79,7 @@ console.log(data);
    <div class="profile-user-page card">
       <div class="img-user-profile">
         <img class="profile-bgHome" src="https://37.media.tumblr.com/88cbce9265c55a70a753beb0d6ecc2cd/tumblr_n8gxzn78qH1st5lhmo1_1280.jpg" />
+        <Logoutbtn/>
         <img class="avatar" src={profile[0]?.photo} alt="jofpin"/>
            </div>
 
