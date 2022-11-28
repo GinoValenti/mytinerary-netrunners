@@ -42,6 +42,13 @@ let listenEdit = async (event) => {
 
   let data = {name,photo,lastName}
 console.log(data);
+if (name === '' || photo === '' || photo === null  ) {
+  Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'You must complete all fields !',
+  })
+} else {
   try {
     let res = await dispatch(editUser({id, data}))
 
@@ -67,7 +74,7 @@ console.log(data);
   } catch(error) {
     console.log(error.message)
   }
-}
+}}
 
 
 

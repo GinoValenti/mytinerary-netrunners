@@ -67,6 +67,7 @@ a {
   .nav__toggler {
     display: block;
     cursor: pointer;
+    
   }
   .nav__menu {
     position: fixed;
@@ -90,16 +91,19 @@ a {
 /* Active Class */
 .nav__active {
   transform: translateX(0%);
+
 }
 
 /* Toggle Icon Animation */
 
 .toggle .line1 {
   transform: rotate(-45deg) translate(-4px, 5px);
+
 }
 .toggle .line2 {
   opacity: 0;
 }
 .toggle .line3 {
   transform: rotate(45deg) translate(-4px, -5px);
+
 }
