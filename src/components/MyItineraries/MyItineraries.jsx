@@ -7,12 +7,13 @@ import { useState, useEffect } from 'react'
 import Swal from 'sweetalert2'
 import Modal from '../Modal/Modal'
 
-function MyItineraries() {
+function MyItineraries(props) {
+
+  let { id  } = props
 
   let { getItinerariesUser, getAndDestroy, getAndEdit } = itineraryAction
   const dispatch = useDispatch()
 
-  let { id } = useSelector(store => store.usuario)
   console.log(id)
 
 
@@ -162,7 +163,6 @@ function MyItineraries() {
             </button>  
       </div>
     </Modal>
-    
     </>
   )
 }

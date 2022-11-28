@@ -16,7 +16,6 @@ const rootReducer={
     itinerary: itineraryReducer,
     usuario:userReducer,
     cities : citiesReducer,
-    itinerary: itineraryReducer,
     user: userReducer,
 }
 

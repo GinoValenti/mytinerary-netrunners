@@ -60,6 +60,31 @@ import { BASE_URL } from "../../api/url";
     }
   })
 
+  const newItinerary = createAsyncThunk('newItinerary', async (data) => {
+    let url = `${BASE_URL}/itinerary`
+    try {
+      let res = await axios.post(url,data)
+
+      if (res.data.id){
+        return {
+          success: true,
+          response: data,
+          responseid: res.data.id
+        }
+      } else {
+        return {
+          success: false,
+          response: res.data.message
+        }
+      }
+    } catch(error){
+      return {
+        success: false,
+        response: 'Debes llenar todos los campos'
+      }
+    }
+  })
+
 
 
 
@@ -68,7 +93,8 @@ import { BASE_URL } from "../../api/url";
 const toDoActions = {
   getAndDestroy,
   getItinerariesUser,
-  getAndEdit
+  getAndEdit,
+  newItinerary
 };
 
 export default toDoActions;

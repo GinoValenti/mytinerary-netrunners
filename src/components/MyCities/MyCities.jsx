@@ -6,18 +6,19 @@ import { useState } from 'react'
 import Swal from 'sweetalert2'
 import Modal from '../Modal/Modal'
 import './mycities.css'
+import { useEffect } from 'react'
 
-function MyCities() {
+function MyCities(props) {
+
+  let { id } = props
 
   let { getCitiesUser, getAndDestroy, getAndEdit } = citiesActions
   const dispatch = useDispatch()
 
   const { citiesAdmin } = useSelector((state)=> state.cities)
-  const [userId, setUserId] = useState('')
 
-  let listenDeleted=(id, e)=>{
-    console.log(userId)
-    console.log(id)
+  let listenDeleted=(idCity, e)=>{
+    console.log(idCity)
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -33,15 +34,12 @@ function MyCities() {
           'Your city has been deleted.',
           'success'
         )
-        console.log(id)
+        console.log(idCity)
     
-        dispatch(getAndDestroy({cityId: id}))
+        dispatch(getAndDestroy({cityId: idCity}))
 
-        dispatch(getCitiesUser({userId:userId}))
-        if (userId.length !== 24){
-          alert('el admind id es invalido')
-/*           dispatch(getCitiesUser()) */
-        }
+        dispatch(getCitiesUser({userId:id}))
+
       }
     })
 
@@ -74,7 +72,7 @@ function MyCities() {
           imageAlt: 'image',
         })
         setIsOpen(false)
-        dispatch(getCitiesUser({userId:userId}))
+        dispatch(getCitiesUser({userId:id}))
       } else {
         
           Swal.fire({
@@ -100,16 +98,13 @@ function MyCities() {
     setGo(id)
   }
 
-
-
-  let listenInput=()=>{
-    if (userId.length !== 24){
-      alert('no se pudo')
-    } else {
-      dispatch(getCitiesUser({userId:userId}))
-    }
-  
+  async function getLoggedCities() {
+    await dispatch(getCitiesUser({userId: id}))
   }
+
+  useEffect(()=> {
+    getLoggedCities()
+  },[])
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -122,11 +117,6 @@ function MyCities() {
   return (
     <>
     <div className='inputSearch-mycities'>
-    <input type="text" placeholder="CodeAdmin..." onChange={(e) => setUserId(e.target.value)} />
-    <button type='submit'
-        className='save-new-buttonn' onClick={listenInput}>
-            send adminId
-    </button>  
     </div>
     <div className='containerCardsHotel'>
       {citiesAdmin === undefined ? <h2>Nothing to see here</h2> : citiesAdmin.map(e=><MyCitiesCard key={e._id} event1={listenDeleted} event2={()=> setIsOpen(true)} go={listenEditGO} id={e._id} name={e.title} img={e.image} ></MyCitiesCard>)}
