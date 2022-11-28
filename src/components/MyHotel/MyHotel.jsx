@@ -7,15 +7,15 @@ import Swal from "sweetalert2";
 import alertActions from '../../redux/actions/alertaHotel'
 
 import ModalHotel from "../../components/ModalHotel/ModalHotel";
-function MyHotel() {
+import { useEffect } from "react";
+function MyHotel(props) {
+  const [idEdit, setIdEdit] = useState()
+  console.log(idEdit);
   let {alerta}=alertActions
   const [isOpen, setIsOpen] = useState(false);
-  let [userIdSearch, setUserId] = useState("");
+  let {id}= props
+  console.log(id);
 
-  //variable que contiene el id de la card que queremos editar
-  let [id, setId] = useState("");
-
-  //desestructuro las acciones que necesito
   let { getHotelsByUserId, deleteHotel,editHotel } = hotelsAction;
   const dispatch = useDispatch();
 
@@ -26,20 +26,17 @@ function MyHotel() {
   const [capacity, setCapacity] = useState('');
   const [citiId, setCitiId] = useState('');
 
-  function listen() {
-    if (userIdSearch.length !== 24) {
-      Swal.fire({
-        title: "Error",
-        text: "The id that you send is wrong, try again.",
-      });
-    } else {
-      dispatch(getHotelsByUserId({ userId: userIdSearch }));
-    }
-  }
+async function getHotels(){
+
+  await dispatch(getHotelsByUserId({ userId: id }));
+}
+   useEffect(()=>{
+    getHotels()
+   },[])
 
 
   //funcion que recibe un id para mandarle a la accion de eliminar un hotel
-  const handleDelete = (id) => {
+  const handleDelete = (idDelete) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -53,21 +50,23 @@ function MyHotel() {
         Swal.fire("Deleted!", "Your city has been deleted.", "success");
         console.log(id);
 
-        dispatch(deleteHotel({ id: id }));
-        dispatch(getHotelsByUserId({ userId: userIdSearch }));
+        dispatch(deleteHotel({ id: idDelete }));
+        dispatch(getHotelsByUserId({ userId: id }));
       }
+      dispatch(getHotelsByUserId({ userId: id }));
     });
+    dispatch(getHotelsByUserId({ userId: id }));
   };
 
   //funcion para editar un hotel, envia el id y la data (objeto con lo que ingreso el usuario)
   //hacia la accion
-  let listenEdit = async () => {
-    
+  let listenEdit = async (event) => {
+    event.preventDefault()
 
     let data = {name,capacity,photo,citiId}
 console.log(data);
     try {
-      let res = await dispatch(editHotel({id, data}))
+      let res = await dispatch(editHotel({idEdit, data}))
 
       if (res.payload.success){
         Swal.fire({
@@ -78,9 +77,9 @@ console.log(data);
           imageAlt: 'image',
         })
       setIsOpen(false)
-      dispatch(getHotelsByUserId({userId:userIdSearch}))
+      dispatch(getHotelsByUserId({userId:id}))
       } else {
-        dispatch(alerta(
+        dispatch((
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -113,26 +112,14 @@ console.log(e);
           id="checkbox-container"
         ></div>
       </div>
-      {/* searchbar */}
-      <main className="maino">
-        <div className="search-bar">
-          <input
-            className="inputMyhotel"
-            onChange={(e) => setUserId(e.target.value)}
-            type="text"
-            placeholder="Search by your ID"
-          />
-          <button className="sendMyHotel" onClick={listen}>
-            Send
-          </button>
-        </div>
-      </main>
+   
+      
 
          {/*  CARDS */}
       <div className="containerCardsHotel">
         {hotelsUser.length == 0 ? (
           <div className="errorMyHotel">
-            <h2>Please search a valid ID</h2>
+            <h2>You dont have hotels</h2>
           </div>
         ) : (
           hotelsUser.map((x) => {
@@ -153,7 +140,7 @@ console.log(e);
                   </button>
                   <button
                     className="editButton"
-                    onClick={() => (setId(x._id),(setIsOpen(true)))}
+                    onClick={() => (setIdEdit(x._id),(setIsOpen(true)))}
                   >
                     EDIT HOTEL
                   </button>

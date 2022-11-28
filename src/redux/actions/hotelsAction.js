@@ -91,8 +91,8 @@ try{
         }
       });
 
-      const editHotel = createAsyncThunk("editHotel", async  ({id,data})=>{
-        let url = `${BASE_URL}/hotels/${id}`
+      const editHotel = createAsyncThunk("editHotel", async  ({idEdit,data})=>{
+        let url = `${BASE_URL}/hotels/${idEdit}`
         try {
           let res = await axios.patch(url,data)
           if(res.data.id)  {

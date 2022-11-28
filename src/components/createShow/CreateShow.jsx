@@ -31,7 +31,7 @@ async function submit(event) {
         
         dispatch((Swal.fire({
           title: 'Congratulation!',
-          text: 'Your hotel has been created',
+          text: 'Your show has been created',
           imageUrl: photo,
           imageWidth: 400,
           imageHeight: 200,
