@@ -1,9 +1,10 @@
 import React from 'react'
 import MyHotel from '../../components/MyHotel/MyHotel'
 
-function MyHotelPage() {
+function MyHotelPage(props) {
+  let {id}= props
   return (
-    <MyHotel/>
+    <MyHotel id={id}/>
   )
 }
 

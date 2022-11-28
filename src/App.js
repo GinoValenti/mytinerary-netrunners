@@ -68,7 +68,7 @@ async function enterAgainToken(){
 
 
         <Route path='/myhotel' element={
-          <ProtectedRoute isAllowed={!!logged && role === "admin"} reDirect={"/"}> <MyHotelPage/> </ProtectedRoute>
+          <ProtectedRoute isAllowed={!!logged && role === "admin"} reDirect={"/"}> <MyHotelPage id={id}/> </ProtectedRoute>
        }
         ></Route>
         <Route path='/mycities' element={

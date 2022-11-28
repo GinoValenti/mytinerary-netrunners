@@ -65,7 +65,15 @@ console.log(filter) */
         </div>
          
     <div className='containerCardsHotel'> 
-    {hotels.map((x)=>{
+
+
+    {hotels.length === 0 ? (
+          <div className="errorMyHotel">
+          <h2>There are no results with your search</h2>
+        </div>
+    )
+    :( 
+    hotels.map((x)=>{
       return(
         
      
@@ -75,7 +83,7 @@ console.log(filter) */
                 <p className="descriptionHotel">This hotel has a capacity of <span className='Capacity'>{x.capacity}</span></p>
               </div>
             
-            )})}
+            )}))}
   </div>
 
   </>)
