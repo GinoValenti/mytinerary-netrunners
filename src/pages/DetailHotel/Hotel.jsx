@@ -89,7 +89,7 @@ console.log(filter);
               
                     
          {(show.length==0)? <h2 className='ShowError'>
-Coming soon new shows at the hotel, stay tuned</h2>:show.map(e=><Show  name={e?.name} photo={e?.photo}/>) }           
+Coming soon new shows at the hotel, stay tuned</h2>:show.map(e=><Show  name={e?.name} photo={e?.photo} description={e?.description}/>) }           
        
      
         
