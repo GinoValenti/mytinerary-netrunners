@@ -59,14 +59,14 @@ async function enterAgainToken(){
         <Route path="*" element={<NotFoundPage/>}></Route>
 
         <Route element={<ProtectedRoute isAllowed={logged ? true : false} reDirect={"/"} />}>
-          <Route path='/myitineraries' element={<MyItineraries/>}></Route>
-          <Route path='/myshow' element={<MyShowPage/>} ></Route>
           <Route path='/myprofile' element={<MyProfilePage id={id}/>} ></Route>
+          <Route path='/myitineraries' element={<MyItineraries/>}></Route>
+          <Route path='/myshow' element={<MyShowPage id={id}/>} ></Route>
         </Route>
 
 
         <Route path='/myhotel' element={
-          <ProtectedRoute isAllowed={!!logged && role === "admin"} reDirect={"/"}> <MyHotelPage/> </ProtectedRoute>
+          <ProtectedRoute isAllowed={!!logged && role === "admin"} reDirect={"/"}> <MyHotelPage id={id}/> </ProtectedRoute>
        }
         ></Route>
         <Route path='/mycities' element={

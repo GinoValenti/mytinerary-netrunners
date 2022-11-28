@@ -1,9 +1,10 @@
 import React from 'react'
 import MyShow from '../../components/MyShows/MyShow'
 
-function MyShowPage() {
+function MyShowPage(props) {
+  let {id} = props
   return (
-    <MyShow/>
+    <MyShow id={id}/>
   )
 }
 

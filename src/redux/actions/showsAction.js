@@ -7,6 +7,32 @@ import { BASE_URL } from '../../api/url'
 //para la peticion necesito que me llegue por parametro un objeto con toda la data q necesito 
 
   
+const newShow = createAsyncThunk("newShow", async (data) =>{
+  let url = `http://localhost:8000/api/shows`
+  try{
+    let res = await axios.post(url,data)
+      console.log(res.data);
+    if(res.data.id){
+  
+      return {
+        responseId: res.data.id,
+        success: true,
+         response:data
+      }
+    }else{
+      return {
+        success: false, 
+        response:res.data.message
+      }
+    }
+  }catch(error){
+    console.log(error);
+    return {
+      success: false, response:"error"
+    }
+  }
+    })
+
   const getShowsByUserId = createAsyncThunk("getShowsByUserId", async ({userId}) => {
     try {
       const res = await axios.get(
@@ -39,8 +65,8 @@ import { BASE_URL } from '../../api/url'
         }
       });
 
-      const editShow = createAsyncThunk("editShow", async  ({id,data})=>{
-        let url = `${BASE_URL}/shows/${id}`
+      const editShow = createAsyncThunk("editShow", async  ({idEdit,data})=>{
+        let url = `${BASE_URL}/shows/${idEdit}`
         try {
           let res = await axios.patch(url,data)
           if(res.data.id)  {
@@ -66,7 +92,8 @@ import { BASE_URL } from '../../api/url'
     
         getShowsByUserId,
       deleteShow,
-      editShow
+      editShow,
+      newShow
     };
     
   export default showsAction
