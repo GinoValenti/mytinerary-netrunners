@@ -76,6 +76,14 @@ console.log(id);
 
     let data = {name,photo,price,description}
 console.log(data);
+
+if (name === '' || photo === '' || photo === null || description === '' || price === ''  ) {
+  Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'You must complete all fields !',
+  })
+} else {
     try {
       let res = await dispatch(editShow({idEdit, data}))
 
@@ -89,20 +97,22 @@ console.log(data);
         })
         setIsOpen(false)
         dispatch(getShowsByUserId({userId:id}))
-      } else {
-        dispatch(alerta(
+      } 
+      
+      else {
+        
+      
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: res.payload.response,
-/*             text: res.payload.response2  */
-          })))
+          })
       }
 
     } catch(error) {
       console.log(error.message)
     }
-  }
+  }}
   console.log(id);
 
 /*   const editHotel = (e) =>{

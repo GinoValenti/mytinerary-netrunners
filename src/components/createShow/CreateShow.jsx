@@ -14,6 +14,7 @@ const {getOnlyHotels}= hotelsAction
     let { id } = useSelector(store => store.usuario)
     let userId = id
     let {newShow} = showsAction
+    
 let dispatch = useDispatch()
 
 useEffect( ()=>{
@@ -23,8 +24,16 @@ useEffect( ()=>{
 
 async function submit(event) {
     event.preventDefault()
-    let data = {hotelId,userId,name,description,photo,price,date}
+    let data = {name,description,photo,price,date}
     console.log(data);
+
+    if (name === '' || photo === '' || photo === null || description === '' || price === '' || date === '' ) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'You must complete all fields !',
+      })
+    } else {
     try{
       let res = await dispatch(newShow(data))
       if(res.payload.success){
@@ -52,7 +61,7 @@ async function submit(event) {
     }catch(error){
       console.log(error);
     }
-  };
+  }}
   const [name, setName] = useState('');
   const [photo, setPhoto] = useState('');
   const [description, setDescription] = useState('');

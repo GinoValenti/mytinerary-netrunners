@@ -65,6 +65,14 @@ async function getHotels(){
 
     let data = {name,capacity,photo,citiId}
 console.log(data);
+
+if (name === '' || photo === '' || photo === null || capacity === ''  ) {
+  Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'You must complete all fields !',
+  })
+} else {
     try {
       let res = await dispatch(editHotel({idEdit, data}))
 
@@ -91,7 +99,7 @@ console.log(data);
     } catch(error) {
       console.log(error.message)
     }
-  }
+  }}
   console.log(id);
 
 /*   const editHotel = (e) =>{
