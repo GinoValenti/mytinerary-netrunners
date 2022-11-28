@@ -72,8 +72,8 @@ function NewItinerary(props) {
   return (
     <>
       <div className='new-itinerary-container'>
-        <h2 className='new-itinerary-title'>Create a new Itinerary</h2>
         <div className='new-itinerary-form'>
+        <h2 className='new-itinerary-title'>Create a new Itinerary</h2>
         <select onClick={getCityId}>
           {
             cities.map(x => <option value={x._id} id={x._id} >{x.title}</option>)
