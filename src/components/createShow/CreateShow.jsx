@@ -24,7 +24,7 @@ useEffect( ()=>{
 
 async function submit(event) {
     event.preventDefault()
-    let data = {name,description,photo,price,date}
+    let data = {hotelId,name,description,photo,price,date,userId}
     console.log(data);
 
     if (name === '' || photo === '' || photo === null || description === '' || price === '' || date === '' ) {

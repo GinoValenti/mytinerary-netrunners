@@ -2,7 +2,7 @@ import React, { useState ,useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './newhotel.css'
 import Swal from 'sweetalert2'
-import {useDispatch} from "react-redux"
+import {useDispatch,useSelector} from "react-redux"
 import hotelsAction from "../../redux/actions/hotelsAction"
 import alertActions from '../../redux/actions/alertaHotel'
 
@@ -12,6 +12,8 @@ function NewHotel() {
   let {alerta}=alertActions
   let navigate = useNavigate()
   let form = useRef()
+  let { id } = useSelector(store => store.usuario)
+  let userId = id
   async function submit(event) {
     event.preventDefault()
     let data = {name,capacity,photo,citiId,userId}
@@ -50,7 +52,7 @@ function NewHotel() {
   const [photo, setPhoto] = useState('');
   const [capacity, setCapacity] = useState('');
   const [citiId, setCitiId] = useState('');
-  const [userId, setUserId] = useState('')
+
 
 
 
@@ -71,9 +73,6 @@ function NewHotel() {
         <input htmlFor='citiId' className='new-input' name='citiId' type="text"
         onChange={(e) => setCitiId(e.target.value)}
         placeholder='Enter city id' />
-        <input htmlFor='userId' className='new-input' name='userId' type="text"
-        onChange={(e) => setUserId(e.target.value)}
-        placeholder='Enter admin id' />
         <button
         className='save-new-button' onClick={submit}>
             Save
