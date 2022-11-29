@@ -5,6 +5,7 @@ import alertReducer from "./alertHotelReducer"
 import showsReducer from "./showsReducer";
 import itineraryReducer from "./itineraryReducer";
 import userReducer from "./userReducer";
+import reactionReducer from "./reactionReducer";
 
 
 
@@ -17,6 +18,7 @@ const rootReducer={
     usuario:userReducer,
     cities : citiesReducer,
     user: userReducer,
+    reaction: reactionReducer
 }
 
 export default rootReducer;

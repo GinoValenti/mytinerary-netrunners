@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import itineraryAction from "../actions/itineraryAction";
 
-const {getItinerariesUser, getAndDestroy , getAndEdit , newItinerary}= itineraryAction
+const {getAllItineraries, getItinerariesUser, getAndDestroy , getAndEdit , newItinerary}= itineraryAction
 
 const initialState={
     itineraryId : '',
@@ -12,6 +12,12 @@ const initialState={
 const itineraryReducer = createReducer(initialState,
     (builder)=>{
         builder
+        .addCase(getAllItineraries.fulfilled,(state,action)=>{
+            return {
+                ...state,
+                itinerary: action.payload.itineraries
+            }
+        })
         .addCase(newItinerary.fulfilled,(state,action)=> {
             if (action.payload.success){
                 state.itinerary.push(action.payload.response)
