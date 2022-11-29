@@ -7,10 +7,11 @@ import { BASE_URL } from '../../api/url'
 //para la peticion necesito que me llegue por parametro un objeto con toda la data q necesito 
 
   
-const newShow = createAsyncThunk("newShow", async (data) =>{
+const newShow = createAsyncThunk("newShow", async ({data,token}) =>{
   let url = `http://localhost:8000/api/shows`
+  let headers = {headers: {'Authorization':` Bearer ${token}`}}
   try{
-    let res = await axios.post(url,data)
+    let res = await axios.post(url,data,headers)
       console.log(res.data);
     if(res.data.id){
   
@@ -49,10 +50,12 @@ const newShow = createAsyncThunk("newShow", async (data) =>{
       }
     });
 
-    const deleteShow = createAsyncThunk("deleteShow", async ({id}) => {
+    const deleteShow = createAsyncThunk("deleteShow", async ({id,token}) => {
+      let url =  `http://localhost:8000/api/shows/${id}`
+      let headers = {headers: {'Authorization':` Bearer ${token}`}}
       try {
         const res = await axios.delete(
-          `http://localhost:8000/api/shows/${id}`
+         url,headers
           );
           
          
@@ -65,10 +68,11 @@ const newShow = createAsyncThunk("newShow", async (data) =>{
         }
       });
 
-      const editShow = createAsyncThunk("editShow", async  ({idEdit,data})=>{
+      const editShow = createAsyncThunk("editShow", async  ({idEdit,data,token})=>{
         let url = `${BASE_URL}/shows/${idEdit}`
+        let headers = {headers: {'Authorization':` Bearer ${token}`}}
         try {
-          let res = await axios.patch(url,data)
+          let res = await axios.patch(url,data,headers)
           if(res.data.id)  {
           return {
             responseId: res.data.id,
