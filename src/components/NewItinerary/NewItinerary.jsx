@@ -7,7 +7,7 @@ import {useState, useEffect} from 'react'
 import './newitinerary.css'
 import Swal from 'sweetalert2'
 
-function NewItinerary(props) {
+function NewItinerary() {
   
 
   let dispatch = useDispatch()
@@ -15,7 +15,8 @@ function NewItinerary(props) {
   let {newItinerary} = itineraryAction
   let {alerta} = alertActions
 
-  let { id } = useSelector(store => store.usuario)
+  let { id, token } = useSelector(store => store.usuario)
+  console.log(token)
   let userId = id
 
   console.log('El id del usuario ' + userId  )
@@ -32,7 +33,7 @@ function NewItinerary(props) {
     let data = {  cityId, userId,  name, photo, description, price, duration }
 
     try {
-      let res = await dispatch(newItinerary(data))
+      let res = await dispatch(newItinerary({data, token}))
       console.log(res.payload.response)
       if (res.payload.success){
         Swal.fire({

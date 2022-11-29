@@ -10,6 +10,7 @@ import Modal from '../Modal/Modal'
 function MyItineraries(props) {
 
   let { id  } = props
+  let { token } = useSelector(store => store.usuario)
 
   let { getItinerariesUser, getAndDestroy, getAndEdit } = itineraryAction
   const dispatch = useDispatch()
@@ -41,7 +42,7 @@ function MyItineraries(props) {
           'success'
         )
         console.log(idItinerary)
-        dispatch(getAndDestroy({itineraryId: idItinerary}))
+        dispatch(getAndDestroy({itineraryId : idItinerary, token: token}))
         dispatch(getItinerariesUser({userId: id}))
       }
       dispatch(getItinerariesUser({userId: id}))
@@ -65,7 +66,7 @@ function MyItineraries(props) {
 
 
     try {
-      let res = await dispatch(getAndEdit({go, data}))
+      let res = await dispatch(getAndEdit({go, data, token}))
       console.log(res.payload.success)
       if (res.payload.success){
         Swal.fire({

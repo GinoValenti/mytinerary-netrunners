@@ -18,10 +18,12 @@ import { BASE_URL } from "../../api/url";
     }
   });
 
-  const getAndDestroy = createAsyncThunk("getAndDestroy", async ({itineraryId})=> {
+  
+  const getAndDestroy = createAsyncThunk("getAndDestroy", async ({itineraryId, token})=> {
+    let headers = { headers: { Authorization: `Bearer ${token}`}}
     try {
       const res = await axios.delete(
-        `${BASE_URL}/itinerary/itineraryDelete/${itineraryId}`
+        `${BASE_URL}/itinerary/itineraryDelete/${itineraryId}`, headers
       )
       return { itinerary: res.data.itinerary }
     } catch (error) {
@@ -32,12 +34,15 @@ import { BASE_URL } from "../../api/url";
     }
   })
 
-  const getAndEdit = createAsyncThunk("getAndEdit", async ({data, go})=> {
-
+ 
+  const getAndEdit = createAsyncThunk("getAndEdit", async ({data, go, token})=> {
+  
+    let headers = { headers: { Authorization: `Bearer ${token}`}}
+    
     let url = `${BASE_URL}/itinerary/itineraryUpdate/${go}`
     
     try {
-      let res = await axios.put(url,data)
+      let res = await axios.put(url, data, headers)
   
       if (res.data.id){
         console.log(res.data.id)
@@ -60,10 +65,11 @@ import { BASE_URL } from "../../api/url";
     }
   })
 
-  const newItinerary = createAsyncThunk('newItinerary', async (data) => {
+  const newItinerary = createAsyncThunk('newItinerary', async ({data, token}) => {
+    let headers = { headers: { Authorization: `Bearer ${token}`}}
     let url = `${BASE_URL}/itinerary`
     try {
-      let res = await axios.post(url,data)
+      let res = await axios.post(url,data,headers)
 
       if (res.data.id){
         return {

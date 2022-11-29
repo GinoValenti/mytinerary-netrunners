@@ -11,7 +11,6 @@ function Logoutbtn() {
     let { logOut } = usersActions
 
     let { token } = useSelector(store => store.usuario)
-    console.log(token)
 
     function logOutBtn(event) {
       event.preventDefault()

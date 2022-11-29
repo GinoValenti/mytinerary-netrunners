@@ -6,7 +6,7 @@ import ModalHotel from "../../components/ModalHotel/ModalHotel";
 import { useState,useEffect } from 'react'
 import userActions from '../../redux/actions/userAction'
 import Logoutbtn from '../LogOutBtn/Logoutbtn';
-import NewItinerary from '../NewItinerary/NewItinerary'
+
 import  CreateShow  from '../../components/createShow/CreateShow';
 function MyProfile(props) {
   
@@ -95,11 +95,8 @@ if (name === '' || photo === '' || photo === null  ) {
             <p>{profile[0]?.name }</p>
             <button onClick={() => (setIsOpen(true))}>Edit profile</button>
             <Logoutbtn/>
-          </div>
-          <div className='new-itshow-container'>
-            <CreateShow/>
-            <NewItinerary/>
-          </div>
+          </div> 
+  <CreateShow></CreateShow>
         
       
       </div>
