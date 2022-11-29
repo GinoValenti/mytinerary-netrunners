@@ -53,11 +53,11 @@ const getCities = createAsyncThunk("getCities", async (value) => {
     }
   });
 
-  const getAndDestroy = createAsyncThunk("getAndDestroy", async ({cityId})=> {
-
+  const getAndDestroy = createAsyncThunk("getAndDestroy", async ({cityId, token})=> {
+    let headers = { headers: { Authorization: `Bearer ${token}`}}
     try {
       const res = await axios.delete(
-        `${BASE_URL}/cities/citiesDelete/${cityId}`
+        `${BASE_URL}/cities/citiesDelete/${cityId}`, headers
         )
         console.log(res.data.city)
       return { cities: res.data.city }
@@ -71,12 +71,12 @@ const getCities = createAsyncThunk("getCities", async (value) => {
     
   })
 
-  const getAndEdit = createAsyncThunk("getAndEdit", async ({data, go})=> {
-
+  const getAndEdit = createAsyncThunk("getAndEdit", async ({data, go, token})=> {
+    let headers = { headers: { Authorization: `Bearer ${token}`}}
     let url = `${BASE_URL}/cities/citiesUpdate/${go}`
     
     try {
-      let res = await axios.put(url,data)
+      let res = await axios.put(url,data, headers)
   
       if (res.data.id){
         console.log(res.data.id)
@@ -101,10 +101,11 @@ const getCities = createAsyncThunk("getCities", async (value) => {
 
 
 
-const newCity = createAsyncThunk('newCity', async (data) => {
+const newCity = createAsyncThunk('newCity', async ({data, token}) => {
+  let headers = { headers: { Authorization: `Bearer ${token}`}}
   let url = `${BASE_URL}/cities`
   try {
-    let res = await axios.post(url,data)
+    let res = await axios.post(url,data,headers)
 
     if (res.data.id){
       console.log(res.data.id)

@@ -12,6 +12,9 @@ import './newcity.css'
 
 function NewCity() {
 
+
+  let { token } = useSelector(store => store.usuario)
+
   const history = useNavigate()
 
   let form = useRef()
@@ -28,15 +31,13 @@ function NewCity() {
     dispatch(getCities('cities'))
   },[])
 
-  
-
 
   async function newCityCreate(event) {
     event.preventDefault()
     let data = {title,continent,image,population,userId}
 
     try {
-      let res = await dispatch(newCity(data))
+      let res = await dispatch(newCity({data, token}))
 
       if (res.payload.success){
         Swal.fire({

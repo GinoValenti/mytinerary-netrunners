@@ -10,6 +10,8 @@ import { useEffect } from 'react'
 
 function MyCities(props) {
 
+  let { token } = useSelector(store => store.usuario)
+
   let { id } = props
 
   let { getCitiesUser, getAndDestroy, getAndEdit } = citiesActions
@@ -36,11 +38,10 @@ function MyCities(props) {
         )
         console.log(idCity)
     
-        dispatch(getAndDestroy({cityId: idCity}))
-
+        dispatch(getAndDestroy({cityId: idCity, token: token}))
         dispatch(getCitiesUser({userId:id}))
-
       }
+      dispatch(getCitiesUser({userId: id}))
     })
 
   }
@@ -61,7 +62,7 @@ function MyCities(props) {
 
 
     try {
-      let res = await dispatch(getAndEdit({go, data}))
+      let res = await dispatch(getAndEdit({go, data, token}))
       console.log(res.payload.success)
       if (res.payload.success){
         Swal.fire({
