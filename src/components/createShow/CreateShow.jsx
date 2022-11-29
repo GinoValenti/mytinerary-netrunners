@@ -77,6 +77,7 @@ function getHotelId(e){
  
     <div className='new-itinerary-container'>
     <div className='new-itinerary-form' >
+    <h2 className='new-itinerary-title'>New Show</h2>
         <select onChange={getHotelId}  name="" id="">
 
 

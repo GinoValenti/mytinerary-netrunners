@@ -18,7 +18,6 @@ import MyProfilePage from './pages/MyProfile/MyProfile';
 import MyItineraries from './components/MyItineraries/MyItineraries';
 import MyHotelPage from './pages/MyHotel/MyHotel';
 import MyShowPage from './pages/MyShow/MyShow';
-import NewItineraryPage from './pages/NewItineraryPage/NewItineraryPage';
 import ProtectedRoute from "./components/ProtectedRoute"
 import { useDispatch, useSelector } from "react-redux";
 import userActions from './redux/actions/userAction';
@@ -61,7 +60,6 @@ async function enterAgainToken(){
 
         <Route element={<ProtectedRoute isAllowed={logged ? true : false} reDirect={"/"} />}>
           <Route path='/myitineraries' element={<MyItineraries id={id} />}></Route>
-          <Route path='/newitinerary' element={<NewItineraryPage />} ></Route>
           <Route path='/myprofile' element={<MyProfilePage id={id}/>} ></Route>
           <Route path='/myshow' element={<MyShowPage id={id}/>} ></Route>
         </Route>
