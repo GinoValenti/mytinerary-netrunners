@@ -10,6 +10,8 @@ function NewHotel() {
   let dispatch = useDispatch()
   let {newHotel} = hotelsAction //se importa las acciones y desectrusturamos la accion que necesitamos
   let {alerta}=alertActions
+  let { token} = useSelector(store => store.usuario)
+  console.log(token);
   let navigate = useNavigate()
   let form = useRef()
   let { id } = useSelector(store => store.usuario)
@@ -19,7 +21,7 @@ function NewHotel() {
     let data = {name,capacity,photo,citiId,userId}
     
     try{
-      let res = await dispatch(newHotel(data))//llamo al dispatch y requiero la accion que necesito y la data del nuevo hotel
+      let res = await dispatch(newHotel({data,token}))//llamo al dispatch y requiero la accion que necesito y la data del nuevo hotel
       if(res.payload.success){//la carga esta en res.payload que viene de la accion 
         //si es success que llame a la accion alerta de exito
         dispatch(alerta(Swal.fire({

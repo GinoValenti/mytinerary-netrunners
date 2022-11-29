@@ -12,6 +12,7 @@ function MyHotel(props) {
   const [idEdit, setIdEdit] = useState()
   console.log(idEdit);
   let {alerta}=alertActions
+  let { token} = useSelector(store => store.usuario)
   const [isOpen, setIsOpen] = useState(false);
   let {id}= props
   console.log(id);
@@ -50,7 +51,7 @@ async function getHotels(){
         Swal.fire("Deleted!", "Your city has been deleted.", "success");
         console.log(id);
 
-        dispatch(deleteHotel({ id: idDelete }));
+        dispatch(deleteHotel({ id: idDelete ,token:token}));
         dispatch(getHotelsByUserId({ userId: id }));
       }
       dispatch(getHotelsByUserId({ userId: id }));
@@ -74,7 +75,7 @@ if (name === '' || photo === '' || photo === null || capacity === ''  ) {
   })
 } else {
     try {
-      let res = await dispatch(editHotel({idEdit, data}))
+      let res = await dispatch(editHotel({idEdit, data,token}))
 
       if (res.payload.success){
         Swal.fire({

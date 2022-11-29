@@ -34,10 +34,12 @@ const getHotels = createAsyncThunk("getHotels", async ({string,valueSearch,value
   });
 
 
-  const newHotel = createAsyncThunk("newHotel", async (data) =>{
+  const newHotel = createAsyncThunk("newHotel", async ({data,token}) =>{
+    
 let url = `${BASE_URL}/hotels`
+let headers = {headers: {'Authorization':` Bearer ${token}`}}
 try{
-  let res = await axios.post(url,data)
+  let res = await axios.post(url,data,headers)
     console.log(res.data);
   if(res.data.id){
 
@@ -75,11 +77,11 @@ try{
       }
     });
 
-    const deleteHotel = createAsyncThunk("deleteHotel", async ({id}) => {
+    const deleteHotel = createAsyncThunk("deleteHotel", async ({id,token}) => {
+      let headers = {headers: {'Authorization':` Bearer ${token}`}}
+      let url = `http://localhost:8000/api/hotels/${id}`
       try {
-        const res = await axios.delete(
-          `http://localhost:8000/api/hotels/${id}`
-          );
+        const res = await axios.delete(url,headers);
           
           console.log(res.data.allhotels);
           return { hotels: res.data.allhotels };
@@ -91,10 +93,11 @@ try{
         }
       });
 
-      const editHotel = createAsyncThunk("editHotel", async  ({idEdit,data})=>{
+      const editHotel = createAsyncThunk("editHotel", async  ({idEdit,data,token})=>{
+        let headers = {headers: {'Authorization':` Bearer ${token}`}}
         let url = `${BASE_URL}/hotels/${idEdit}`
         try {
-          let res = await axios.patch(url,data)
+          let res = await axios.patch(url,data,headers)
           if(res.data.id)  {
           return {
             responseId: res.data.id,

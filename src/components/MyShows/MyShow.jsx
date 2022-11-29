@@ -13,6 +13,7 @@ function MyShow(props) {
   console.log(idEdit);
   let {id}= props
 console.log(id);
+let { token} = useSelector(store => store.usuario)
   let {alerta}=alertActions
   const [isOpen, setIsOpen] = useState(false);
 
@@ -61,7 +62,7 @@ console.log(id);
         Swal.fire("Deleted!", "Your city has been deleted.", "success");
         console.log(id);
 
-        dispatch(deleteShow({ id: idDelete }));
+        dispatch(deleteShow({ id: idDelete, token:token }));
         dispatch(getShowsByUserId({ userId: id }));
       }
       dispatch(getShowsByUserId({ userId: id }));
@@ -85,7 +86,7 @@ if (name === '' || photo === '' || photo === null || description === '' || price
   })
 } else {
     try {
-      let res = await dispatch(editShow({idEdit, data}))
+      let res = await dispatch(editShow({idEdit, data,token}))
 
       if (res.payload.success){
         Swal.fire({

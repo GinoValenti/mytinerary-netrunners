@@ -9,7 +9,7 @@ import Logoutbtn from '../LogOutBtn/Logoutbtn';
 
 import  CreateShow  from '../../components/createShow/CreateShow';
 function MyProfile(props) {
-  
+  let { token} = useSelector(store => store.usuario)
   const [name, setName] = useState('');
   const [photo, setPhoto] = useState('');
   const [lastName, setlastName] = useState('');
@@ -50,7 +50,7 @@ if (name === '' || photo === '' || photo === null  ) {
   })
 } else {
   try {
-    let res = await dispatch(editUser({id, data}))
+    let res = await dispatch(editUser({id, data,token}))
 
     if (res.payload.success){
       Swal.fire({

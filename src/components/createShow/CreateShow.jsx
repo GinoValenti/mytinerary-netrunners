@@ -9,6 +9,7 @@ import { useEffect } from 'react'
 import "./createshow.css"
 function CreateShow()  {
 const {getOnlyHotels}= hotelsAction
+let { token} = useSelector(store => store.usuario)
     const {hotels} = useSelector((state) => state.hotels); 
     console.log(hotels);
     let { id } = useSelector(store => store.usuario)
@@ -35,7 +36,7 @@ async function submit(event) {
       })
     } else {
     try{
-      let res = await dispatch(newShow(data))
+      let res = await dispatch(newShow({data,token}))
       if(res.payload.success){
         
         dispatch((Swal.fire({
