@@ -1,5 +1,4 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { type } from "@testing-library/user-event/dist/type";
 import citiesAction from "../actions/citiesActions";
 
 const {getCitiesFilter,getCities,newCity, getCitiesUser, getAndDestroy, getAndEdit}= citiesAction

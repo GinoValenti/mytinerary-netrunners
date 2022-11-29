@@ -1,4 +1,4 @@
-import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { BASE_URL } from '../../api/url'
 const getHotels = createAsyncThunk("getHotels", async ({string,valueSearch,valueSelect}) => {
