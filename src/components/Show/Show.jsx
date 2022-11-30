@@ -23,7 +23,8 @@ function Show(props) {
 
   async function getHotels(){
 
-    await dispatch(getAllComments(idShow));
+    await dispatch(getAllComments(idShow))
+
     
   }
      useEffect(()=>{
@@ -47,7 +48,10 @@ function Show(props) {
 
           
         <NewComment idShow={idShow}></NewComment>      
-         {logged === false ? <Link className='signInashe' to="/signin">Sing In to see the comments</Link>:(comments.length===0)? <h2 className='ShowError'>Be the first comment!</h2>:
+         {logged === false ? <Link className='signInashe' to="/signin">Sing In to see the comments</Link>:
+
+      
+
      comments.map((x)=>{
 
 return(
@@ -78,7 +82,7 @@ return(
        
         <span class="comment-date">{x.date}</span>
         {id === x.userId ?<div class="comments-buttons">
-  <button className='buttonsishos'>Delete</button>
+  <button className='buttonsishos'  >Delete</button>
   <button className='buttonsishos'>Edit</button>
   </div>:<h2 className='display-none'>.</h2>}
       </div>

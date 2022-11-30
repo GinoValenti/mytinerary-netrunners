@@ -8,7 +8,7 @@ function NewComment (props) {
     const [comment, setComment] = useState('');
 
     let form = useRef()
-
+    let { token} = useSelector(store => store.usuario)
     let { id,logged,photo} = useSelector(store => store.usuario)
     let userId = id
     let {postComments}= commentAction
@@ -27,23 +27,13 @@ function NewComment (props) {
          try {
 
             
-            let res =  await dispatch(postComments({data}))
-       console.log(res);
-       if(comment.length<3){
-        Swal.fire({
-            title: 'Error!',
-            text: "The comment is too short",
-            icon: 'error',
-            confirmButtonText: 'Cool'
-          })
-    }else{
-           setComment('')
-       
-       }
+           let res =  await dispatch(postComments({data,token}))
+           console.log(res);
+           
     } catch (error) {
         console.log(error);
     }  
-    setComment('')
+
     }
 
   return (

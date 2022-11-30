@@ -14,14 +14,15 @@ const getAllComments = createAsyncThunk("getAllComments",async (idShow)=>{
         return {
             payload: "Error",
           }; 
-          
+   
     }
 })
 
-const postComments = createAsyncThunk("postComments", async ({data})=>{
+const postComments = createAsyncThunk("postComments", async ({data,token})=>{
     let url = `http://localhost:8000/api/comments`
+    let headers = {headers: {'Authorization':` Bearer ${token}`}}
     try {
-        let res = await axios.post ( url,data)
+        let res = await axios.post ( url,data,headers)
         if(res.data.id){
             return{
                 responseId: res.data.id,
