@@ -7,7 +7,7 @@ import SignInPage from '../../pages/SignIn/SignInPage';
 import commentAction from "../../redux/actions/commentAction";
 function NewComment (props) {
     const [comment, setComment] = useState('');
-  
+  let {reload, setReload} = props
     let form = useRef()
     let { token} = useSelector(store => store.usuario)
     let { id,logged,photo} = useSelector(store => store.usuario)
@@ -32,6 +32,7 @@ function NewComment (props) {
           
           
           let res =  await dispatch(postComments({data,token}))
+          
          if (res.payload.success){
            dispatch(getAllComments(showId))
 
@@ -39,9 +40,10 @@ function NewComment (props) {
             title: "Comment sent"
           
           })
-   
+          dispatch(getAllComments(showId))
          }
-           
+         dispatch(getAllComments(showId))
+           setReload(!reload)
     } catch (error) {
         console.log(error);
     }  

@@ -14,7 +14,7 @@ function Show(props) {
   console.log(idShow);
 
   const [mostrarOcultar, setMostrarOcultar] = useState(false)
-  let { comments} = useSelector(store => store.comments)
+
 
   let { logged ,id,token } = useSelector(store => store.usuario)
   console.log(logged);
@@ -24,40 +24,42 @@ function Show(props) {
 
   async function getHotels(){
 
-    await dispatch(getAllComments(idShow))
-
-    
-  }
-     useEffect(()=>{
-      getHotels()
-     },[])
-
-    console.log(comments);
-
-
-
-    const handleDelete = (idDelete) => {
-
-      Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire("Deleted!", "Your comment has been deleted.", "success");
-
-          dispatch(deleteAction({idDelete,token}))
-          console.log(idDelete);
-          dispatch(getAllComments(idShow))
+   let commentsID= await dispatch(getAllComments(idShow))
+   setCommentsLocals(commentsID.payload)
    
-        }
-        dispatch(getAllComments(idShow))
-      });
+  }
+  
+  let  [commentsLocals, setCommentsLocals] = useState()
+  let  [reload, setReload] = useState(false)
+  
+  useEffect(()=>{
+    
+    getHotels()
+  },[reload])
+  console.log(commentsLocals);
+  
+  
+  
+  
+  const handleDelete = async (idDelete) => {
+    
+    
+    try {
+      
+     await dispatch(deleteAction({idDelete,token}))
      
+  
+      setReload(!reload)
+      
+    } catch (error) {
+      console.log(error);
+    }
+ 
+        
+        
+          
+      
+   
     };
    
 
@@ -77,14 +79,12 @@ function Show(props) {
         <p className='btn-show' onClick={hide}>Hide comments</p>
 
           
-        <NewComment idShow={idShow}></NewComment>      
+        <NewComment reload={reload} setReload={setReload} idShow={idShow}></NewComment>      
          {logged === false ? <Link className='signInashe' to="/signin">Sing In to see the comments</Link>: 
-         
 
+         commentsLocals.comments.lenght == 0 ? <h2>?</h2>: 
 
-      comments.lenght == 0 ? <h2>?</h2>: 
-
-     comments.map((x)=>{
+         commentsLocals.comments.map((x)=>{
 
 return(
   <div class="comments-app" ng-app="commentsApp" ng-controller="CommentsController as cmntCtrl">              

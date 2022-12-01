@@ -15,7 +15,7 @@ import commentAction from "../actions/commentAction";
                 return{
                     ...state,
                     
-                  comments: action.payload.comments
+                  comments: action.payload.comments.reverse()
                 }
             })
             .addCase(postComments.fulfilled,(state,action) =>{
