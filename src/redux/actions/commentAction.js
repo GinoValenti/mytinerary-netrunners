@@ -23,13 +23,13 @@ const postComments = createAsyncThunk("postComments", async ({data,token})=>{
     let headers = {headers: {'Authorization':` Bearer ${token}`}}
     try {
         let res = await axios.post ( url,data,headers)
+        
         if(res.data.id){
             return{
                 responseId: res.data.id,
       success: true,
        response:data
             }
-
         }else{
     return {
       success: false, 
@@ -44,12 +44,33 @@ const postComments = createAsyncThunk("postComments", async ({data,token})=>{
 
     }
 
+
+    
 })
+const deleteAction = createAsyncThunk("deleteAction ", async({idDelete,token})=>{
+   
+    let headers = {headers: {'Authorization':` Bearer ${token}`}}
+  
+let url = `http://localhost:8000/api/comments/${idDelete}`
+try {
+    const res = await axios.delete(url,headers)
+  
+    return{comments:res.data.allcomments}
+} catch (error) {
+    return{
+        payload:"Error"
+    }
+}
+
+
+} )
+
 
 const commentAction={
 
     getAllComments,
-    postComments
+    postComments,
+    deleteAction
 
 }
 

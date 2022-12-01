@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import commentAction from "../actions/commentAction"; 
     
-    const { getAllComments,postComments }= commentAction
+    const { getAllComments,postComments , deleteAction}= commentAction
 
     const initialState={
         comments: []
@@ -14,13 +14,20 @@ import commentAction from "../actions/commentAction";
                 console.log(action.payload);
                 return{
                     ...state,
+                    
                   comments: action.payload.comments
                 }
             })
             .addCase(postComments.fulfilled,(state,action) =>{
-                if(action.payload.success){
+                 if(action.payload.success){
             
                     state.comments.push(action.payload.response)
+                } 
+            })
+            .addCase(deleteAction.fulfilled,(state,action)=>{
+                return{
+                    ...state,
+                    id:action.payload.id
                 }
             })
         })

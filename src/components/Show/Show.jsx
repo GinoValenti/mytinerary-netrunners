@@ -3,11 +3,12 @@ import './show.css'
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import NewComment from "../NewComment/NewComment"
 import commentAction from "../../redux/actions/commentAction";
 function Show(props) {
 
-  let { getAllComments } = commentAction;
+  let { getAllComments ,deleteAction} = commentAction;
   const dispatch = useDispatch(); 
   let{name,idShow,image}=props
   console.log(idShow);
@@ -15,7 +16,7 @@ function Show(props) {
   const [mostrarOcultar, setMostrarOcultar] = useState(false)
   let { comments} = useSelector(store => store.comments)
 
-  let { logged ,id } = useSelector(store => store.usuario)
+  let { logged ,id,token } = useSelector(store => store.usuario)
   console.log(logged);
   let hide = () => {
     setMostrarOcultar(!mostrarOcultar)
@@ -30,7 +31,36 @@ function Show(props) {
      useEffect(()=>{
       getHotels()
      },[])
+
     console.log(comments);
+
+
+
+    const handleDelete = (idDelete) => {
+
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire("Deleted!", "Your comment has been deleted.", "success");
+
+          dispatch(deleteAction({idDelete,token}))
+          console.log(idDelete);
+          dispatch(getAllComments(idShow))
+   
+        }
+        dispatch(getAllComments(idShow))
+      });
+     
+    };
+   
+
      return (
        <>
     <div className='itinerary-container'>
@@ -48,9 +78,11 @@ function Show(props) {
 
           
         <NewComment idShow={idShow}></NewComment>      
-         {logged === false ? <Link className='signInashe' to="/signin">Sing In to see the comments</Link>:
+         {logged === false ? <Link className='signInashe' to="/signin">Sing In to see the comments</Link>: 
+         
 
-      
+
+      comments.lenght == 0 ? <h2>?</h2>: 
 
      comments.map((x)=>{
 
@@ -68,22 +100,22 @@ return(
 
 
 <div class="comment">
- {id === x.userId ?  <div class="comment-avatare">
-    <img src={x.photo}/>
+ {id === x?.userId ?  <div class="comment-avatare">
+    <img src={x?.photo}/>
   </div> :   <div class="comment-avatar">
-    <img src={x.photo}/>
+    <img src={x?.photo}/>
   </div>}
   
 
   <div class="comment-box">
-    <div class="comment-text">{x.comment}</div>
+    <div class="comment-text">{x?.comment}</div>
     <div class="comment-footer">
       <div class="comment-info">
        
-        <span class="comment-date">{x.date}</span>
+        <span class="comment-date">{x?.date}</span>
         {id === x.userId ?<div class="comments-buttons">
-  <button className='buttonsishos'  >Delete</button>
-  <button className='buttonsishos'>Edit</button>
+  <button className='buttonsishos' onClick={() => handleDelete( x._id)}  ><img className='butoncio-deleted' src="https://cdn-icons-png.flaticon.com/512/3096/3096673.png" alt="" /></button>
+  <button className='buttonsishos'><img className='butoncio-deleted'  src="https://cdn-icons-png.flaticon.com/512/1250/1250615.png" alt="" /></button>
   </div>:<h2 className='display-none'>.</h2>}
       </div>
 

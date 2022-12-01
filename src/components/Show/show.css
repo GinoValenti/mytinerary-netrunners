@@ -154,7 +154,9 @@ gap: 0.6rem;
 .comment-form .form .input.ng-dirty.ng-invalid{
   box-shadow: 0 2px 6px rgba(212, 47, 47, .55) !important;
 }
-
+.butoncio-deleted{
+  height: 20px;
+}
 .comment-form .form .input.disabled {
     background-color: #E8E8E8;
 }
