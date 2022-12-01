@@ -34,15 +34,15 @@ function NewComment (props) {
           let res =  await dispatch(postComments({data,token}))
           
          if (res.payload.success){
-           dispatch(getAllComments(showId))
+          
 
           Swal.fire({
             title: "Comment sent"
           
           })
-          dispatch(getAllComments(showId))
+        
          }
-         dispatch(getAllComments(showId))
+       
            setReload(!reload)
     } catch (error) {
         console.log(error);

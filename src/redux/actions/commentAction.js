@@ -64,13 +64,32 @@ try {
 
 
 } )
+const editComment = createAsyncThunk("editComment", async ({idEdit,data})=>{
+    let url = `http://localhost:8000/api/comments/${idEdit}`
+    try {
+        let res = await axios.put(url,data)
+    if(res.data.id){
+        return{
+            responseId: res.data.id,
+            success:true,
+            response:data
+        }
+    }
 
+    } catch (error) {
+        console.log(error);
+    return {
+      success: false, response:"error"
+    }
+    }
+})
 
 const commentAction={
 
     getAllComments,
     postComments,
-    deleteAction
+    deleteAction,
+    editComment
 
 }
 

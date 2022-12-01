@@ -1,11 +1,11 @@
 import { createReducer } from "@reduxjs/toolkit";
 import commentAction from "../actions/commentAction"; 
     
-    const { getAllComments,postComments , deleteAction}= commentAction
+    const { getAllComments,postComments ,editComment, deleteAction}= commentAction
 
     const initialState={
-        comments: []
-        
+        comments: [],
+        id:""
     }
     const commentReducer = createReducer(initialState,
         (builder)=>{
@@ -30,6 +30,13 @@ import commentAction from "../actions/commentAction";
                     id:action.payload.id
                 }
             })
+            .addCase(editComment.fulfilled,(state,action)=>{
+                return{
+                    ...state,
+                    id:action.payload.id
+                }
+            })
+
         })
 
         export default commentReducer
