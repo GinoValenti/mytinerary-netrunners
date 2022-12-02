@@ -1,28 +1,11 @@
 import { createReducer } from "@reduxjs/toolkit";
 import reactionActions from "../actions/reactionAction";
 
-const { newReaction, getReactionItinerary,feedbackReaction} = reactionActions
+const { newReaction, getReactionItinerary, getUserReactions} = reactionActions
 
 const initialState={
     reactions: [],
-    feedback: [
-        {
-            name: "like",
-            feedbacked: false
-        },
-        {
-            name: "love",
-            feedbacked: false
-        },
-        {
-            name: "not-like",
-            feedbacked: false
-        },
-        {
-            name: "surprise",
-            feedbacked: false
-        }
-    ]
+    reactionProfile: []
 }
 
 const reactionReducer = createReducer(initialState,
@@ -40,13 +23,13 @@ const reactionReducer = createReducer(initialState,
                     reactions: action.payload.reactions
                 } 
         })
-        .addCase(feedbackReaction.fulfilled, (state,action)=>{
-            state.feedback.forEach(reaction =>{
-                if (reaction.name === action.payload.name){
-                    reaction.feedbacked = !reaction.feedbacked
-                }
-            })
-        })
+        .addCase(getUserReactions.fulfilled,(state,action)=>{
+            console.log(action.payload)
+             return {
+                 ...state,
+                 reactionProfile: action.payload
+             } 
+         })
     })
 
 export default reactionReducer

@@ -9,10 +9,12 @@ function Itinerary(props) {
 
   let dispatch = useDispatch()
 
+  let { token } = useSelector(store=>store.usuario)
+
   let { getReactionItinerary } = reactionActions
 
   async function getReactions(){
-    await dispatch(getReactionItinerary(itineraryId))
+    await dispatch(getReactionItinerary({itineraryId : itineraryId, token: token}))
   }
 
   useEffect(()=>{

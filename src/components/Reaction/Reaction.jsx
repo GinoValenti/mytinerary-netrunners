@@ -5,8 +5,11 @@ import reactionActions from '../../redux/actions/reactionAction'
 import { useState } from 'react'
 
 function Reaction(props) {
-
+    
+    let { id , token, logged } = useSelector(store=>store.usuario)
+    
     const [reload, setReload] = useState(true)
+
 
     let { feedbackReaction, getReactionItinerary } = reactionActions
 
@@ -19,13 +22,13 @@ function Reaction(props) {
     }, [reload])
 
     async function updateReaction() {
-        await dispatch(getReactionItinerary(idItinerary))
+        await dispatch(getReactionItinerary({itineraryId : idItinerary, token: token}))
     }
 
     let { reactions } = useSelector(store=>store.reaction)
 
-    let { id , token } = useSelector(store=>store.usuario)
 
+    
 
     async function giveReaction(e) {
 
@@ -39,12 +42,16 @@ function Reaction(props) {
         } catch (error) {
             console.log(error)
         }
+
     }
 
   return (
     <>
     <div className='itinerary-reaction-container'>
-        {  
+        {
+        !logged ? 
+        <></>
+        : 
         reactions.map(x=>{
             let user = x.userId.find(user => user === id)
             let quantity = x.userId.length
