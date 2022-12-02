@@ -1,11 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { BASE_URL } from "../../api/url";
 const getAllComments = createAsyncThunk("getAllComments",async (idShow)=>{
   
   
     try {
         const res = await axios.get(
-            ` http://localhost:8000/api/comments?showId=${idShow}`
+            ` ${BASE_URL}/comments?showId=${idShow}`
         )
         console.log(res);
         return {comments:res.data.allcomments}
@@ -19,7 +20,7 @@ const getAllComments = createAsyncThunk("getAllComments",async (idShow)=>{
 })
 
 const postComments = createAsyncThunk("postComments", async ({data,token})=>{
-    let url = `http://localhost:8000/api/comments`
+    let url = `${BASE_URL}/comments`
     let headers = {headers: {'Authorization':` Bearer ${token}`}}
     try {
         let res = await axios.post ( url,data,headers)
@@ -51,7 +52,7 @@ const deleteAction = createAsyncThunk("deleteAction ", async({idDelete,token})=>
    
     let headers = {headers: {'Authorization':` Bearer ${token}`}}
   
-let url = `http://localhost:8000/api/comments/${idDelete}`
+let url = `${BASE_URL}/comments/${idDelete}`
 try {
     const res = await axios.delete(url,headers)
   
@@ -64,10 +65,11 @@ try {
 
 
 } )
-const editComment = createAsyncThunk("editComment", async ({idEdit,data})=>{
-    let url = `http://localhost:8000/api/comments/${idEdit}`
+const editComment = createAsyncThunk("editComment", async ({idEdit,data,token})=>{
+    let headers = {headers: {'Authorization':` Bearer ${token}`}}
+    let url = `${BASE_URL}/comments/${idEdit}`
     try {
-        let res = await axios.put(url,data)
+        let res = await axios.put(url,data,headers)
     if(res.data.id){
         return{
             responseId: res.data.id,

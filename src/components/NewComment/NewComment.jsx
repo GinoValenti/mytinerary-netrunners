@@ -41,6 +41,13 @@ function NewComment (props) {
           
           })
         
+         }else{
+          Swal.fire({
+            title: 'Error!',
+            text: res.payload.response,
+            icon: 'error',
+            confirmButtonText: 'Cool'
+          })
          }
        
            setReload(!reload)

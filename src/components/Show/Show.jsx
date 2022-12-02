@@ -81,7 +81,7 @@ function Show(props) {
     })
   } else {
       try {
-        let res = await dispatch(editComment({idEdit, data}))
+        let res = await dispatch(editComment({idEdit, data,token}))
   
         if (res.payload.success){
           Swal.fire({
