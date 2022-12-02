@@ -8,7 +8,7 @@ import { BASE_URL } from '../../api/url'
 
   
 const newShow = createAsyncThunk("newShow", async ({data,token}) =>{
-  let url = `http://localhost:8000/api/shows`
+  let url = `${BASE_URL}/shows`
   let headers = {headers: {'Authorization':` Bearer ${token}`}}
   try{
     let res = await axios.post(url,data,headers)
@@ -37,7 +37,7 @@ const newShow = createAsyncThunk("newShow", async ({data,token}) =>{
   const getShowsByUserId = createAsyncThunk("getShowsByUserId", async ({userId}) => {
     try {
       const res = await axios.get(
-        `http://localhost:8000/api/shows?userId=${userId}`
+        `${BASE_URL}/shows?userId=${userId}`
         );
         
     
@@ -51,7 +51,7 @@ const newShow = createAsyncThunk("newShow", async ({data,token}) =>{
     });
 
     const deleteShow = createAsyncThunk("deleteShow", async ({id,token}) => {
-      let url =  `http://localhost:8000/api/shows/${id}`
+      let url =  `${BASE_URL}/shows/${id}`
       let headers = {headers: {'Authorization':` Bearer ${token}`}}
       try {
         const res = await axios.delete(

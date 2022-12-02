@@ -52,7 +52,7 @@ const enterAgain = createAsyncThunk('enterAgain', async (token) => {
 })
 
 const editUser = createAsyncThunk("editHotel", async  ({id,data,token})=>{
-    let url = `http://localhost:8000/api/auth/me/${id}`
+    let url = `${BASE_URL}/auth/me/${id}`
     let headers = {headers: {'Authorization':` Bearer ${token}`}}
     try {
       let res = await axios.patch(url,data,headers)
@@ -78,7 +78,7 @@ const editUser = createAsyncThunk("editHotel", async  ({id,data,token})=>{
 const getOneUser = createAsyncThunk("getOneUser", async (id) => {
     try {
       const res = await axios.get(
-        `http://localhost:8000/api/auth/me/${id}`
+        `${BASE_URL}/auth/me/${id}`
         );
         
 

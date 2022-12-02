@@ -7,6 +7,7 @@ import itineraryReducer from "./itineraryReducer";
 import userReducer from "./userReducer";
 import reactionReducer from "./reactionReducer";
 
+import commentReducer from "./commentReducer";
 
 
 const rootReducer={
@@ -18,7 +19,8 @@ const rootReducer={
     usuario:userReducer,
     cities : citiesReducer,
     user: userReducer,
-    reaction: reactionReducer
+    reaction: reactionReducer,
+    comments:commentReducer
 }
 
 export default rootReducer;

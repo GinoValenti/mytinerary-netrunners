@@ -178,6 +178,7 @@ useEffect(()=> {
       </div>
     </div>
     <ModalHotel  open={isOpen} onClose={() => setIsOpen(false)}>
+      
           <div className="edit-form-container">
             <input
               htmlFor="name"
