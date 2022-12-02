@@ -5,7 +5,7 @@ import commentAction from "../actions/commentAction";
 
     const initialState={
         comments: [],
-        id:""
+       
     }
     const commentReducer = createReducer(initialState,
         (builder)=>{
@@ -24,18 +24,7 @@ import commentAction from "../actions/commentAction";
                     state.comments.push(action.payload.response)
                 } 
             })
-            .addCase(deleteAction.fulfilled,(state,action)=>{
-                return{
-                    ...state,
-                    id:action.payload.id
-                }
-            })
-            .addCase(editComment.fulfilled,(state,action)=>{
-                return{
-                    ...state,
-                    id:action.payload.id
-                }
-            })
+           
 
         })
 
