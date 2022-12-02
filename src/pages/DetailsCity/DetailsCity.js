@@ -3,9 +3,13 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { BASE_URL } from '../../api/url'
 import Itinerary from '../../components/Itinerary/Itinerary'
+import reactionActions from '../../redux/actions/reactionAction'
 import '../../components/Itinerary/itinerary.css'
+import { useDispatch } from 'react-redux'
 
 function DetailsCity() {
+
+  
 
   let a=useParams()
   let [filter, setFilter]= useState([])
@@ -18,7 +22,7 @@ function DetailsCity() {
     .then(response=>setFilter(response.data.allcities.find((x)=>x._id === a))) 
   },[])
 
-  let {title, continent, image, population, userId, _id} = filter
+  let {title, continent, image, population, userId, } = filter
 
   console.log(filter)
   useEffect(()=>{
@@ -29,7 +33,7 @@ function DetailsCity() {
   console.log(itineraries)
 
   let itinerarie = itineraries.filter(e=>e.cityId==a)
-
+  console.log(itineraries.name)
 
 
 
@@ -92,8 +96,8 @@ function DetailsCity() {
       
     }
     {
-        (itinerarie.length!=0)?itinerarie.map(e=><Itinerary key={e?._id} name={e?.title} photo={e?.photo[0]} description={e?.description} /* price={e?.price} duration={e?.duration} */ />):<h2 className='text-center'>No itineraries were found in this city</h2>
-      }  
+        (itinerarie.length!=0)?itinerarie.map(e=><Itinerary itineraryId={e?._id} name={e?.title} photo={e?.photo[0]} description={e?.description} />):<h2 className='text-center'>No itineraries were found in this city</h2>
+    }  
     </>
 
 

@@ -23,6 +23,7 @@ import ProtectedRoute from "./components/ProtectedRoute"
 import { useDispatch, useSelector } from "react-redux";
 import userActions from './redux/actions/userAction';
 import { useEffect } from 'react';
+import Newreaction from './components/NewReaction/Newreaction';
 function App() {
 let {enterAgain}= userActions
 let dispatch = useDispatch()
@@ -79,6 +80,9 @@ async function enterAgainToken(){
         ></Route>
         <Route path='/newhotel' element={
           <ProtectedRoute isAllowed={!!logged && role === "admin"} reDirect={"/"}> <NewHotelPage/> </ProtectedRoute>}
+        ></Route>
+        <Route path='/newreaction' element={
+          <ProtectedRoute isAllowed={!!logged && role === "admin"} reDirect={"/"}> <Newreaction/> </ProtectedRoute>}
         ></Route>
 
       </Routes>
