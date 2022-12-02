@@ -6,6 +6,8 @@ import ModalHotel from "../../components/ModalHotel/ModalHotel";
 import { useState,useEffect } from 'react'
 import userActions from '../../redux/actions/userAction'
 import Logoutbtn from '../LogOutBtn/Logoutbtn';
+import MyReactions from '../MyReactions/MyReactions';
+import reactionActions from '../../redux/actions/reactionAction'
 
 import  CreateShow  from '../../components/createShow/CreateShow';
 function MyProfile(props) {
@@ -15,7 +17,9 @@ function MyProfile(props) {
   const [lastName, setlastName] = useState('');
   const [isOpen, setIsOpen] = useState(false);
 
-let{getOneUser,editUser}= userActions
+/*   const [reload, setReload] = useState(true)
+ */
+  let{getOneUser,editUser}= userActions
 
 let {id}= props
 console.log(id);
@@ -77,6 +81,55 @@ if (name === '' || photo === '' || photo === null  ) {
 }}
 
 
+const { getUserReactions, deleteReaction } = reactionActions
+
+async function userReactions() {
+
+  let res = await dispatch(getUserReactions({userId: id,token:token }))
+  
+  console.log(res.payload);
+}
+
+useEffect(()=> {
+  userReactions()
+}, [])
+
+let { reactionProfile } = useSelector(store=>store.reaction)
+
+console.log(reactionProfile.length);
+
+
+async function deleteReactionFx(e) {
+  e.preventDefault()
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'Your reaction has been deleted !.',
+          'success'
+        )
+        dispatch(deleteReaction({ id : e.target.name, token})) 
+        dispatch(getUserReactions({userId: id,token:token }))
+      }
+      dispatch(getUserReactions({userId: id,token:token }))
+    })  
+
+
+}
+
+useEffect(()=> {
+  deleteReactionFx()
+}, [])
+
 
   return (
 <> 
@@ -95,7 +148,30 @@ if (name === '' || photo === '' || photo === null  ) {
             <p>{profile[0]?.name }</p>
             <button onClick={() => (setIsOpen(true))}>Edit profile</button>
             <Logoutbtn/>
-          </div> 
+          </div>
+
+          <div className='nosequeescribir-container'>
+
+            {reactionProfile.length > 0 ? (
+
+              reactionProfile.map(e=>{
+
+                return (
+                  <MyReactions name={e.itineraryId.name} icon={e.icon} id={e._id} deleteReaction={deleteReactionFx} photo={e.itineraryId.photo} />
+                  
+                  )
+                })
+
+
+              
+            ) : <h2>You haven't reactioned to anything</h2> 
+            
+            }
+
+
+          </div>
+
+
   <CreateShow></CreateShow>
         
       
