@@ -4,7 +4,7 @@ import { BASE_URL } from "../../api/url";
 
   const getAllItineraries = createAsyncThunk('getAllItineraries', async()=> {
     try {
-      const res = await axios.get('http://localhost:8000/api/itinerary')
+      const res = await axios.get(`${BASE_URL}/itinerary`)
 
       return {
         itineraries : res.data.itineraries
