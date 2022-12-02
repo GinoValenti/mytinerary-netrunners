@@ -10,7 +10,7 @@ const getCitiesFilter = createAsyncThunk("getCitiesFilter", async ({ cities, sea
   try {
     console.log(check);
     const res = await axios.get(
-      `http://localhost:8000/api/${cities}?title=${search}${check.join('')}`
+      `${BASE_URL}/${cities}?title=${search}${check.join('')}`
     );
 
     return { value: search, cities: res.data.allcities };
@@ -25,7 +25,7 @@ const getCitiesFilter = createAsyncThunk("getCitiesFilter", async ({ cities, sea
 const getCities = createAsyncThunk("getCities", async (value) => {
     try {
       const res = await axios.get(
-        `http://localhost:8000/api/${value}`
+        `${BASE_URL}/${value}`
       );
   
       return { value, cities: res.data.allcities };
