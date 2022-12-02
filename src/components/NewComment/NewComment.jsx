@@ -2,16 +2,18 @@ import React from 'react'
 import { useSelector,useDispatch } from 'react-redux';
 import { useState, useRef } from 'react';
 import Swal from 'sweetalert2'
+import alertActions from '../../redux/actions/alertaHotel'
 import SignInPage from '../../pages/SignIn/SignInPage';
 import commentAction from "../../redux/actions/commentAction";
 function NewComment (props) {
     const [comment, setComment] = useState('');
-
+  let {reload, setReload} = props
     let form = useRef()
     let { token} = useSelector(store => store.usuario)
     let { id,logged,photo} = useSelector(store => store.usuario)
     let userId = id
-    let {postComments}= commentAction
+    
+    let {postComments,getAllComments}= commentAction
     let {idShow} = props
     let showId = idShow
 
@@ -23,13 +25,32 @@ function NewComment (props) {
         event.preventDefault()
         console.log(event.target.value);
         let data = {comment,showId,date,userId,photo}
+        
 
-         try {
 
-            
-           let res =  await dispatch(postComments({data,token}))
-           console.log(res);
-           
+        try {
+          
+          
+          let res =  await dispatch(postComments({data,token}))
+          
+         if (res.payload.success){
+          
+
+          Swal.fire({
+            title: "Comment sent"
+          
+          })
+        
+         }else{
+          Swal.fire({
+            title: 'Error!',
+            text: res.payload.response,
+            icon: 'error',
+            confirmButtonText: 'Cool'
+          })
+         }
+       
+           setReload(!reload)
     } catch (error) {
         console.log(error);
     }  

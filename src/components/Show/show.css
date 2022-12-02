@@ -44,9 +44,14 @@
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+width: 23%;
+}
+.btn-img{
+  height: 50px;
+  width: 50px;
 }
 .show-img{
  height: 100px;
@@ -154,7 +159,9 @@ gap: 0.6rem;
 .comment-form .form .input.ng-dirty.ng-invalid{
   box-shadow: 0 2px 6px rgba(212, 47, 47, .55) !important;
 }
-
+.butoncio-deleted{
+  height: 20px;
+}
 .comment-form .form .input.disabled {
     background-color: #E8E8E8;
 }
