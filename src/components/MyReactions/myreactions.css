@@ -7,6 +7,36 @@
     margin-bottom: 50px;
 }
 
+.reaction-icon{
+    margin-top: 10px;
+}
+
+.reaction-title{
+    padding: 20px;
+}
+
+.border-love {
+    border: 2px  solid lightcoral;
+    border-radius: 2rem;
+}
+
+
+
+.border-surprise {
+    border: 2px solid rgb(235, 206, 40);
+    border-radius: 2rem;
+}
+
+.border-like {
+    border: 2px solid lightskyblue;
+    border-radius: 2rem;
+}
+
+.border-not-like {
+    border: 2px solid rgb(63, 63, 233);
+    border-radius: 2rem;
+}
+
 .hr-reaction{
     margin-bottom: 20px;
 }

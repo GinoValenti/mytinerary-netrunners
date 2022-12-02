@@ -157,7 +157,7 @@ useEffect(()=> {
               reactionProfile.map(e=>{
 
                 return (
-                  <MyReactions name={e.itineraryId.name} icon={e.icon} id={e._id} deleteReaction={deleteReactionFx} photo={e.itineraryId.photo} />
+                  <MyReactions name={e.itineraryId.name} iconName={e.name} icon={e.icon} id={e._id} deleteReaction={deleteReactionFx} photo={e.itineraryId.photo} />
                   
                   )
                 })
