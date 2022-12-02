@@ -1,5 +1,5 @@
 .filter-area{
-height: 10vh;
+height: 15vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,7 +8,8 @@ height: 10vh;
     background-color: rgb(197, 197, 197);
     color: withe;
     border: none;
-    width: 200px;
+    width: 250px;
+    margin-bottom: 50px;
     height: 50px;
     padding: 10px;
     border-radius: 2rem;

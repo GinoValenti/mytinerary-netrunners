@@ -1,8 +1,13 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import AutoToTop from '../AutoToTop/AutoToTop'
 import "./footer.css"
+import { useSelector } from 'react-redux'
 export default function Footer() {
+
+
+let { role } = useSelector(store => store.usuario)   
+
   return (
 
     <footer className="footer">
@@ -27,11 +32,16 @@ export default function Footer() {
                 </ul>
             </div>
             <div className="footer-col">
-                <h4>Find your perfect place</h4>
+                <h4>Special Routes</h4>
                 <ul>
-                    <li><NavLink to="/cities">City</NavLink></li>
-                    <li><NavLink to="/hotels">Hotel</NavLink></li>
-                    <li><NavLink to="/hotels">Shows</NavLink></li>
+                    {role === 'admin' ? <li><NavLink to="/newcity">New City</NavLink></li> : <></> }
+                    {role === 'admin' ? <li><NavLink to="/newhotel">New Hotel</NavLink></li> : <></> }
+                    {role === 'admin' ? <li><NavLink to="/mycities">MyCities</NavLink></li> : <></>}
+                    {role === 'admin' ? <li><NavLink to="/myhotel">MyHotels</NavLink></li> : <></>}
+                    {role === 'admin' || role === 'user' ? <li><NavLink to="/myshow">MyShow</NavLink></li> : <></>}
+                    {role === 'admin' || role === 'user' ? <li><NavLink to="/newitinerary">New Itinerary</NavLink></li> : <></>}
+                    {role === 'admin' || role === 'user' ? <li><NavLink to="/myitineraries">MyItineraries</NavLink></li> : <></>}
+                    {role === 'admin' || role === 'user' ? <li><NavLink to="/newreaction">New Reaction</NavLink></li> : <></>}
                 </ul>
             </div>
             <div className="footer-col">

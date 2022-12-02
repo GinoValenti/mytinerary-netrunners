@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./navbar.css";
 import {NavLink} from 'react-router-dom'
 import Userbtn from "../UserBtn/Userbtn";
+import { useSelector } from "react-redux";
+import LoggedBtn from "./loggedBtn/LoggedBtn";
 
 
 function NavBar() {
@@ -16,7 +18,13 @@ function NavBar() {
     if (icon === "nav__toggler") {
       setIcon("nav__toggler toggle");
     } else setIcon("nav__toggler");
+
+
+
+
   };
+  let { logged  } = useSelector(store => store.usuario)
+  console.log(logged)
   return (
     <nav className="nav">
       <NavLink to="/" className="nav__brand">
@@ -38,17 +46,18 @@ function NavBar() {
             Cities
           </NavLink>
         </li>
-        <li className="nav__item nav__item__user">
+        { logged === true ? <></> : <li className="nav__item nav__item__user">
           <NavLink to="/signIn" className="nav__link">
             Sign In
           </NavLink>
-        </li>
-        <li className="nav__item nav__item__user">
+        </li>}
+        { logged === true ? <></> : <li className="nav__item nav__item__user">
           <NavLink to="/signUp" className="nav__link">
             Sign Up
           </NavLink>
-        </li>
-        <Userbtn></Userbtn>
+        </li>}
+
+        {logged === true ? <LoggedBtn/> : <Userbtn></Userbtn>} 
       </ul>
       <div onClick={navToggle} className={icon}>
         <div className="line1"></div>

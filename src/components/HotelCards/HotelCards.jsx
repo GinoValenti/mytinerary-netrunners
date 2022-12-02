@@ -1,98 +1,90 @@
 import React,{useState} from 'react'
 import "./hotelcards.css"
 import SelectHotels from '../selectHotel/SelectHotels'
-import HotelsData from '../HotelsData'
 import "./searchbar.css"
+import axios from "axios"
 import { Link, useParams } from 'react-router-dom';
+import { useEffect } from 'react'
+
+import { useDispatch,useSelector } from 'react-redux';
+import hotelsAction from '../../redux/actions/hotelsAction'
 
 
 
 export default function HotelCards() {
-let [filterTextvalue,updateFilterText]=useState("all")
-let filteredHotelList = HotelsData.filter((x)=>{
+  let [searched,setSearched]=useState('')
+  let [select, setSelect]=useState('')
+  
+  let {getHotels}=hotelsAction
+  const dispatch= useDispatch()
+  
+  const {hotels} = useSelector((state) => state.hotels); 
+console.log(hotels);
+  useEffect(()=>{
+    dispatch(getHotels({string:'hotels',valueSearch:searched,valueSelect:select}))
+  },[searched,select])
 
-  if(filterTextvalue==="higher"){
-    return x.capacity>=5000
-  }else if(filterTextvalue === "lower"){
-    return x.capacity <=5000
-  }else{
-    return HotelsData
-  }
-}
-)
-  function onFilterValueSelected(filterValue){
-    updateFilterText(filterValue);
-  }
-  
+  function listen(value){
+    
+      if(value.target.value === "asc"){
+        setSelect("&order="+value.target.value)
+      }if(value.target.value === "desc") {
+        setSelect("&order="+value.target.value)
+      }
 
-  const [search,setSearch ]= useState("")
-  
-  //funcion busqueda
-  const searcher = (e) => {
-    setSearch(e.target.value)
-    console.log(e.target.value);
-  
+    if(value.target.type==="text"){
+        setSearched(value.target.value)
     }
+}
 
-    //metodo de filtrado
-    let results = []
-    if(!search){
-        results = filteredHotelList
-        console.log(results);
+console.log(hotels)
 
-    }else{
-        results = filteredHotelList.filter((dato)=>
-        dato.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-        )
-    }if (results.length === 0) {
-      //Si no encuentra la ciudad que ingresamos en el input
+/* useEffect(()=>{
+  axios.get(`${BASE_URL}/hotels?name=${searched}${select}`)
+  .then(response=>setFilter(response.data.allhotels))
+},[searched, select])
+
+console.log(filter) */
+
       return (
         <>
          <main className='maino'> 
     <form action="" className="search-bar">
-	<input className="inputi"  value={search} onChange={searcher} type="search" name="search" pattern=".*\S.*" required/>
-	<button className="search-btn" type="submit">
+	<input onChange={listen} className="inputi"   type="text"  pattern=".*\S.*" required/>
+	<button className="search-btn" >
 
 	</button>
 </form>
 </main>
-<SelectHotels></SelectHotels>
-          <h3 className="noCities">
-            Oops! We didn't found this place. Try other!
-          </h3>
-        </>
-      );
-    }
-    
-  return (
-    <> 
-    <main className='maino'> 
-    <form action="" className="search-bar">
-	<input className="inputi"  value={search} onChange={searcher} type="search" name="search" pattern=".*\S.*" required/>
-	<button className="search-btn" type="submit">
 
-	</button>
-</form>
-</main>
-    <SelectHotels filterValueSelected={onFilterValueSelected}></SelectHotels>
- 
+<div className="filter-area">
+            <select onChange={listen} className="select" name="isAvailable">
+                <option value="desc">Capacidad Ascendendente</option>
+                <option value="asc">Capacidad Descendiente</option>
+            </select>
+        </div>
+         
     <div className='containerCardsHotel'> 
-    {results.map((x)=>{
+
+
+    {hotels.length === 0 ? (
+          <div className="errorMyHotel">
+          <h2>There are no results with your search</h2>
+        </div>
+    )
+    :( 
+    hotels.map((x)=>{
       return(
         
      
-<div key={x.id} className="cardsIndividual">
-<img className='imgCardHotel' src={x.photo[0]} alt="" />
-<Link to={`/hotels/details/${x.id}`}>  <h3 className="titleHotel">{x.name}</h3>  </Link>
-  <p className="descriptionHotel">This hotel has a capacity of <span className='Capacity'>{x.capacity}</span></p>
-</div>
-    
-
-
-        )
-    })}
+              <div key={x._id} className="cardsIndividual">
+              <img className='imgCardHotel' src={x.photo[0]} alt="" />
+              <Link to={`/hotels/details/${x._id}`}>  <h3 className="titleHotel">{x.name}</h3>  </Link>
+                <p className="descriptionHotel">This hotel has a capacity of <span className='Capacity'>{x.capacity}</span></p>
+              </div>
+            
+            )}))}
   </div>
 
-  </>
-  )
+  </>)
 }
