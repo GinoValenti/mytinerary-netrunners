@@ -247,6 +247,7 @@ gap: 0.6rem;
   color: #555f77;
   font-size: 15px;
   margin-bottom: 25px;
+  word-break: break-all;
 }
 
 .comment .comment-footer{
