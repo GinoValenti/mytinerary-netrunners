@@ -85,7 +85,7 @@ function Show(props) {
   
         if (res.payload.success){
           Swal.fire({
-            title: ` show has been updated`,
+            title: ` Comment has been updated`,
             
          
           })
