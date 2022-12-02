@@ -2,8 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { BASE_URL } from "../../api/url";
 const getAllComments = createAsyncThunk("getAllComments",async (idShow)=>{
-  
-  
+
     try {
         const res = await axios.get(
             ` ${BASE_URL}/comments?showId=${idShow}`
