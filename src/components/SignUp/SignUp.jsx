@@ -33,7 +33,7 @@ function SignUp() {
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
-                    title: 'User sign Up ! Next step is to verify your account ',
+                    title: 'User sign Up ! Next step is to login',
                     showConfirmButton: false,
                     timer: 2500
                   })
