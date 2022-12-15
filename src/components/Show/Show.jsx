@@ -127,7 +127,7 @@ function Show(props) {
 
           
         <NewComment reload={reload} setReload={setReload} idShow={idShow}></NewComment>      
-         {logged === false ? <Link className='signInashe' to="/signin">Sing In to see the comments</Link>: 
+         { 
 
          commentsLocals.comments.length == 0 ? <h2>Be the first comment!</h2>: 
 
