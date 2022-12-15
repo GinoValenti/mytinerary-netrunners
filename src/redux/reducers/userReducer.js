@@ -5,8 +5,8 @@ const { newUser, logOut } = usersActions
 const {enter,enterAgain,getOneUser,editUser} = userActions
 const initialState ={
     profiles : [],
-    name:"",
-    photo:"",
+    namee:"",
+    photoo:"",
     logged:false,
     token:"",
     role: "",
@@ -36,8 +36,8 @@ const userReducer = createReducer (initialState,
                 //la propiedad con el nombre del tipo de token y el token que guarda
                 let newState = {
                     ...state,
-                    name: user.name,
-                    photo: user.photo,
+                    namee: user.name,
+                    photoo: user.photo,
                     logged: true,
                     role: user.role,
                     token: token
@@ -62,8 +62,8 @@ const userReducer = createReducer (initialState,
             console.log(user);
             let newState = {
                 ...state,
-                name: user.name,
-                photo: user.photo,
+                namee: user.name,
+                photoo: user.photo,
                 logged: true,
                 token: token,
                 role: user.role,
@@ -86,8 +86,8 @@ const userReducer = createReducer (initialState,
             localStorage.removeItem('token')
             let newState = {
                 ...state,
-                name : '',
-                photo : '',
+                namee : '',
+                photoo : '',
                 logged : false,
                 token : ''
             }

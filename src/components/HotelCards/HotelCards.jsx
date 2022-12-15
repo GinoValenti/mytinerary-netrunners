@@ -39,12 +39,7 @@ console.log(hotels);
 
 console.log(hotels)
 
-/* useEffect(()=>{
-  axios.get(`${BASE_URL}/hotels?name=${searched}${select}`)
-  .then(response=>setFilter(response.data.allhotels))
-},[searched, select])
 
-console.log(filter) */
 
       return (
         <>

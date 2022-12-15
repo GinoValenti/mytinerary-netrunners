@@ -8,13 +8,13 @@ import { Link } from 'react-router-dom'
 
 function LoggedBtn() {
 
-    let { logged , name , role , photo } = useSelector(store => store.usuario)
-    console.log(photo)
+    let { logged , name , role , photoo } = useSelector(store => store.usuario)
+    console.log(photoo)
 
   return (
     <>
     
-      <Link to="/myprofile"><img className='user-logged-img' src={photo} alt={name} /></Link>
+      <Link to="/myprofile"><img className='user-logged-img' src={photoo} alt={name} /></Link>
     </>
 
       

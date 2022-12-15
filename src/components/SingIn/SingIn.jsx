@@ -39,15 +39,13 @@ let {alerta} = alertActions
             })
            
             
-        setTimeout(function(){
-                window.location.reload();
-             }, 1000); 
+     
         }
         else {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Enter valid credentials or verify your email',
+                text: 'Enter valid credentials or verify your emai',
                 footer: 'Try Again'
             })
         }
@@ -61,7 +59,7 @@ let {alerta} = alertActions
   return (
     <div className='cute-input-container'>
         <div className='bg-next'>
-{/*             <h2>Viajes</h2> */}
+
         </div>
         <div className='container-input'>
         <h2 className='text-sign'>Welcome Again!</h2>
