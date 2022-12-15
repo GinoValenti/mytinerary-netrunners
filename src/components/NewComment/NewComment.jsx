@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector,useDispatch } from 'react-redux';
 import { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import alertActions from '../../redux/actions/alertaHotel'
 import SignInPage from '../../pages/SignIn/SignInPage';
@@ -61,7 +62,7 @@ function NewComment (props) {
   return (
 
     <>
-{ logged === false ? <h2 className='display-none'>.</h2>:
+{ logged === false ? <Link className='signInashe' to="/signin">Sing In to send a comment</Link>:
  <div onSubmit={Submit} ref={form} class="comments-app" ng-app="commentsApp" ng-controller="CommentsController as cmntCtrl">
  
   
