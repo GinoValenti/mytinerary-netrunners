@@ -29,8 +29,8 @@ let {enterAgain}= userActions
 let dispatch = useDispatch()
 
 
-let { logged,role,id} = useSelector(store => store.usuario)
-console.log(id);
+let { logged,role,id,name} = useSelector(store => store.usuario)
+console.log(name);
 
 async function enterAgainToken(){
   let token = JSON.parse(localStorage.getItem("token"))
