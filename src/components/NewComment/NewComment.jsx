@@ -10,7 +10,8 @@ function NewComment (props) {
   let {reload, setReload} = props
     let form = useRef()
     let { token} = useSelector(store => store.usuario)
-    let { id,logged,photo} = useSelector(store => store.usuario)
+    let { id,logged,photoo} = useSelector(store => store.usuario)
+    let photo=photoo
     let userId = id
     
     let {postComments,getAllComments}= commentAction
