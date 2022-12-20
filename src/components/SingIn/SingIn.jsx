@@ -37,10 +37,14 @@ let {alerta} = alertActions
                 showConfirmButton: false,
                 timer: 1000
             })
-           
+            setTimeout(function(){
+                window.location.reload();
+             }, 1000); 
+        
             
      
         }
+
         else {
             Swal.fire({
                 icon: 'error',
