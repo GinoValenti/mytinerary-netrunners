@@ -10,8 +10,8 @@ import MyReactions from '../MyReactions/MyReactions';
 import reactionActions from '../../redux/actions/reactionAction'
 
 import  CreateShow  from '../../components/createShow/CreateShow';
-function MyProfile(props) {
-  let { token} = useSelector(store => store.usuario)
+function MyProfile() {
+  let { token,id} = useSelector(store => store.usuario)
   const [name, setName] = useState('');
   const [photo, setPhoto] = useState('');
   const [lastName, setlastName] = useState('');
@@ -21,15 +21,14 @@ function MyProfile(props) {
  */
   let{getOneUser,editUser}= userActions
 
-let {id}= props
-console.log(id);
+
+
 let dispatch = useDispatch()
 
 
-let { profile} = useSelector(store => store.usuario)
 let { namee,photoo} = useSelector(store => store.usuario)
-console.log(profile);
 
+console.log(namee);
 async function getUsers(){
   
   await dispatch(getOneUser(id))
@@ -64,6 +63,7 @@ if (name === '' || photo === '' || photo === null  ) {
         imageWidth: 400,
         imageHeight: 200,
         imageAlt: 'image',
+        
       })
       dispatch(getOneUser(id))
     } else {
@@ -97,7 +97,7 @@ useEffect(()=> {
 
 let { reactionProfile } = useSelector(store=>store.reaction)
 
-console.log(reactionProfile.length);
+
 
 
 async function deleteReactionFx(e) {

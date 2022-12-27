@@ -104,9 +104,12 @@ const userReducer = createReducer (initialState,
     }
 
     }).addCase(editUser.fulfilled,(state,action)=>{
+        console.log(action.payload);
         return{
             ...state,
-            id:action.payload.id
+            id:action.payload.responseId,
+            photoo:action.payload.response.photo,
+            namee:action.payload.response.name
         }
     })
 })
