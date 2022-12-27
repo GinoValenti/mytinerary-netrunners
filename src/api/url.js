@@ -1,1 +1,1 @@
-export const BASE_URL= 'delirious-scarf-production.up.railway.app/api'
+export const BASE_URL= 'https://delirious-scarf-production.up.railway.app/api'
