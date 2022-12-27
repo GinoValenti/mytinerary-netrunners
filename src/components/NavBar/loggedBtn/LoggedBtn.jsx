@@ -2,6 +2,7 @@ import React from 'react'
 import './loggedbtn.css'
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+
 import { Link } from 'react-router-dom'
 
 
@@ -14,7 +15,7 @@ function LoggedBtn() {
   return (
     <>
     
-      <Link to="/myprofile"><img className='user-logged-img' src={photoo} alt={name} /></Link>
+      <a href="/myprofile"><img className='user-logged-img' src={photoo} alt={name} /></a>
     </>
 
       

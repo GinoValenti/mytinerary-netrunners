@@ -2,10 +2,11 @@ import React from 'react'
 import { useDispatch, useSelector} from 'react-redux'
 import usersActions from '../../redux/actions/usersActions'
 import './logoutbtn.css'
+import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 
 function Logoutbtn() {
-
+let history = useNavigate()
     
     let dispatch = useDispatch()
     let { logOut } = usersActions
@@ -29,6 +30,7 @@ function Logoutbtn() {
                 'success'
                 )
                 dispatch(logOut(token))
+                history("/")
             }
           })
 
