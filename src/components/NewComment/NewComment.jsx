@@ -45,7 +45,7 @@ function NewComment (props) {
         
          }else{
           Swal.fire({
-            title: 'Error!',
+            title: res.payload.response,
             text: res.payload.response,
             icon: 'error',
             confirmButtonText: 'Cool'

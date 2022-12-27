@@ -19,6 +19,8 @@ function Show(props) {
   const [isOpen, setIsOpen] = useState(false);
 
   let { logged ,id,token } = useSelector(store => store.usuario)
+  let { comments } = useSelector(store => store.comments)
+  console.log(comments);
   console.log(logged);
   let hide = () => {
     setMostrarOcultar(!mostrarOcultar)
@@ -26,19 +28,19 @@ function Show(props) {
 
   async function getHotels(){
 
-   let commentsID= await dispatch(getAllComments(idShow))
-   setCommentsLocals(commentsID.payload)
+   await dispatch(getAllComments(idShow))
+  
    
   }
   
-  let  [commentsLocals, setCommentsLocals] = useState()
+
   let  [reload, setReload] = useState(false)
   
   useEffect(()=>{
     
     getHotels()
   },[reload])
-  console.log(commentsLocals);
+
   
   
   
@@ -129,9 +131,9 @@ function Show(props) {
         <NewComment reload={reload} setReload={setReload} idShow={idShow}></NewComment>      
          { 
 
-         commentsLocals.comments.length == 0 ? <h2>Be the first comment!</h2>: 
+        comments.length == 0 ? <h2>Be the first comment!</h2>: 
 
-         commentsLocals.comments.map((x)=>{
+         comments.map((x)=>{
 
 return(
   <div class="comments-app" ng-app="commentsApp" ng-controller="CommentsController as cmntCtrl">              

@@ -74,7 +74,7 @@ console.log(hotels)
      
               <div key={x._id} className="cardsIndividual">
               <img className='imgCardHotel' src={x.photo[0]} alt="" />
-              <Link to={`/hotels/details/${x._id}`}>  <h3 className="titleHotel">{x.name}</h3>  </Link>
+              <a href={`/hotels/details/${x._id}`}>  <h3 className="titleHotel">{x.name}</h3>  </a>
                 <p className="descriptionHotel">This hotel has a capacity of <span className='Capacity'>{x.capacity}</span></p>
               </div>
             
