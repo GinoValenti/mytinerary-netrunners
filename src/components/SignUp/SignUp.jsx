@@ -20,11 +20,11 @@ function SignUp() {
 
     let dispatch = useDispatch()
 
-    let role = 'user'
+
 
     async function createNewUser() {
         
-        let data = {name, lastname, photo,  age, email, password, role}
+        let data = {name, lastname, email, password}
         console.log(data)
         try {
             let res = await dispatch(newUser(data))
@@ -85,19 +85,7 @@ function SignUp() {
                                 <input className='input-signup' value={lastname} onChange={(e)=> setLastName(e.target.value)} name='lastname' id='lastname' placeholder='lastname' type='text'></input>
                             </div>
                         </label>
-                        <hr />
-                        <label htmlFor='age'>
-                            <div className='input-space'>
-                                <input className='input-signup' value={age} onChange={(e)=> setAge(e.target.value)} name='age' id='age' placeholder='age' type='number'></input>
-                            </div>
-                        </label>
-                        <hr />
-                        <label htmlFor='photo'>
-                            <div className='input-space'>
-                                <input className='input-signup' value={photo} onChange={(e)=> setPhoto(e.target.value)} name='lastname' id='lastname' placeholder='photo url' type='text'></input>
-                            </div>
-                        </label>
-                        <hr />
+                     <hr></hr>
                         <label htmlFor="email">
                             <div className='input-space'>
                                 <input className='input-signup' value={email} onChange={(e)=> setEmail(e.target.value)} name='email' id='email' placeholder='email' type='email'></input>
