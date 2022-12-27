@@ -46,6 +46,3 @@ width: 100%;
     flex-direction: column;
     gap: 3rem;
 }
-.new-input{
-    border: 1px solid black;
-}

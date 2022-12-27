@@ -173,7 +173,7 @@ useEffect(()=> {
           </div>
 
 
-  <CreateShow></CreateShow>
+ 
         
       
       </div>
@@ -207,7 +207,7 @@ useEffect(()=> {
             />
           
             <div className="edit-button">
-              <button onClick={listenEdit}  type="submit">Edit</button>
+              <button  onClick={listenEdit}  type="submit">Edit</button>
             </div>
           </div>
           </ModalHotel>

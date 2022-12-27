@@ -47,5 +47,11 @@ width: 100%;
     gap: 3rem;
 } */
 .new-input{
-    border: 1px solid black;
+   background-color: transparent;
+   border: none;
+   border-bottom: 1px solid black;
+}
+.new-input:hover{
+    background-color: transparent;
+    border-color: transparent;
 }
